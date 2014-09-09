@@ -1,6 +1,9 @@
 designer
 ========
 
+Version with integrated TangereJs components
+
+
 # Getting Started
 
 1. Clone the repo and `cd` in

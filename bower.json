@@ -7,10 +7,8 @@
     "github-elements": "PolymerLabs/github-elements#master",
     "x-meta": "PolymerLabs/x-meta#master",
     "inspector-elements": "PolymerLabs/inspector-elements#master",
-    "core-elements": "Polymer/core-elements#master",
+    "core-elements": "TangereJs/core-elements#master",
     "paper-elements": "Polymer/paper-elements#master",
-    "paper-calculator": "Polymer/paper-calculator#master",
-    "topeka-elements": "Polymer/topeka-elements#master",
-    "more-elements": "Polymer/more-elements#master"
+    "at-elements": "TangereJs/at-elements#master"
   }
 }
