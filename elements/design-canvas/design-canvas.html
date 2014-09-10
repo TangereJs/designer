@@ -400,18 +400,22 @@ Polymer({
 
   decorateElement: function(element) {
     var s = this.ruleForElement(element).style;
-    // designer is absolutely positioned, ad-hoc
-    s.position = 'absolute';
+ 
     if (element.parentNode !== this.designHost) {
-      // allow abs positioning if parent has no `layout` attribute
-      if (!element.parentNode.hasAttribute('layout')) {
+      // keep absolute positioning only if parent has no `layout` attribute
+      if (!element.parentNode.hasAttribute('layout') && s.position=='absolute') {
         var r = element.parentNode.getBoundingClientRect();
+		s.position = 'absolute';
         s.left = (element.offsetLeft - r.left) + 'px';
         s.top = (element.offsetTop - r.top) + 'px';
       } else {
+		// default: relative positioning
         s.left = s.top = s.position = '';
       }
-    }
+    } else {
+		// dropped on design host -> no absolute position
+		s.left = s.top = s.position = '';
+	}
     //
     var decorate = function(element) {
       if (element.localName === 'style') {
