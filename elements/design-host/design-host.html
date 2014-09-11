@@ -65,7 +65,7 @@ Polymer({
   dumpScript: function(indent, tab) {
     var s = 'Polymer({\n' + indent + tab;
     var props = [];
-    Object.keys(this.model).forEach(function(k) {
+    Object.keys(this.model).forEach(function(k) {	  
       if (serializeScriptBlacklist.indexOf(k) < 0) {
         var propString = serializePropertyValue(k, this.model, indent, tab);
         if (propString) {
@@ -158,7 +158,8 @@ Polymer({
 
 });
 
-var serializeScriptBlacklist = ['$'];
+// variables in the Blacklist will be excluded from the my-element code
+var serializeScriptBlacklist = ['$','data','Data','item','Item','record','Records','items','Items'];
 var MAX_SERIALIZE_LENGTH = 5;
 
 function serializePropertyValue(name, obj, indent, tab) {
