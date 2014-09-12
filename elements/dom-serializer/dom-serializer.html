@@ -20,12 +20,23 @@ Polymer({
   attributesBlacklist: ['style', 'tabindex', 'role', 'classname'],
 
   dumpTag: function(node, indent) {
+
     if (node.dumpTag) {
       return node.dumpTag(this, indent, this.tab);
     }
+
     if (node.nodeType == Node.TEXT_NODE) {
       return this.dumpTextNode(node, indent);
     }
+
+    if (node.nodeType == Node.COMMENT_NODE) {
+      return this.dumpCommentNode(node, indent);
+    } 
+
+    if (node.nodeName=="TEMPLATE") {
+      return indent + node.instanceRef_.outerHTML + '\n';
+    }
+
     var html = '';
     html += indent + '<' + node.localName;
     html += this.dumpAttributes(node, indent);
@@ -36,7 +47,7 @@ Polymer({
     } else {
       var root = node.content || node;
       if (root.firstElementChild) {
-        Array.prototype.forEach.call(root.children, function(c, i) {
+        Array.prototype.forEach.call(root.childNodes, function(c, i) {
           if (i == 0) {
             html += '\n';
           }
@@ -143,7 +154,7 @@ Polymer({
 
   dumpTextNode: function(node) {
     var binding = Bindings.getBinding(node, 'textContent');
-    return binding ? '{{ ' + binding + ' }}' : node.textContent;
+    return binding ? '{{ ' + binding + ' }}' : node.textContent.trim();
   }
 
 });
@@ -182,12 +193,16 @@ Polymer({
 
   dumpChildren: function(node, indent) {
     var children = '', indent = indent || '';
-    Array.prototype.forEach.call(node.children, function(c) {
+    Array.prototype.forEach.call(node.childNodes, function(c) {
       if (this.elementBlackList.indexOf(c.localName) < 0) {
         children += this.dumpTag(c, indent);
       }
     }, this);
     return children || (indent + '\n');
+  },
+
+  dumpCommentNode: function(node, indent) {
+	return indent + '<!--' + node.textContent + '-->\n';
   },
 
   dumpTextNode: function(node, indent) {

@@ -36,12 +36,12 @@ Polymer({
       // use polyfill compatible selector / serializer normalizes this
       this.__styleRule.selectorText = '-host';
     }
-    var indented = indent + tab, attrs = '';
+    var indented = tab, attrs = '';
     var attrs = this.dumpAttributes();
     var html = indent + '<polymer-element' + attrs + '>\n\n' + 
         indented + '<template>\n' +
         serializer.dumpChildren(this,indented + tab) +
-        indented + '</template>\n\n' +
+        '\n' + indented + '</template>\n\n' +
         indented + '<sc' + 'ript>\n\n' +
         indented + tab + this.dumpScript(indented + tab, tab) +
         indented + '</sc' + 'ript>\n\n' +
