@@ -10,8 +10,7 @@ fi
 #--- save repos with "our" code from components.list file ---
 while read line
 do
-	if [[ $line ]]; then		
-		rm -r components/__$line 2>/dev/null
+	if [[ $line ]]; then				
 		mv components/$line components/__$line
 	fi
 done < components.list
