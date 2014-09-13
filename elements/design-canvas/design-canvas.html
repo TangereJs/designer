@@ -575,7 +575,7 @@ Polymer({
   styleDesignHost: function() {
     var s = this.ruleForElement(this.designHost).style;
     if (!s.position) {
-      s.position = 'absolute';
+      s.position = 'relative';
     }
     var size = '100%';
     if (!s.width) {
