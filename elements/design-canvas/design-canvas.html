@@ -324,15 +324,12 @@ Polymer({
 	  var p = snap(this.event.pageX, this.event.pageY);
 
 	  // adjust position when dropping from palette
-	  if(this.event.pageY != this.event.clientY) {
-		    console.log("adjust x "+p.x);
+	  if(this.event.pageY != this.event.clientY) {	
 			p.x -= 350; // palette width
 			if(p.x < 0) p.x = 0;
-			console.log("p.x "+p.x);
 			
 			p.y -= 53; // palette top
-			if(p.y < 0) p.y = 0;
-			console.log("p.y "+p.y);
+			if(p.y < 0) p.y = 0;			
 	  }
       rule.style.left = p.x + 'px';
       rule.style.top = p.y + 'px';
