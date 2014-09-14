@@ -101,7 +101,7 @@ core-icon-button.rotate {
   border-bottom: 0;
   text-transform: uppercase;
   font-size: 0.9rem;
-  cursor: default;
+  cursor: pointer;
 }
 
 :host /deep/ #tabs > .core-selected {
@@ -109,7 +109,7 @@ core-icon-button.rotate {
   border-bottom: 1px solid #5d5d5d;
 }
 
-#tools {
+#tools  {
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   position: fixed;
@@ -121,6 +121,20 @@ core-icon-button.rotate {
   border-left: 1px solid silver;
   -webkit-user-select: none;
 }
+
+#toolsLeft {
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+  overflow: hidden;
+  top: 56px;
+  bottom: 0;
+  left: 0;
+  width: 350px;
+  border-left: 1px solid silver;
+  -webkit-user-select: none;
+}
+
 
 #tools.maximized {
   -webkit-transform: translate3d(350px, 0, 0);

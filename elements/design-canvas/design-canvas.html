@@ -30,12 +30,13 @@
       pointer-events: none !important;
       transition: none;
       -webkit-transition: none;
-      cursor: pointer;
+      cursor: move;
     }
 
     polyfill-next-selector { content: '.drag-element *'; }
     ::content .drag-element /deep/ * {
       pointer-events: none !important;
+	  cursor: move;
     }
 
   </style>
@@ -319,7 +320,20 @@ Polymer({
     // attach handlers to the dragInfo
     //
     dragInfo.drag = function() {
-      var p = snap(this.start.x + this.event.dx, this.start.y + this.event.dy);
+      //var p = snap(this.start.x + this.event.dx, this.start.y + this.event.dy);
+	  var p = snap(this.event.pageX, this.event.pageY);
+
+	  // adjust position when dropping from palette
+	  if(this.event.pageY != this.event.clientY) {
+		    console.log("adjust x "+p.x);
+			p.x -= 350; // palette width
+			if(p.x < 0) p.x = 0;
+			console.log("p.x "+p.x);
+			
+			p.y -= 53; // palette top
+			if(p.y < 0) p.y = 0;
+			console.log("p.y "+p.y);
+	  }
       rule.style.left = p.x + 'px';
       rule.style.top = p.y + 'px';
       dropHint(this);

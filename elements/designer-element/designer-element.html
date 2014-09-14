@@ -58,6 +58,21 @@
    
     <section name="design" horizontal layout>
    
+    <div class="toolsPlaceholder {{ {maximized: maximized} | tokenList}}" >
+	    <div id="toolsLeft" vertical layout>
+            <core-selector id="tabs" valueAttr="name" selected="{{selectedTool}}">
+              <span name="palette">Palette</span>
+              <span name="tree">Tree</span>
+            </core-selector>
+      
+            <core-pages id="interior" flex valueAttr="id" selected="{{selectedTool}}">
+              <design-palette id="palette" on-palette-drag="{{paletteDrag}}" mode="{{paletteMode}}"></design-palette>
+              <design-tree id="tree" on-node-select="{{treeNodeSelected}}"></design-tree>
+            </core-pages>
+        </div>
+	</div>
+
+   
       <div id="frameContainer" flex>
         <iframe id="frame" src="frame.html"></iframe>
       </div>
@@ -97,19 +112,9 @@
             <element-inspector flex id="inspector" on-bind-property="{{applyPropertyBinding}}"></element-inspector>
           </div>
           
-          <core-splitter direction="down"></core-splitter>
+         
           
-          <div class="paletteTree" vertical layout>
-            <core-selector id="tabs" valueAttr="name" selected="{{selectedTool}}">
-              <span name="palette">Palette</span>
-              <span name="tree">Tree</span>
-            </core-selector>
-      
-            <core-pages id="interior" flex valueAttr="id" selected="{{selectedTool}}">
-              <design-palette id="palette" on-palette-drag="{{paletteDrag}}" mode="{{paletteMode}}"></design-palette>
-              <design-tree id="tree" on-node-select="{{treeNodeSelected}}"></design-tree>
-            </core-pages>
-          </div>
+
 
         </div>
       </div>
@@ -170,7 +175,7 @@ Polymer({
   },
 
   designerReady: function(event) {
-    this.designer = event.target;
+    this.designer = event.target;	
     this.$.tree.canvas = this.designer.$.designCanvas;
     this.$.palette.categories = this.designer.categories;
     this.designer.import(window.metadata, this.importsLoaded.bind(this));

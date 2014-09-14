@@ -10,8 +10,9 @@
 
 #list {
   background-color: white;
-  padding: 0 10px;
-  overflow-y: auto;
+  padding: 0;
+  overflow-y: scroll;
+  box-sizing: border-box;
   font-size: 15px;
   opacity: 0.9;
   -webkit-overflow-scrolling: touch;
@@ -36,8 +37,12 @@ core-submenu::shadow #submenu {
   margin-left: 24px;
 }
 
-.group-item {
+.group-item  {
   font-weight: 500;
+}
+
+.item-content {
+  cursor:pointer;
 }
 
 .group-item.palette-selected {
@@ -49,7 +54,7 @@ core-submenu::shadow #submenu {
   line-height: 40px;
   font-size: 14px;
   font-weight: 500;
-  cursor: pointer;
+  cursor: copy;
   color: #000;
   white-space: nowrap;
 }
