@@ -5,6 +5,7 @@ at-elements
 at-app-scaffold
 at-app-list
 at-core-data-sample
+at-core-drawer
 at-core-theme
 at-core-router
 at-core-list
@@ -15,7 +16,7 @@ at-carbon-action
 at-carbon-clamp
 at-carbon-message
 at-carbon-container
-
+at-chart-core
 
 
 
