@@ -12,9 +12,15 @@
 <link rel="import" href="../../components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../components/core-icons/core-icons.html">
 <link rel="import" href="../../components/core-icons/social-icons.html">
+<link rel="import" href="../../components/core-icons/hardware-icons.html">
+<link rel="import" href="../../components/core-icons/device-icons.html">
 <link rel="import" href="../../components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../components/core-menu-button/core-menu-button.html">
+<link rel="import" href="../../components/paper-menu-button/paper-menu-button.html">
 <link rel="import" href="../../components/core-item/core-item.html">
+<link rel="import" href="../../components/paper-input/paper-input.html">
+<link rel="import" href="../../components/paper-item/paper-item.html">
 <link rel="import" href="../../components/core-splitter/core-splitter.html">
 
 
@@ -35,21 +41,30 @@
 
   <core-toolbar id="appbar" class="narrow">
 
-    <core-icon-button title="Toggle Code/Design" icon="unfold-more" class="rotate {{ {selected: selected === 'code'} | tokenList }}" name="code" on-tap="{{codeToggleAction}}"></core-icon-button>
+    <paper-icon-button title="Toggle Code/Design" icon="polymer" class="{{ {selected: selected === 'code'} | tokenList }}" name="code" on-tap="{{codeToggleAction}}"></paper-icon-button>
     
     <span class="separator"></span>
 
-    <core-icon-button title="Save" icon="save" on-tap="{{saveAction}}"></core-icon-button>
+    
+    <paper-icon-button title="Save" icon="save" on-tap="{{saveAction}}"></paper-icon-button>
     <!-- shareAction must be triggered from click to allow opening a tab (otherwise can only open a floating window) -->
-    <core-icon-button title="Share Gist" icon="social:share" on-click="{{shareAction}}"></core-icon-button>
-    <core-icon-button title="Launch Preview" icon="launch" on-click="{{previewAction}}"></core-icon-button>
+    <paper-icon-button title="Share Gist" icon="social:share-alt" on-click="{{shareAction}}"></paper-icon-button>
+    <paper-icon-button title="Launch Preview" icon="launch" on-click="{{previewAction}}"></paper-icon-button>
 
     <div class="design-controls" horizontal center layout hidden?="{{selected == 'code'}}">
       <span class="separator"></span>
-      <core-icon-button title="Undo" disabled?="{{!$.state.canBack}}" icon="rotate-left" on-tap="{{undoAction}}"></core-icon-button>
-      <core-icon-button title="Redo" disabled?="{{!$.state.canForward}}" icon="rotate-right" on-tap="{{redoAction}}"></core-icon-button>
+      <paper-icon-button title="Undo" disabled?="{{!$.state.canBack}}" icon="reply" on-tap="{{undoAction}}"></paper-icon-button>
+      <paper-icon-button title="Redo" disabled?="{{!$.state.canForward}}" icon="social:share" on-tap="{{redoAction}}"></paper-icon-button>
       <span class="separator" hidden?="{{selected == 'code'}}"></span>
-      <core-icon-button title="Toggle Fullwidth" icon="drawer" class="{{ {selected: maximized} | tokenList}}" on-tap="{{fullscreenAction}}"></core-icon-button>
+          <paper-menu-button title="Device" id="selectDeviceType" icon="hardware:phone-android">
+                <paper-item icon="hardware:desktop-windows" label="Desktop" on-tap="{{deviceDesktop}}" ></paper-item>                
+                <paper-item icon="hardware:tablet-android" label="Tablet" on-tap="{{deviceTablet}}"></paper-item>
+                <paper-item icon="hardware:phone-android" label="Phone" on-tap="{{devicePhone}}"></paper-item>
+                <paper-item icon="device:screen-rotation" label="Rotate" on-tap="{{deviceRotate}}"></paper-item>
+                <paper-item label="Fullwidth" icon="settings-overscan" class="{{ {selected: maximized} | tokenList}}" on-tap="{{fullscreenAction}}"></paper-item>
+          </paper-menu-button>
+
+      
     </div>
 
   </core-toolbar>
@@ -59,7 +74,7 @@
     <section name="design" horizontal layout>
    
     <div class="toolsPlaceholder {{ {maximized: maximized} | tokenList}}" >
-	    <div id="toolsLeft" vertical layout>
+	    <div id="toolsLeft" vertical layout class="{{ {maximized: maximized} | tokenList}}">
             <core-selector id="tabs" valueAttr="name" selected="{{selectedTool}}">
               <span name="palette">Palette</span>
               <span name="tree">Tree</span>
@@ -86,36 +101,28 @@
           <div class="inspectorControls" flex vertical layout>
             <core-toolbar class="designTools narrow">
               <div id="selectedElement" flex>
-                <core-icon-button title="Select Parent" icon="arrow-back" on-click="{{selectParentElement}}" hidden?="{{!selectedName}}"></core-icon-button>
+                <paper-icon-button title="Select Parent" icon="arrow-back" on-click="{{selectParentElement}}" hidden?="{{!selectedName}}"></paper-icon-button>
                 {{selectedName}}
               </div>
 
-              <!-- core-icon-button icon="fullscreen" on-tap="{{maximizeElement}}" title="Auto-size"></core-icon-button -->
+              <!-- paper-icon-button icon="fullscreen" on-tap="{{maximizeElement}}" title="Auto-size"></paper-icon-button -->
               
-              <core-menu-button title="More..." icon="more-vert" halign="right">
+              <paper-menu-button title="More..." icon="more-vert" halign="right">
                 <style>
                   .core-selected {
                     font-weight: normal;
                   }
 
-                  core-item.rotate::shadow core-icon {
-                    transform: rotate(90deg);
-                    -webkit-transform: rotate(90deg);
-                  }
                 </style>
-                <core-item icon="arrow-back" class="rotate" label="Move Up" on-tap="{{moveoutElement}}"></core-item>
-                <core-item icon="arrow-back" label="Move Back" on-tap="{{promoteElement}}"></core-item>
-                <core-item icon="arrow-forward" label="Move Forward" on-tap="{{demoteElement}}"></core-item>
-                <core-item icon="delete" label="Delete" on-tap="{{deleteElement}}"></core-item>
-              </core-menu-button>
+                <paper-item icon="hardware:keyboard-arrow-up" label="Move Up" on-tap="{{moveoutElement}}"></paper-item>
+                <paper-item icon="hardware:keyboard-arrow-left" label="Move Back" on-tap="{{promoteElement}}"></paper-item>
+                <paper-item icon="hardware:keyboard-arrow-right" label="Move Forward" on-tap="{{demoteElement}}"></paper-item>
+                <paper-item icon="delete" label="Delete" on-tap="{{deleteElement}}"></paper-item>
+              </paper-menu-button>
             </core-toolbar>
             <element-inspector flex id="inspector" on-bind-property="{{applyPropertyBinding}}"></element-inspector>
-          </div>
+          </div>     
           
-         
-          
-
-
         </div>
       </div>
 
@@ -142,13 +149,16 @@ Polymer({
   paletteMode: 'menu',
   selectedTool: 'palette',
   remoteHtml: '',
+  deviceType:'phone',
+  deviceWidth:320,
+  deviceHeight:480,
 
   ready: function() {
     window.onbeforeunload = this.warnUnload.bind(this);
     document.addEventListener('keydown', 
         this.keydown.bind(this, window));
     window.designWindowLoaded = this.designWindowLoaded.bind(this);
-    this.firstLoad = true;
+    this.firstLoad = true;    
   },
 
   designWindowLoaded: function() {
@@ -179,6 +189,7 @@ Polymer({
     this.$.tree.canvas = this.designer.$.designCanvas;
     this.$.palette.categories = this.designer.categories;
     this.designer.import(window.metadata, this.importsLoaded.bind(this));
+    this.updateDeviceFrame();
   },
 
    designChange: function(event) {
@@ -250,6 +261,60 @@ Polymer({
   // turn abstract events into concrete actions
   //
 
+  devicePhone: function(event) {
+    this.deviceType="phone";
+    this.deviceWidth = 320;
+    this.deviceHeight = 568;
+    this.$.selectDeviceType.icon = "hardware:phone-android";
+    this.updateDeviceFrame();  
+  },
+  
+  deviceTablet: function(event) {
+    this.deviceType="tablet";
+    this.deviceWidth = 1024;
+    this.deviceHeight = 768;
+    this.$.selectDeviceType.icon = "hardware:tablet-android";
+    this.updateDeviceFrame(); 
+      
+  },
+  
+  deviceDesktop: function(event) {
+    this.deviceType="desktop";
+    this.$.selectDeviceType.icon = "hardware:desktop-windows";
+    this.updateDeviceFrame();  
+  },
+  
+  deviceRotate: function(event) {
+    var t = this.deviceHeight;
+    this.deviceHeight = this.deviceWidth;
+    this.deviceWidth = t;
+    this.updateDeviceFrame(); 
+  },
+  
+  updateDeviceFrame: function() {
+    
+    var withFrame = this.deviceType != "desktop";
+    var zoom = 1;
+    var w = this.$.frameContainer.offsetWidth - 32 -  (2 * 32);
+    var h = this.$.frameContainer.offsetHeight - 32 - (2 * 32);
+      
+    while(!(w > this.deviceWidth * zoom  && h  > this.deviceHeight * zoom) && zoom > .2 ) {      
+      zoom -= .02;
+    }
+    
+    if(withFrame) {
+      this.$.frame.style.width = this.deviceWidth + "px";
+      this.$.frame.style.height = this.deviceHeight + "px";
+      this.$.frame.style.zoom = zoom;
+      this.$.frame.classList.add("deviceFrame");
+    } else {
+      this.$.frame.style.width="";
+      this.$.frame.style.height="";
+      this.$.frame.style.zoom = 1;
+      this.$.frame.classList.remove("deviceFrame");
+    }
+  },
+  
   treeNodeSelected: function(event) {
     this.designer.selected = event.target.selected;
   },
@@ -329,6 +394,12 @@ Polymer({
 
   fullscreenAction: function() {
     this.maximized = !this.maximized;
+    
+    // delay frame resize until animation is finished
+    this.async(function() {
+      this.updateDeviceFrame();
+    }, null, 500);
+    
   },
 
   applyPropertyBinding: function(event, detail) {
