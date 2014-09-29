@@ -9,7 +9,6 @@
     "inspector-elements": "PolymerLabs/inspector-elements#master",
     "core-elements": "TangereJs/core-elements#master",
     "paper-elements": "Polymer/paper-elements#master",
-    "at-elements": "TangereJs/at-elements#master",
-	"moment": "TangereJs/moment#master"
+    "at-elements": "TangereJs/at-elements#master"
   }
 }
