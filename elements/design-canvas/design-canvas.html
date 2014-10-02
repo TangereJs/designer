@@ -290,12 +290,14 @@ Polymer({
     // drop to parent) go here
     this.focus();
     this.dragInfo = dragInfo;
+        
     // TODO(sjmiles): if this is an element from the design-canvas, it's immediately
     // pulled out of it's original context
     if (dragInfo.element.parentNode != this) {
       // promote to top level
       this.appendChild(dragInfo.element);
     }
+    
     //
     // make the element draggable (e.g. absolutely positioned) in this context
     //
@@ -306,6 +308,7 @@ Polymer({
     var local = this.getBoundingClientRect();
     var origin = dragInfo.origin; 
     dragInfo.start = {x: origin.left - local.left, y: origin.top - local.top};
+    
     //
     // contextualize utilities
     //
@@ -322,15 +325,22 @@ Polymer({
     dragInfo.drag = function() {
       //var p = snap(this.start.x + this.event.dx, this.start.y + this.event.dy);
 	  var p = snap(this.event.pageX, this.event.pageY);
-
+      
 	  // adjust position when dropping from palette
 	  if(this.event.pageY != this.event.clientY) {	
-			p.x -= 350; // palette width
+            var dC = (window.top.designContainer.getElementsByTagName("iframe")[0]);
+            var bcr = dC.getBoundingClientRect();
+            var device = dC.classList.contains("deviceFrame");
+            var dx = bcr.left + (device ? 32 : 0);
+            var dy = bcr.top + (device ? 32 : 0);
+                    
+			p.x -= dx; // palette width
 			if(p.x < 0) p.x = 0;
 			
-			p.y -= 53; // palette top
+			p.y -= dy; // palette top
 			if(p.y < 0) p.y = 0;			
-	  }
+	  } 
+      
       rule.style.left = p.x + 'px';
       rule.style.top = p.y + 'px';
       dropHint(this);
@@ -346,7 +356,12 @@ Polymer({
     // remove dragging affordances (e.g. absolutely positioned)
     this.unsetDraggableStyleRules(dragInfo.element);
     // locate drop target
+    
     var container = this.findContainer(dragInfo.element, dragInfo.dropTarget);
+    
+    // if not dropped on any container, keep it directly in the design host
+    if(container==null) container=this.designHost;
+    
     if (container && this.canContain(container, dragInfo.element)) {
       // don't manipulate parentNode if not necessary
       var sameParent = (container === dragInfo.element.parentNode);
@@ -510,7 +525,7 @@ Polymer({
     return target;
   },
 
-  findContainer: function(element, container) {
+  findContainer: function(element, container) {    
     if (container === this) {
       container = this.designHost;
     }

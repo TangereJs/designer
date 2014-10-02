@@ -163,6 +163,7 @@ Polymer({
 
   designWindowLoaded: function() {
     this.$.frame.style.display = null;
+    window.designContainer = this.$.frameContainer;
     window.designWindow = this.$.frame.contentWindow;
     designWindow.addEventListener('designer-ready', this.designerReady.bind(this));
     designWindow.addEventListener('design-change', this.designChange.bind(this));
@@ -190,6 +191,8 @@ Polymer({
     this.$.palette.categories = this.designer.categories;
     this.designer.import(window.metadata, this.importsLoaded.bind(this));
     this.updateDeviceFrame();
+    
+    window.addEventListener("resize", this.updateDeviceFrame.bind(this));
   },
 
    designChange: function(event) {
