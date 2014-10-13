@@ -378,6 +378,22 @@ Polymer({
         this.notifyChange();
       }
       this.selected = dragInfo.element;
+      
+      if(container===this.designHost) {                
+       
+       // *hack* ensure that new element shows correctly by first selecting parent and then reselecting current element   
+       this.async(function() {
+        this.selected = container;
+        this.notifyChange();
+        
+          this.async(function() {
+            this.selected = dragInfo.element;
+            this.notifyChange();
+          },null,100);
+         
+       },null,100);
+        
+      }
       return true;
     }
   },
