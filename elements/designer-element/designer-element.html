@@ -304,18 +304,22 @@ Polymer({
     while(!(w > this.deviceWidth * zoom  && h  > this.deviceHeight * zoom) && zoom > .2 ) {      
       zoom -= .02;
     }
-    
+
+    var style="";
     if(withFrame) {
-      this.$.frame.style.width = this.deviceWidth + "px";
-      this.$.frame.style.height = this.deviceHeight + "px";
-      this.$.frame.style.zoom = zoom;
+      style += "width:" + this.deviceWidth + "px;";
+      style += "height:" + this.deviceHeight + "px;";
+      
+      style += "-ms-transform-origin: 0 0;-moz-transform-origin: 0 0;-o-transform-origin: 0 0;-webkit-transform-origin: 0 0;transform-origin: 0 0;";      
+      style += ("-ms-transform: scale(XXX);-moz-transform: scale(XXX);-o-transform: scale(XXX);-webkit-transform: scale(XXX);transform: scale(XXX);".split("XXX").join(zoom));    
+
       this.$.frame.classList.add("deviceFrame");
+      
     } else {
-      this.$.frame.style.width="";
-      this.$.frame.style.height="";
-      this.$.frame.style.zoom = 1;
       this.$.frame.classList.remove("deviceFrame");
     }
+    
+    this.$.frame.style.cssText = style;
   },
   
   treeNodeSelected: function(event) {
