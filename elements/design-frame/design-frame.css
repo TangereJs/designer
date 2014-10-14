@@ -19,7 +19,8 @@
 }
 
 #designCanvas {
-  background-color: white;  
+  background-color: white; 
+  overflow: auto;
 }
 
 #designCanvas.viewFrame {  
@@ -28,7 +29,7 @@
 
 #designCanvas .selected-element {
   outline: solid 3px rgba(66, 87, 203, 0.8);
-  outline-offset: -3px;  
+  outline-offset: -1px;  
 }
 
 #designCanvas *::after {
