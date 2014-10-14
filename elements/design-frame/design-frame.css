@@ -19,12 +19,16 @@
 }
 
 #designCanvas {
-  background-color: white;
+  background-color: white;  
+}
+
+#designCanvas.viewFrame {  
+  border-top: 64px solid #CFD8DC;
 }
 
 #designCanvas .selected-element {
   outline: solid 3px rgba(66, 87, 203, 0.8);
-  outline-offset: -3px;
+  outline-offset: -3px;  
 }
 
 #designCanvas *::after {

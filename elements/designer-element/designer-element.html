@@ -151,7 +151,7 @@ Polymer({
   remoteHtml: '',
   deviceType:'phone',
   deviceWidth:320,
-  deviceHeight:480,
+  deviceHeight:568,
 
   ready: function() {
     window.onbeforeunload = this.warnUnload.bind(this);
@@ -190,8 +190,7 @@ Polymer({
     this.$.tree.canvas = this.designer.$.designCanvas;
     this.$.palette.categories = this.designer.categories;
     this.designer.import(window.metadata, this.importsLoaded.bind(this));
-    this.updateDeviceFrame();
-    
+    this.updateDeviceFrame();    
     window.addEventListener("resize", this.updateDeviceFrame.bind(this));
   },
 
@@ -298,10 +297,10 @@ Polymer({
     
     var withFrame = this.deviceType != "desktop";
     var zoom = 1;
-    var w = this.$.frameContainer.offsetWidth - 32 -  (2 * 32);
-    var h = this.$.frameContainer.offsetHeight - 32 - (2 * 32);
+    var w = this.$.frameContainer.offsetWidth - 32; // -  (2 * 32)  ;
+    var h = this.$.frameContainer.offsetHeight - 32; // - (2 * 32);
       
-    while(!(w > this.deviceWidth * zoom  && h  > this.deviceHeight * zoom) && zoom > .2 ) {      
+    while(!(w > (this.deviceWidth + 96) * zoom  && h  > (this.deviceHeight + 60) * zoom) && zoom > .2 ) {      
       zoom -= .02;
     }
 

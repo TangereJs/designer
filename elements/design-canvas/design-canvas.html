@@ -325,10 +325,11 @@ Polymer({
     dragInfo.drag = function() {
       //var p = snap(this.start.x + this.event.dx, this.start.y + this.event.dy);
 	  var p = snap(this.event.pageX, this.event.pageY);
+      var dC = (window.top.designContainer.getElementsByTagName("iframe")[0]);
       
 	  // adjust position when dropping from palette
-	  if(this.event.pageY != this.event.clientY) {	
-            var dC = (window.top.designContainer.getElementsByTagName("iframe")[0]);
+	  if(this.event.pageY != this.event.clientY) {	     
+            
             var bcr = dC.getBoundingClientRect();
             var device = dC.classList.contains("deviceFrame");
             var dx = bcr.left + (device ? 32 : 0);
@@ -340,6 +341,11 @@ Polymer({
 			p.y -= dy; // palette top
 			if(p.y < 0) p.y = 0;			
 	  } 
+      
+      // adjust offset if viewFrame placeholder is shown
+      if(dC.classList.contains("viewFrame")) {
+        p.y -= 64;
+      }
       
       rule.style.left = p.x + 'px';
       rule.style.top = p.y + 'px';
@@ -601,8 +607,24 @@ Polymer({
     this.innerHTML = '';
     this.makeDesignHost();
     this.designHost.loadHtml(html, function() {
-      this.notifyChange();
-      this.selected = this.designHost;
+    this.notifyChange();
+    this.selected = this.designHost;
+    var dC = (window.top.designContainer.getElementsByTagName("iframe")[0]);
+    
+      // show top bar placeholder for views
+    if(this.designHost.model["viewReady"] != undefined) {
+      
+      this.classList.add("viewFrame");
+      
+      // set class on iframe as well, just as a flag for the drag function to adjust the offset
+      dC.classList.add("viewFrame");
+    
+    } else  {
+      this.classList.remove("viewFrame");
+      dC.classList.remove("viewFrame");
+    }
+      
+    
     }.bind(this));
   },
 
