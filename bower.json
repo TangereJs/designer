@@ -2,7 +2,7 @@
   "name": "designer",
   "private": true,
   "dependencies": {
-    "platform": "Polymer/platform#master",
+    "webcomponentsjs": "Polymer/webcomponentjs#master",
     "code-mirror": "PolymerLabs/code-mirror#master",
     "github-elements": "PolymerLabs/github-elements#master",
     "x-meta": "PolymerLabs/x-meta#master",
@@ -10,5 +10,8 @@
     "core-elements": "TangereJs/core-elements#master",
     "paper-elements": "Polymer/paper-elements#master",
     "at-elements": "TangereJs/at-elements#master"
+  },
+  "resolutions": {
+    "moment": "master"
   }
 }
