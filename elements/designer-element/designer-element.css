@@ -159,6 +159,15 @@ core-icon-button.rotate {
   width: 0;
 }
 
+core-dropdown {
+  border: 1px solid #ccc;
+  border-radius: 3px;  
+}
+
+core-item {  
+  cursor: pointer !important;
+}
+
 .splitterContainer {
   position: absolute;
   top: 0;
@@ -194,7 +203,7 @@ core-icon-button.rotate {
 
 
 .selected {
-  background-color: silver;
+ font-weight: bolder;
 }
 
 

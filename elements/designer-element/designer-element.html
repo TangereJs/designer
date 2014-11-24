@@ -15,12 +15,10 @@
 <link rel="import" href="../../components/core-icons/hardware-icons.html">
 <link rel="import" href="../../components/core-icons/device-icons.html">
 <link rel="import" href="../../components/core-icon-button/core-icon-button.html">
-<link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../components/core-menu-button/core-menu-button.html">
-<link rel="import" href="../../components/paper-menu-button/paper-menu-button.html">
+<link rel="import" href="../../components/core-dropdown/core-dropdown.html"> 
+<link rel="import" href="../../components/core-menu/core-menu.html"> 
 <link rel="import" href="../../components/core-item/core-item.html">
-<link rel="import" href="../../components/paper-input/paper-input.html">
-<link rel="import" href="../../components/paper-item/paper-item.html">
 <link rel="import" href="../../components/core-splitter/core-splitter.html">
 
 
@@ -41,29 +39,35 @@
 
   <core-toolbar id="appbar" class="narrow">
 
-    <paper-icon-button title="Toggle Code/Design" icon="developer-mode-tv" class="{{ {selected: selected === 'code'} | tokenList }}" name="code" on-tap="{{codeToggleAction}}"></paper-icon-button>
+    <core-icon-button title="Toggle Code/Design" icon="developer-mode-tv" class="{{ {selected: selected === 'code'} | tokenList }}" name="code" on-tap="{{codeToggleAction}}"></core-icon-button>
     
     <span class="separator"></span>
 
     
-    <paper-icon-button title="Save" icon="save" on-tap="{{saveAction}}"></paper-icon-button>
+    <core-icon-button title="Save" icon="save" on-tap="{{saveAction}}"></core-icon-button>
     <!-- shareAction must be triggered from click to allow opening a tab (otherwise can only open a floating window) -->
-    <paper-icon-button title="Share Gist" icon="social:share-alt" on-click="{{shareAction}}"></paper-icon-button>
-    <paper-icon-button title="Launch Preview" icon="launch" on-click="{{previewAction}}"></paper-icon-button>
+    <core-icon-button title="Share Gist" icon="social:share-alt" on-click="{{shareAction}}"></core-icon-button>
+    <core-icon-button title="Launch Preview" icon="launch" on-click="{{previewAction}}"></core-icon-button>
 
     <div class="design-controls" horizontal center layout hidden?="{{selected == 'code'}}">
-      <span class="separator"></span>
-      <paper-icon-button title="Undo" disabled?="{{!$.state.canBack}}" icon="reply" on-tap="{{undoAction}}"></paper-icon-button>
-      <paper-icon-button title="Redo" disabled?="{{!$.state.canForward}}" icon="social:share" on-tap="{{redoAction}}"></paper-icon-button>
-      <span class="separator" hidden?="{{selected == 'code'}}"></span>
-          <paper-menu-button title="Device" id="selectDeviceType" icon="hardware:phone-android">
-                <paper-item icon="hardware:desktop-windows" label="Desktop" on-tap="{{deviceDesktop}}" ></paper-item>                
-                <paper-item icon="hardware:tablet-android" label="Tablet" on-tap="{{deviceTablet}}"></paper-item>
-                <paper-item icon="hardware:phone-android" label="Phone" on-tap="{{devicePhone}}"></paper-item>
-                <paper-item icon="device:screen-rotation" label="Rotate" on-tap="{{deviceRotate}}"></paper-item>
-                <paper-item label="Fullwidth" icon="settings-overscan" class="{{ {selected: maximized} | tokenList}}" on-tap="{{fullscreenAction}}"></paper-item>
-          </paper-menu-button>
 
+      <span class="separator"></span>
+      <core-icon-button title="Undo" disabled?="{{!$.state.canBack}}" icon="reply" on-tap="{{undoAction}}"></core-icon-button>
+      <core-icon-button title="Redo" disabled?="{{!$.state.canForward}}" icon="social:share" on-tap="{{redoAction}}"></core-icon-button>
+      
+      <span class="separator" hidden?="{{selected == 'code'}}"></span>
+      <core-menu-button>
+          <core-icon-button id="selectDeviceType" icon="hardware:phone-android" title="Device..."></core-icon-button>
+          <core-dropdown class="dropdown" halign="left">
+            <core-menu>
+              <core-item icon="hardware:desktop-windows" label="Desktop" on-tap="{{deviceDesktop}}" ></core-item>                
+              <core-item icon="hardware:tablet-android" label="Tablet" on-tap="{{deviceTablet}}"></core-item>
+              <core-item icon="hardware:phone-android" label="Phone" on-tap="{{devicePhone}}"></core-item>
+              <core-item icon="device:screen-rotation" label="Rotate" on-tap="{{deviceRotate}}"></core-item>
+              <core-item label="Fullwidth" icon="settings-overscan" class="{{ {selected: maximized} | tokenList}}" on-tap="{{fullscreenAction}}"></core-item>
+            </core-menu>
+          </core-dropdown>
+      </core-menu-button>
       
     </div>
 
@@ -101,24 +105,33 @@
           <div class="inspectorControls" flex vertical layout>
             <core-toolbar class="designTools narrow">
               <div id="selectedElement" flex>
-                <paper-icon-button title="Select Parent" icon="arrow-back" on-click="{{selectParentElement}}" hidden?="{{!selectedName}}"></paper-icon-button>
+                <core-icon-button title="Select Parent" icon="arrow-back" on-click="{{selectParentElement}}" hidden?="{{!selectedName}}"></core-icon-button>
                 {{selectedName}}
               </div>
 
-              <!-- paper-icon-button icon="fullscreen" on-tap="{{maximizeElement}}" title="Auto-size"></paper-icon-button -->
+              <!-- <core-icon-button icon="fullscreen" on-tap="{{maximizeElement}}" title="Auto-size"></core-icon-button> -->
               
-              <paper-menu-button title="More..." icon="more-vert" halign="right">
+              <core-menu-button>
                 <style>
                   .core-selected {
                     font-weight: normal;
                   }
 
+                  core-item.rotate::shadow core-icon {
+                    transform: rotate(90deg);
+                    -webkit-transform: rotate(90deg);
+                  }
                 </style>
-                <paper-item icon="hardware:keyboard-arrow-up" label="Move Up" on-tap="{{moveoutElement}}"></paper-item>
-                <paper-item icon="hardware:keyboard-arrow-left" label="Move Back" on-tap="{{promoteElement}}"></paper-item>
-                <paper-item icon="hardware:keyboard-arrow-right" label="Move Forward" on-tap="{{demoteElement}}"></paper-item>
-                <paper-item icon="delete" label="Delete" on-tap="{{deleteElement}}"></paper-item>
-              </paper-menu-button>
+                <core-icon-button icon="more-vert" title="More..."></core-icon-button>
+                <core-dropdown class="dropdown" halign="right">
+                  <core-menu>
+                    <core-item icon="arrow-back" class="rotate" label="Move Up" on-tap="{{moveoutElement}}"></core-item>
+                    <core-item icon="arrow-back" label="Move Back" on-tap="{{promoteElement}}"></core-item>
+                    <core-item icon="arrow-forward" label="Move Forward" on-tap="{{demoteElement}}"></core-item>
+                    <core-item icon="delete" label="Delete" on-tap="{{deleteElement}}"></core-item>
+                  </core-menu>
+                </core-dropdown>
+              </core-menu-button>
             </core-toolbar>
             <element-inspector flex id="inspector" on-bind-property="{{applyPropertyBinding}}"></element-inspector>
           </div>     
