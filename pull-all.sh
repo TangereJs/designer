@@ -17,23 +17,21 @@ done < components.list
 
 read -p "Press enter to continue pull-all"
 
+
 #--- update "other" components with bower
+echo "start: bower update"
 bower update
+echo "done: bower update"
+
+read -p "Press enter to continue pull-all"
 
 #--- restore repos with "our" code from components.list file ---
+echo "start: reset our components"
 while read line
 do
 	if [[ $line ]]; then		
 		rm -r components/$line 2>/dev/null
 		mv components/__$line components/$line
-	fi
-done < components.list
-
-
-#--- pull all "our" files from components.list file ---
-while read line
-do
-	if [[ $line ]]; then		
 		pull-repo.sh $user $pass $line components
 	fi
 done < components.list

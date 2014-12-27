@@ -10,8 +10,5 @@
     "core-elements": "TangereJs/core-elements#master",
     "paper-elements": "Polymer/paper-elements#master",
     "at-elements": "TangereJs/at-elements#master"
-  },
-  "resolutions": {
-    "moment": "master"
   }
 }
