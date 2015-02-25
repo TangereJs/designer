@@ -7,6 +7,9 @@
     "github-elements": "PolymerLabs/github-elements#master",
     "x-meta": "PolymerLabs/x-meta#master",
     "inspector-elements": "PolymerLabs/inspector-elements#master",
+    "core-icons": "TangereJs/core-icons#master",
+    "core-media-query", "TangereJs/core-media-query#master",
+    "marked-element": "TangereJs/marked-element#master",
     "core-elements": "TangereJs/core-elements#master",
     "paper-elements": "Polymer/paper-elements#master",
     "at-elements": "TangereJs/at-elements#master"
