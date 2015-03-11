@@ -13,5 +13,5 @@ if [ ! -d ".git" ]; then
 	git clone https://$1:$2@github.com/TangereJs/$repo.git .
 fi
 git -c diff.mnemonicprefix=false -c core.quotepath=false fetch origin
-git -c diff.mnemonicprefix=false -c core.quotepath=false pull origin master
+git -c diff.mnemonicprefix=false -c core.quotepath=false pull origin 0.8-preview
 

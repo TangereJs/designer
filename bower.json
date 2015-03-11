@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "webcomponentsjs": "Polymer/webcomponentsjs#master",
+    "polymer": "Polymer/polymer#0.8-preview",
     "code-mirror": "PolymerLabs/code-mirror#master",
     "github-elements": "PolymerLabs/github-elements#master",
     "x-meta": "PolymerLabs/x-meta#master",
@@ -11,7 +12,30 @@
     "core-media-query": "TangereJs/core-media-query#master",
     "marked-element": "TangereJs/marked-element#master",
     "core-elements": "TangereJs/core-elements#master",
-    "paper-elements": "Polymer/paper-elements#master",
-    "at-elements": "TangereJs/at-elements#master"
+    "paper-elements": "Polymer/paper-elements#0.8-preview",
+    "at-elements": "TangereJs/at-elements#0.8-preview"
+  },
+  "resolutions": {
+    "polymer": "0.8-preview",
+    "core-image": "0.8-preview",
+    "core-media-query": "0.8-preview",
+    "core-pages": "0.8-preview",
+    "core-meta": "0.8-preview",
+    "core-ajax": "0.8-preview",
+    "core-toolbar": "0.8-preview",
+    "core-iconset-svg": "0.8-preview",
+    "core-resizable": "0.8-preview",
+    "core-icons": "0.8-preview",
+    "core-drawer-panel": "0.8-preview",
+    "core-collapse": "0.8-preview",
+    "core-header-panel": "0.8-preview",
+    "core-selector": "0.8-preview",
+    "core-overlay": "0.8-preview",
+    "core-icon": "0.8-preview",
+    "paper-shadow": "0.8-preview",
+    "layout": "master",
+    "core-iconset": "0.8-preview",
+    "paper-ripple": "0.8-preview",
+    "at-core-theme": "0.8-preview"
   }
 }
