@@ -14,4 +14,4 @@ if [ ! -d ".git" ]; then
 fi
 git -c diff.mnemonicprefix=false -c core.quotepath=false fetch origin
 git -c diff.mnemonicprefix=false -c core.quotepath=false pull origin 0.8-preview
-
+git -c diff.mnemonicprefix=false -c core.quotepath=false checkout -b 0.8-preview --track origin/0.8-preview
