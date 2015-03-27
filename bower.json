@@ -37,6 +37,7 @@
     "core-iconset": "0.8-preview",
     "paper-ripple": "0.8-preview",
     "at-core-theme": "0.8-preview",
-    "at-core-activity": "0.8-preview"
+    "at-core-activity": "0.8-preview",
+    "webcomponentsjs": "master"
   }
 }
