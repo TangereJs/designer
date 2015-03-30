@@ -2,6 +2,8 @@ liquid-template
 at-app-embed
 at-app-scaffold
 at-elements
+at-carbon-clamp
+at-carbon-icon
 at-carbon-message
 at-carbon-moment
 at-core-list
@@ -17,5 +19,4 @@ at-form-checkbox
 at-form-lookup
 at-core-activity
 core-media-query
-at-carbon-clamp
 at-chart-core
