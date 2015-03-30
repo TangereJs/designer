@@ -38,6 +38,10 @@
     "paper-ripple": "0.8-preview",
     "at-core-theme": "0.8-preview",
     "at-core-activity": "0.8-preview",
-    "webcomponentsjs": "master"
+    "webcomponentsjs": "master",
+    "at-core-router": "0.8-preview",
+    "at-core-spinner": "0.8-preview",
+    "at-core-list": "0.8-preview",
+    "at-carbon-message": "0.8-preview"
   }
 }
