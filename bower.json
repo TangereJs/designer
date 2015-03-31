@@ -10,7 +10,7 @@
     "inspector-elements": "PolymerLabs/inspector-elements#master",
     "core-icons": "TangereJs/core-icons#master",
     "core-media-query": "TangereJs/core-media-query#master",
-    "marked-element": "TangereJs/marked-element#master",
+    "marked-element": "TangereJs/marked-element#0.8-preview",
     "core-elements": "TangereJs/core-elements#master",
     "paper-elements": "Polymer/paper-elements#0.8-preview",
     "at-elements": "TangereJs/at-elements#0.8-preview"
