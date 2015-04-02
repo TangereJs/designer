@@ -4,7 +4,7 @@
   "dependencies": {
     "webcomponentsjs": "Polymer/webcomponentsjs#master",
     "polymer": "Polymer/polymer#0.8-preview",
-    "code-mirror": "PolymerLabs/code-mirror#master",
+    "code-mirror": "TangereJS/code-mirror#0.8-preview",
     "github-elements": "PolymerLabs/github-elements#master",
     "x-meta": "PolymerLabs/x-meta#master",
     "inspector-elements": "PolymerLabs/inspector-elements#master",
