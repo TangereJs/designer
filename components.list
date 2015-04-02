@@ -19,8 +19,9 @@ at-form-input
 at-form-checkbox
 at-form-lookup
 at-form-rule-edit
+at-form-markdown
+at-form-codemirror
 at-core-activity
 core-media-query
 at-chart-core
-at-form-markdown
-at-form-codemirror
+code-mirror
