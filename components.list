@@ -16,6 +16,7 @@ at-core-mic
 at-core-router
 at-core-form
 at-core-searchbox
+at-core-view
 at-form-input
 at-form-checkbox
 at-form-lookup
