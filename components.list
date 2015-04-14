@@ -23,6 +23,7 @@ at-form-lookup
 at-form-rule-edit
 at-form-markdown
 at-form-codemirror
+at-form-file
 at-core-activity
 core-media-query
 at-chart-core
