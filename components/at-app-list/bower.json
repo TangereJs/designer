@@ -1,0 +1,9 @@
+{
+  "name": "at-app-list",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "at-core-activity": "TangereJs/at-core-activity#master",
+    "at-core-list": "TangereJs/at-core-list#master"
+  }
+}

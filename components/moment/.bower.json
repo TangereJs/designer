@@ -1,0 +1,29 @@
+{
+  "name": "moment",
+  "main": "moment.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "tasks",
+    "component.json",
+    "composer.json",
+    "CONTRIBUTING.md",
+    "ender.js",
+    "Gruntfile.js",
+    "package.js",
+    "package.json"
+  ],
+  "homepage": "https://github.com/TangereJs/moment",
+  "_release": "d5ff2cfc00",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d5ff2cfc0000010c37cc5ebe75a5905c943368e4"
+  },
+  "_source": "git://github.com/TangereJs/moment.git",
+  "_target": "master",
+  "_originalSource": "TangereJs/moment"
+}

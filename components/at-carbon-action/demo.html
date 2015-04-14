@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <title>at-carbon-action</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+  <script src="../platform/platform.js"></script>
+  <link href="../font-roboto/roboto.html" rel="import">
+  <link href="../core-icons/core-icons.html" rel="import">
+  <link href="../core-menu/core-menu.html" rel="import">
+  <link href="at-carbon-action.html" rel="import">
+  <style shim-shadowdom>
+    body {
+      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+    }
+
+    at-carbon-action {
+      max-width: 320px;
+    }
+  </style>
+</head>
+<body unresolved>
+  <core-menu>
+    <at-carbon-action icon="refresh" label="Item 1"></at-carbon-action>
+	<at-carbon-action icon="refresh" label="very long+ 123456789+123456789+123456789+123456789+123456789+123456789+123456789+"></at-carbon-action>
+	<at-carbon-action label="very long+ 123456789+123456789+123456789+123456789+123456789+123456789+123456789+"></at-carbon-action>
+    <at-carbon-action label="Item 2"></at-carbon-action>
+    <at-carbon-action label="Item with a link">
+      <a href="http://www.polymer-project.org" target="_self"></a>
+    </at-carbon-action>
+  </core-menu>
+</body>
+</html>

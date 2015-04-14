@@ -1,0 +1,17 @@
+{
+  "name": "at-form-field",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master"
+  },
+  "homepage": "https://github.com/TangereJs/at-form-field",
+  "_release": "07f1a4315c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "07f1a4315cc972f598885e6b4e58feeb7213b995"
+  },
+  "_source": "git://github.com/TangereJs/at-form-field.git",
+  "_target": "master",
+  "_originalSource": "TangereJs/at-form-field"
+}

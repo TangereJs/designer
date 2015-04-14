@@ -1,0 +1,33 @@
+{
+  "name": "core-toolbar",
+  "private": true,
+  "authors": [
+    "The Polymer Project Authors"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.8-preview",
+    "layout": "Polymer/layout"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "~0.5.5",
+    "core-component-page": "Polymer/core-component-page#~0.5.5",
+    "web-component-tester": "~2.2.6",
+    "test-fixture": "polymer/test-fixture#~0.1.0"
+  },
+  "ignore": [],
+  "main": "core-toolbar.html",
+  "repo": {
+    "type": "git",
+    "url": "git://github.com/Polymer/core-toolbar.git"
+  },
+  "homepage": "https://github.com/Polymer/core-toolbar",
+  "_release": "fb6b9fb7f5",
+  "_resolution": {
+    "type": "branch",
+    "branch": "0.8-preview",
+    "commit": "fb6b9fb7f58101bc55131f568c63bc4ce12eb9de"
+  },
+  "_source": "git://github.com/Polymer/core-toolbar.git",
+  "_target": "0.8-preview",
+  "_originalSource": "Polymer/core-toolbar"
+}

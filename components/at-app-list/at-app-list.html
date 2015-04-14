@@ -1,0 +1,34 @@
+<link rel="import" href="../at-core-activity/at-core-activity.html">
+<link rel="import" href="../at-core-list/at-core-list.html">
+
+<polymer-element name="at-app-list">
+
+  <template>
+    <style>
+      :host {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        display: block;
+      }
+    </style>
+    <at-core-activity id="at_core_activity" url="{{ url }}" response="{{Data}}" auto></at-core-activity>
+    <at-core-list id="at_core_list" items="{{Data.items}}" itemcomponent="{{ itemComponent }}" cardwidth="{{ cardWidth }}" layout="{{ layout }}" id="at_core_list"></at-core-list>
+
+  </template>
+
+  <script>
+
+    Polymer('at-app-list', {
+      publish: {
+        url: '',
+        itemComponent: "at-core-list/feed-item",
+        cardWidth: 320,
+        layout: "card"
+      }
+    });
+
+  </script>
+
+</polymer-element>

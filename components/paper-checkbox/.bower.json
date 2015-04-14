@@ -1,0 +1,26 @@
+{
+  "name": "paper-checkbox",
+  "private": true,
+  "dependencies": {
+    "paper-radio-button": "Polymer/paper-radio-button#master",
+    "polymer": "Polymer/polymer#master"
+  },
+  "ignore": [
+    "externs/**",
+    ".gitignore"
+  ],
+  "devDependencies": {
+    "font-roboto": "Polymer/font-roboto#~0.5.4",
+    "core-label": "Polymer/core-label#~0.5.4"
+  },
+  "homepage": "https://github.com/Polymer/paper-checkbox",
+  "_release": "e802fa6a42",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "e802fa6a4227faca65044bdc86c1399ba01b05d2"
+  },
+  "_source": "git://github.com/Polymer/paper-checkbox.git",
+  "_target": "master",
+  "_originalSource": "Polymer/paper-checkbox"
+}

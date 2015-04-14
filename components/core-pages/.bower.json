@@ -1,0 +1,29 @@
+{
+  "name": "core-pages",
+  "private": true,
+  "main": "core-pages.html",
+  "authors": [
+    "Frankie Fu <ffu@google.com>",
+    "The Polymer Authors"
+  ],
+  "repository": "https://github.com/Polymer/core-pages/tree/0.8-preview",
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.8-preview",
+    "core-resizable": "Polymer/core-resizable#0.8-preview",
+    "core-selector": "Polymer/core-selector#0.8-preview"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^1.1.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#0.6.0"
+  },
+  "homepage": "https://github.com/Polymer/core-pages",
+  "_release": "535758353b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "0.8-preview",
+    "commit": "535758353bca0dc0d7ddf4324a4da74f816008a3"
+  },
+  "_source": "git://github.com/Polymer/core-pages.git",
+  "_target": "0.8-preview",
+  "_originalSource": "Polymer/core-pages"
+}

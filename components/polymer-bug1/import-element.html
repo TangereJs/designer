@@ -1,0 +1,23 @@
+<link rel="import" href="../polymer/polymer.html">
+
+
+<dom-module id="import-element">
+
+  <template>
+    <h1>import-element</h1>
+    <div id="container"></div>
+  </template>
+</dom-module>
+
+  <script>
+    Polymer({
+      is: 'import-element',
+      ready: function () {
+        this.importHref("outer-element.html", function () {
+          var newElem = document.createElement("outer-element");
+          Polymer.dom(this.$.container).appendChild(newElem);
+        });
+      }
+    });
+  </script>
+

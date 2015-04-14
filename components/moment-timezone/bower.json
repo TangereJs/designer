@@ -1,0 +1,19 @@
+{
+  "name": "moment-timezone",
+  "description" : "Parse and display moments in any timezone.",
+  "version": "0.2.2",
+  "main": "builds/moment-timezone-with-data-2010-2020.js",
+  "dependencies" : {
+    "moment": "TangereJs/moment#master"
+  },
+  "ignore": [
+    "**/.*",
+    "tests",
+    "tasks",
+    "data/*/20*.json",
+    "contributing.md",
+    "Gruntfile.js",
+    "index.js",
+    "package.json"
+  ]
+}

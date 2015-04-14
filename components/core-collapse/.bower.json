@@ -1,0 +1,28 @@
+{
+  "name": "core-collapse",
+  "private": true,
+  "main": "core-collapse.html",
+  "authors": [
+    "Frankie Fu <ffu@google.com>",
+    "The Polymer Authors"
+  ],
+  "repository": "https://github.com/Polymer/core-collapse/tree/0.8-preview",
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.8-preview"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "webcomponents/webcomponentsjs#master",
+    "web-component-tester": "Polymer/web-component-tester#^2.2.3",
+    "test-fixture": "Polymer/test-fixture#master"
+  },
+  "homepage": "https://github.com/Polymer/core-collapse",
+  "_release": "f1d3a0b641",
+  "_resolution": {
+    "type": "branch",
+    "branch": "0.8-preview",
+    "commit": "f1d3a0b641beca95ab2702d1a53e0192e1490c9d"
+  },
+  "_source": "git://github.com/Polymer/core-collapse.git",
+  "_target": "0.8-preview",
+  "_originalSource": "Polymer/core-collapse"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "at-core-data-sample",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "strip-json-comments": "TangereJs/strip-json-comments#master"
+  },
+  "homepage": "https://github.com/TangereJs/at-core-data-sample",
+  "_release": "6f465223f8",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6f465223f87e545f5ff331fa70f757664d98e35b"
+  },
+  "_source": "git://github.com/TangereJs/at-core-data-sample.git",
+  "_target": "master",
+  "_originalSource": "TangereJs/at-core-data-sample"
+}

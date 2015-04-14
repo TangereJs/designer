@@ -1,0 +1,235 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../core-ajax/core-ajax.html">
+<link rel="import" href="../font-roboto/roboto.html">
+
+<style>
+@font-face {
+  font-family: 'weathericons';
+  src: url('fonts/weathericons-regular-webfont.eot');
+  src: url('fonts/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/weathericons-regular-webfont.woff') format('woff'), url('fonts/weathericons-regular-webfont.ttf') format('truetype'), url('fonts/weathericons-regular-webfont.svg#weathericons-regular-webfontRg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+
+<polymer-element name="current-weather"  attributes="lat lon city name conditiontext imperial wind suntimes minmax chump language">
+  <template>
+    <link rel="stylesheet" href="weather-icons.css">
+    
+    <style>
+      .weather {
+        overflow: auto; 
+        text-align: center;
+        padding: 1em 0 1em 0;
+      }
+      .weather > div {
+        margin-bottom: .5em;
+      }
+      .temp-level-0 {
+        background-color: #001f3f;
+      }
+      .temp-level-1 {
+        background-color: #0074d9;
+      }
+      .temp-level-2 {
+        background-color: #00ABA9;
+      }
+      .temp-level-3 {
+        background-color: #3D9970;
+      }
+      .temp-level-4 {
+        background-color: #ff851b;
+      }
+      .temp-level-5 {
+        background-color: #ff4136;
+      }
+      .temp-level-6 {
+        background-color: #85144b;
+      }
+      .weather .info {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+      .condition-icon > i {
+        font-size: 4rem;
+        line-height: 5rem;
+        margin-left: 2rem;
+      }
+      .current {
+        font-size: 4rem;
+      }
+      .min, .max {
+        display: inline-block;
+      }
+      .max {
+        margin-left: .5em;
+      }
+
+      .weather-condition {
+        float:left;
+      }
+      
+      .temperatures {
+        float:right;
+         margin-right: 2rem;
+      }
+    </style>
+    <core-ajax id="ajax" auto
+      url="http://api.openweathermap.org/data/2.5/weather"
+      params='{
+        "lat": {{lat}},
+        "lon": {{lon}},
+        "q": "{{city}}",
+        "units": "{{units}}",
+        "lang": "{{language}}"
+      }'
+      handleAs="json"
+    >
+    </core-ajax>
+    <template if="{{data}}">
+      <div class="weather temp-level-{{data.tempLevel}}">
+        <template if="{{name}}">
+          <div class="info">
+            {{data.name}}
+          </div>
+        </template>
+        <div class="current-condition">
+          <div class="weather-condition">
+            <div class="condition-icon"><i class="wi {{data.icon}}"></i></div>
+            <template if="{{conditiontext}}">
+              <div class="conditiontext">{{data.conditiontext}}</div>
+            </template>
+          </div>
+          <div class="temperatures">
+            <div class="current">
+              {{data.currentTemp}}°
+            </div>
+            <template if="minmax">
+              <div class="minmax">
+                <div class="min">
+                  <i class="wi wi-down"></i> {{data.minTemp}}°
+                </div>
+                <div class="max">
+                  <i class="wi wi-up"></i> {{data.maxTemp}}°
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+        <template if="{{wind}}">
+          <div class="wind">
+            <span class="speed">
+              <i class="wi wi-strong-wind"></i> {{data.windSpeed}} {{speedUnit}}
+            </span>&nbsp;
+            <span class="direction">
+              <i class="wi wi-wind-north-east"></i> {{data.windDirection}}
+            </span>
+          </div>
+        </template>
+        <template if="{{suntimes}}">
+          <div class="sun">
+            <span class="sunrise">
+              <i class="wi wi-sunrise"></i> {{data.sunrise}}
+            </span>&nbsp;
+            <span class="sunset">
+              <i class="wi wi-sunset"></i> {{data.sunset}}
+            </span>
+          </div>
+        </template>
+        <template if="{{chump}}">
+          <div class="chump">
+            <span class="cloudiness">
+              <i class="wi wi-cloudy"></i> {{data.cloudiness}}%
+            </span>&nbsp;
+            <span class="humidity">
+              <i class="wi wi-sprinkles"></i> {{data.humidity}}%
+            </span>&nbsp;
+            <span class="pressure">
+              <i class="wi wi-thermometer-internal"></i> {{data.pressure}} hPa
+            </span>
+          </div>
+        </template>
+      </div>
+    </template>
+  </template>
+  <script>
+    Polymer('current-weather', {
+      language: "en",
+      city: "",
+      lat:0,
+      lon:0,
+      name: false,
+      imperial: false,
+      conditiontext: true,
+      wind: false,
+      suntimes: false,
+      chump: false,
+      conditiontext: false,
+      units: "metric",
+      temperatureUnit:  "C",
+      speedUnit: "km/h",
+      iconMapping: {
+        "01d": "wi-day-sunny",
+        "01n": "wi-night-clear",
+        "02d": "wi-day-cloudy",
+        "02n": "wi-night-cloudy",
+        "03d": "wi-cloudy",
+        "03n": "wi-cloudy",
+        "04d": "wi-cloudy",
+        "04n": "wi-cloudy",
+        "09d": "wi-showers",
+        "09n": "wi-showers",
+        "10d": "wi-day-rain",
+        "10n": "wi-night-rain",
+        "11d": "wi-thunderstorm",
+        "11n": "wi-thunderstorm",
+        "13d": "wi-snow",
+        "13n": "wi-snow",
+        "50d": "wi-fog",
+        "50n": "wi-fog"
+      },
+      windDirections: ["N","NE","E","SE","S","SW","W","NW"],
+      data: null,
+      ready: function() {
+
+        if (this.imperial) {
+          this.units = "imperial"
+          this.temperatureUnit = "F";
+          this.speedUnit = "mp/h";
+        };
+        
+        this.$.ajax.addEventListener('core-response', function(e){
+          var res = e.detail.response;
+          var sunrise = new Date(res.sys.sunrise*1000);
+          var sunset = new Date(res.sys.sunset*1000);
+          function dateHelper(i) {
+            return i<10 ? "0" + i : i;
+          }
+          function getTempLevel(temp, isImperial) {
+            if (isImperial) { temp = (temp-32)*(5/9) }
+            var level = Math.round((temp + 8) / 8);
+            level = level < 0 ? 0 : level;
+            level = level > 6 ? 6 : level;
+            return level
+          }
+          this.data = {
+            icon: this.iconMapping[res.weather[0].icon],
+            conditiontext: res.weather[0].description,
+            name: res.name,
+            sunrise: dateHelper(sunrise.getHours()) + ":" + dateHelper(sunrise.getMinutes()),
+            sunset: dateHelper(sunset.getHours()) + ":" + dateHelper(sunset.getMinutes()),
+            currentTemp: Math.round(res.main.temp),
+            minTemp: Math.round(res.main.temp_min),
+            maxTemp: Math.round(res.main.temp_max),
+            windSpeed: res.wind.speed,
+            windDirection: this.windDirections[Math.round(res.wind.deg / 45) % 8],
+            cloudiness: res.clouds.all,
+            humidity: res.main.humidity,
+            pressure: res.main.pressure,
+            tempLevel: getTempLevel(res.main.temp, this.imperial)
+          }
+        }.bind(this));
+      }
+    });
+  </script>
+</polymer-element>

@@ -1,0 +1,7 @@
+{
+  "name": "at-form-daterange",
+  "private": true,
+  "dependencies": {
+	"moment-timezone": "TangereJs/moment-timezone#master"
+  }
+}

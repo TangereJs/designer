@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>current-weather</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <script src="../webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="../font-roboto/roboto.html">
+    <link rel="import" href="current-weather.html">
+
+    <style>
+      current-weather {
+        width: 320px;
+        margin: 0 10px 10px 0;       
+        font-family: "RobotoDraft", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
+        display: inline-block;
+      }
+
+    </style>
+</head>
+<body>
+
+    <!-- Using Custom Elements -->
+    <current-weather lat="37.3860500" lon="-122.0838500" name imperial auto></current-weather>
+    <current-weather city="munich, germany" name auto></current-weather>
+    <current-weather city="haimendorf, germany" name auto></current-weather>
+
+</body>
+</html>

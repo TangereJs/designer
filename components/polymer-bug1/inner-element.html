@@ -1,0 +1,17 @@
+
+<link rel="import" href="../polymer/polymer.html">
+<dom-module id="inner-element">
+  <template>   
+    <div id="msg"></div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'inner-element',
+    ready: function () {
+        this.$.msg.innerHTML = "inner element"
+    }
+  });
+</script>
+

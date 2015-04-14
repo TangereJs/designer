@@ -1,0 +1,27 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<polymer-element name="at-carbon-container">
+  <template>
+    <style>
+      :host {
+        width: 100%;
+        min-height: 8px;
+        box-sizing: border-box;
+        display:block;
+      }
+    </style>
+    <content></content>
+  </template>
+
+  <script>
+    Polymer('at-carbon-container', {
+      publish: {
+        hidden: { value: false, reflect: true },
+        layout: { value: false, reflect: true },
+        flex: { value: false, reflect: true },
+        fit: { value: false, reflect: true }
+      }
+    });
+
+  </script>
+</polymer-element>

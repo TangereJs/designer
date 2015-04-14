@@ -1,0 +1,31 @@
+{
+  "name": "core-drawer-panel",
+  "private": true,
+  "authors": [
+    "The Polymer Authors"
+  ],
+  "dependencies": {
+    "core-selector": "Polymer/core-selector#0.8-preview",
+    "core-media-query": "Polymer/core-media-query#0.8-preview",
+    "polymer": "Polymer/polymer#0.8-preview"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "~0.5.5",
+    "core-component-page": "Polymer/core-component-page#~0.5.5"
+  },
+  "main": "core-drawer-panel.html",
+  "repo": {
+    "type": "git",
+    "url": "git://github.com/Polymer/core-drawer-panel.git"
+  },
+  "homepage": "https://github.com/Polymer/core-drawer-panel",
+  "_release": "c5c3e72a5a",
+  "_resolution": {
+    "type": "branch",
+    "branch": "0.8-preview",
+    "commit": "c5c3e72a5a04c1ddca5b0cefb06fb4b940e79003"
+  },
+  "_source": "git://github.com/Polymer/core-drawer-panel.git",
+  "_target": "0.8-preview",
+  "_originalSource": "Polymer/core-drawer-panel"
+}

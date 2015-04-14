@@ -1,0 +1,7 @@
+{
+  "name": "at-app-search",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master"
+  }
+}

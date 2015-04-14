@@ -1,0 +1,23 @@
+{
+  "name": "paper-shadow",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.8-preview",
+    "layout": "polymer/layout#master"
+  },
+  "devDependencies": {
+    "web-component-tester": "~2.2.3",
+    "font-roboto": "polymer/font-roboto#~0.5.5",
+    "test-fixture": "polymer/test-fixture"
+  },
+  "homepage": "https://github.com/Polymer/paper-shadow",
+  "_release": "45aaf89a28",
+  "_resolution": {
+    "type": "branch",
+    "branch": "0.8-preview",
+    "commit": "45aaf89a28663f9fed8a304654082475c3e39f89"
+  },
+  "_source": "git://github.com/Polymer/paper-shadow.git",
+  "_target": "0.8-preview",
+  "_originalSource": "Polymer/paper-shadow"
+}

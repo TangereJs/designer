@@ -1,0 +1,17 @@
+{
+  "name": "at-form-daterange",
+  "private": true,
+  "dependencies": {
+    "moment-timezone": "TangereJs/moment-timezone#master"
+  },
+  "homepage": "https://github.com/TangereJs/at-form-daterange",
+  "_release": "da9a698145",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "da9a6981459b7a6df0c4ec739fccf8f5eab8b8c0"
+  },
+  "_source": "git://github.com/TangereJs/at-form-daterange.git",
+  "_target": "master",
+  "_originalSource": "TangereJs/at-form-daterange"
+}
