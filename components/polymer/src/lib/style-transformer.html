@@ -81,7 +81,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // a string of scoped css where each selector is transformed to include
     // a class created from the scope. ShadowDOM selectors are also transformed
     // (e.g. :host) to use the scoping selector.
-    function transformCss(rules, scope, ext, callback, useAttr) {      
+    function transformCss(rules, scope, ext, callback, useAttr) {
       var hostScope = calcHostScope(scope, ext);
       scope = calcElementScope(scope, useAttr);
       return Polymer.StyleUtil.toCssText(rules, function(rule) {

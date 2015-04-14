@@ -37,11 +37,11 @@
     "paper-tabs": "Polymer/paper-tabs#master"
   },
   "homepage": "https://github.com/Polymer/core-list",
-  "_release": "0ed2fae3b0",
+  "_release": "4f4172fa27",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "0ed2fae3b04b4e044b4ee59cc67f10e1868923c1"
+    "commit": "4f4172fa277ba57d49cc83130cb49b2c8b4f6105"
   },
   "_source": "git://github.com/Polymer/core-list.git",
   "_target": "master",
