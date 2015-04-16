@@ -16,11 +16,11 @@
     "test-fixture": "Polymer/test-fixture#master"
   },
   "homepage": "https://github.com/Polymer/core-selector",
-  "_release": "77f77bc810",
+  "_release": "e402e81cb5",
   "_resolution": {
     "type": "branch",
     "branch": "0.8-preview",
-    "commit": "77f77bc81078fe262d969746b27f9b5064e8e4a8"
+    "commit": "e402e81cb5324c193ba894414ae81a60e42dd321"
   },
   "_source": "git://github.com/Polymer/core-selector.git",
   "_target": "0.8-preview",
