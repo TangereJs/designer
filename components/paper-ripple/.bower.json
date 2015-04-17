@@ -12,11 +12,11 @@
     "test-fixture": "polymer/test-fixture#~0.1.0"
   },
   "homepage": "https://github.com/Polymer/paper-ripple",
-  "_release": "857ebb38ed",
+  "_release": "01c01ed5ae",
   "_resolution": {
     "type": "branch",
     "branch": "0.8-preview",
-    "commit": "857ebb38ed07376a0d6c064cce196b5781f5493b"
+    "commit": "01c01ed5aef87c5def86b6f1fc38e07da44e2a25"
   },
   "_source": "git://github.com/Polymer/paper-ripple.git",
   "_target": "0.8-preview",
