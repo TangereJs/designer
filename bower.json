@@ -44,6 +44,7 @@
     "at-core-list": "0.8-preview",
     "at-carbon-message": "0.8-preview",
     "marked-element": "0.8-preview",
-    "code-mirror": "0.8-preview"
+    "code-mirror": "0.8-preview",
+    "at-core-form": "0.8-preview"
   }
 }
