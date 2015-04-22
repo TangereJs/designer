@@ -19,16 +19,15 @@
     "webcomponentsjs": "^0.6.0"
   },
   "devDependencies": {
-    "iron-doc-viewer": "PolymerElements/iron-doc-viewer#master",
     "web-component-tester": "*"
   },
   "private": true,
   "homepage": "https://github.com/Polymer/polymer",
-  "_release": "ec80eb589f",
+  "_release": "cc0a6780bb",
   "_resolution": {
     "type": "branch",
     "branch": "0.8-preview",
-    "commit": "ec80eb589fe461dad88b366a9de9b3a30ee6b777"
+    "commit": "cc0a6780bb818aaa1aedf515136c0a839e7b72ef"
   },
   "_source": "git://github.com/Polymer/polymer.git",
   "_target": "0.8-preview",
