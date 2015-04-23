@@ -29,6 +29,7 @@ at-form-input
 at-form-lookup
 at-form-markdown
 at-form-rule-edit
+at-form-password
 code-mirror
 core-media-query
 liquid-template
