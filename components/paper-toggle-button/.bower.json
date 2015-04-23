@@ -6,11 +6,11 @@
     "paper-radio-button": "Polymer/paper-radio-button#master"
   },
   "homepage": "https://github.com/Polymer/paper-toggle-button",
-  "_release": "bdef538be0",
+  "_release": "1a459137b1",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "bdef538be0714c57d7e812782fa62009d575c7e0"
+    "commit": "1a459137b193cda0b7c8307f9b654f9dc8867bb1"
   },
   "_source": "git://github.com/Polymer/paper-toggle-button.git",
   "_target": "master",

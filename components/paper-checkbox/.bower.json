@@ -14,11 +14,11 @@
     "core-label": "Polymer/core-label#~0.5.4"
   },
   "homepage": "https://github.com/Polymer/paper-checkbox",
-  "_release": "e802fa6a42",
+  "_release": "c37dd8a8eb",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "e802fa6a4227faca65044bdc86c1399ba01b05d2"
+    "commit": "c37dd8a8eb2378893eae5e8496f95b293416c2fb"
   },
   "_source": "git://github.com/Polymer/paper-checkbox.git",
   "_target": "master",
