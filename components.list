@@ -30,6 +30,7 @@ at-form-lookup
 at-form-markdown
 at-form-rule-edit
 at-form-password
+at-form-image
 code-mirror
 core-media-query
 liquid-template
