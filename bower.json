@@ -45,6 +45,7 @@
     "at-carbon-message": "0.8-preview",
     "marked-element": "0.8-preview",
     "code-mirror": "0.8-preview",
-    "at-core-form": "0.8-preview"
+    "at-core-form": "0.8-preview",
+    "at-form-codemirror": "0.8-preview"
   }
 }
