@@ -21,11 +21,11 @@
     "test",
     "tests"
   ],
-  "_release": "fb54ae3856",
+  "_release": "635690660e",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "fb54ae3856341ef4bd3acf877ccf24836fc079d9"
+    "commit": "635690660ed75501a40e60de60a5f62bd3dede24"
   },
   "_source": "git://github.com/michael/github.git",
   "_target": "master",

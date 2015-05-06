@@ -26,16 +26,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    */
   Polymer({
 
-    is: 'x-if',
+    is: 'dom-if',
     extends: 'template',
+
+    /**
+     * Fired whenever DOM is added or removed/hidden by this template (by
+     * default, rendering occurs lazily).  To force immediate rendering, call
+     * `render`.
+     *
+     * @event dom-change
+     */
 
     properties: {
 
+      /**
+       * A boolean indicating whether this template should stamp.
+       */
       'if': {
         type: Boolean,
         value: false
       },
 
+      /**
+       * When true, elements will be removed from DOM and discarded when `if`
+       * becomes false and re-created and added back to the DOM when `if`
+       * becomes true.  By default, stamped elements will be hidden but left
+       * in the DOM when `if` becomes false, which is generally results
+       * in better performance.
+       */
       restamp: {
         type: Boolean,
         value: false
@@ -78,6 +96,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       if (!this.restamp && this._instance) {
         this._hideTemplateChildren = !this.if;
       }
+      if (this.if != this._lastIf) {
+        this.fire('dom-change');
+        this._lastIf = this.if;
+      }
     },
 
     _ensureInstance: function() {
@@ -95,7 +117,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       if (this._instance) {
         var c = this._instance._children;
         if (c) {
-          // use first child parent, for case when x-if may have been detached
+          // use first child parent, for case when dom-if may have been detached
           var parent = Polymer.dom(Polymer.dom(c[0]).parentNode);
           c.forEach(function(n) {
             parent.removeChild(n);
@@ -134,8 +156,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // notifying parent.<prop> path change on instance
     _forwardParentProp: function(prop, value) {
       if (this._instance) {
-        this._instance.parent[prop] = value;
-        this._instance.notifyPath('parent.' + prop, value, true);
+        this._instance[prop] = value;
       }
     },
 
@@ -144,7 +165,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // notifying parent.<path> path change on each row
     _forwardParentPath: function(path, value) {
       if (this._instance) {
-        this._instance.notifyPath('parent.' + path, value, true);
+        this._instance.notifyPath(path, value, true);
       }
     }
 
