@@ -1,5 +1,5 @@
 <!--
-Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
@@ -8,114 +8,81 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <!--
-`core-meta` is a generic element you can use for sharing information across the DOM tree.
-It uses [monostate pattern](http://c2.com/cgi/wiki?MonostatePattern) such that any
-instance of core-meta has access to the shared
-information. You can use `core-meta` to share whatever you want (or create an extension
-[like x-meta] for enhancements).
+`core-meta` provides a method of constructing a self-organizing database.
+It is useful to collate element meta-data for things like catalogs and for 
+designer.
 
-The `core-meta` instances containing your actual data can be loaded in an import,
-or constructed in any way you see fit. The only requirement is that you create them
-before you try to access them.
+Example, an element folder has a `metadata.html` file in it, that contains a 
+`core-meta`, something like this:
 
-Examples:
+    <core-meta id="my-element" label="My Element">
+      <property name="color" value="blue"></property>
+    </core-meta>
 
-If I create an instance like this:
+An application can import as many of these files as it wants, and then use 
+`core-meta` again to access the collected data.
 
-    <core-meta key="info" keyUrl="foo/bar"></core-meta>
+    <script>
+      var meta = document.createElement('core-meta');
+      console.log(meta.list); // dump a list of all meta-data elements that have been created
+    </script>
 
-Note that keyUrl="foo/bar" is the metadata I've defined. I could define more
-attributes or use child nodes to define additional metadata.
+Use `byId(id)` to retrive a specific core-meta.
 
-Now I can access that element (and it's metadata) from any core-meta instance
-via the byKey method, e.g.
+    <script>
+      var meta = document.createElement('core-meta');
+      console.log(meta.byId('my-element'));
+    </script>
 
-    meta.byKey('info').getAttribute('keyUrl').
+By default all meta-data are stored in a single databse.  If your meta-data 
+have different types and want them to be stored separately, use `type` to 
+differentiate them.
 
-Pure imperative form would be like:
+Example:
 
-    document.createElement('core-meta').byKey('info').getAttribute('keyUrl');
+    <core-meta id="x-foo" type="xElt"></core-meta>
+    <core-meta id="x-bar" type="xElt"></core-meta>
+    <core-meta id="y-bar" type="yElt"></core-meta>
 
-Or, in a Polymer element, you can include a meta in your template:
-
-    <core-meta id="meta"></core-meta>
-    ...
-    this.$.meta.byKey('info').getAttribute('keyUrl');
+    <script>
+      var meta = document.createElement('core-meta');
+      meta.type = 'xElt';
+      console.log(meta.list);
+    </script>
 
 @group Polymer Core Elements
 @element core-meta
+@homepage github.io
 -->
 
 <link rel="import" href="../polymer/polymer.html">
 
+<polymer-element name="core-meta" attributes="label type" hidden>
 <script>
 
   (function() {
-
-    var SKIP_KEY = 'meta';
+    
+    var SKIP_ID = 'meta';
     var metaData = {}, metaArray = {};
 
-    Polymer({
-      is: 'core-meta',
-
-      properties: {
-        /**
-         * The type of meta-data.  All meta-data with the same type with be
-         * stored together.
-         *
-         * @attribute type
-         * @type String
-         * @default 'default'
-         */
-        type: {
-          type: String,
-          value: 'default'
-        },
-
-        /**
-         * The key used to store the `value` under the `type` namespace.
-         *
-         * @attribute key
-         * @type String
-         * @default ''
-         */
-        key: {
-          type: String,
-          value: '',
-          notify: true,
-          observer: 'keyChanged'
-        },
-
-        /**
-         * The value of the meta-data to store. If no value is specified, the
-         * value defualts to a self reference (`this`).
-         *
-         * @attribute value
-         * @type *
-         * @default this
-         */
-        value: {
-          type: String,
-          value: function () {
-            return this;
-          },
-          notify: true,
-          observer: 'valueChanged'
-        }
-      },
-
+    Polymer('core-meta', {
+      
+      /**
+       * The type of meta-data.  All meta-data with the same type with be
+       * stored together.
+       * 
+       * @attribute type
+       * @type string
+       * @default 'default'
+       */
+      type: 'default',
+      
+      alwaysPrepare: true,
+      
       ready: function() {
-        this.resetRegistration(this.key, this.value);
+        this.register(this.id);
       },
-
-      valueChanged: function (newValue, oldValue) {
-        this.resetRegistration(this.key, oldValue);
-      },
-
-      keyChanged: function (newKey, oldKey) {
-        this.resetRegistration(oldKey, this.value);
-      },
-
+      
       get metaArray() {
         var t = this.type;
         if (!metaArray[t]) {
@@ -123,7 +90,7 @@ Or, in a Polymer element, you can include a meta in your template:
         }
         return metaArray[t];
       },
-
+      
       get metaData() {
         var t = this.type;
         if (!metaData[t]) {
@@ -131,60 +98,48 @@ Or, in a Polymer element, you can include a meta in your template:
         }
         return metaData[t];
       },
-
+      
+      register: function(id, old) {
+        if (id && id !== SKIP_ID) {
+          this.unregister(this, old);
+          this.metaData[id] = this;
+          this.metaArray.push(this);
+        }
+      },
+      
+      unregister: function(meta, id) {
+        delete this.metaData[id || meta.id];
+        var i = this.metaArray.indexOf(meta);
+        if (i >= 0) {
+          this.metaArray.splice(i, 1);
+        }
+      },
+      
       /**
-       * Returns a list of all meta-data values within the same type.
-       *
+       * Returns a list of all meta-data elements with the same type.
+       * 
        * @property list
-       * @type Array
+       * @type array
+       * @default []
        */
       get list() {
         return this.metaArray;
       },
-
+      
       /**
-       * Retrieves meta data value by key.
+       * Retrieves meta-data by ID.
        *
-       * @method byKey
-       * @param {String} key The key of the meta-data to be returned.
-       * @returns *
+       * @method byId
+       * @param {String} id The ID of the meta-data to be returned.
+       * @returns Returns meta-data.
        */
-      byKey: function(key) {
-        return this.metaData[key];
-      },
-
-      resetRegistration: function (oldKey, oldValue) {
-        this.unregister(oldKey, oldValue);
-        this.registerSelf();
-      },
-
-      unregisterSelf: function () {
-        this.unregister(this.key, this.value);
-      },
-
-      registerSelf: function() {
-        var key = this.key;
-        if (key !== '' && key !== SKIP_KEY) {
-          this.metaData[key] = this.value;
-          this.metaArray.push(this.value);
-        }
-      },
-
-      unregister: function(key, value) {
-        var index;
-
-        if (!(key in this.metaData)) {
-          return;
-        }
-
-        delete this.metaData[key];
-        index = this.metaArray.indexOf(value);
-        if (index >= 0) {
-          this.metaArray.splice(index, 1);
-        }
+      byId: function(id) {
+        return this.metaData[id];
       }
+      
     });
-
+    
   })();
-
+  
 </script>
+</polymer-element>

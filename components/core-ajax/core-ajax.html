@@ -306,7 +306,7 @@ element.
     },
 
     observers: {
-      'url method auto headers contentType body sync handleAs withCredentials':
+      'url method headers contentType body sync handleAs withCredentials':
         'requestOptionsChanged'
     },
 
@@ -369,7 +369,7 @@ element.
       };
     },
 
-    requestOptionsChanged: function() {      
+    requestOptionsChanged: function() {
       if (this.auto) {
         this.generateRequest();
       }

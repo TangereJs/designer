@@ -271,7 +271,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _modelForPath: function(path) {
-        return path.split('.').shift();
+        var dot = path.indexOf('.');
+        return (dot < 0) ? path : path.slice(0, dot);
       },
 
       _EVENT_CHANGED: '-changed',
@@ -284,10 +285,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           object: array,
           type: 'splice'
         }];
-        this.notifyPath(path + '.splices', {
+        var change = {
           keySplices: Polymer.Collection.get(array).applySplices(splices),
           indexSplices: splices
-        });
+        };
+        this.set(path + '.splices', change);
+        // Null here to allow potentially large splice records to be GC'ed
+        change.keySplices = null;
+        change.indexSplices = null;
       },
 
       /**

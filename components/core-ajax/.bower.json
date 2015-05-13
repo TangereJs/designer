@@ -1,6 +1,9 @@
 {
   "name": "core-ajax",
   "private": true,
+  "main": [
+    "core-ajax.html"
+  ],
   "dependencies": {
     "polymer": "Polymer/polymer#0.8-preview",
     "promise-polyfill": "polymerlabs/promise-polyfill#master"
@@ -13,14 +16,14 @@
     "layout": "polymer/layout",
     "font-roboto": "polymer/font-roboto#~0.5.5"
   },
-  "homepage": "https://github.com/Polymer/core-ajax",
-  "_release": "21713fc3b8",
+  "homepage": "https://github.com/TangereJs/core-ajax",
+  "_release": "ab1ade6ad9",
   "_resolution": {
     "type": "branch",
-    "branch": "0.8-preview",
-    "commit": "21713fc3b80f1e49d49896324a7282ccd8ff44b6"
+    "branch": "0.8-preview-main",
+    "commit": "ab1ade6ad9ad3180f29d4c143cee23d15abce568"
   },
-  "_source": "git://github.com/Polymer/core-ajax.git",
-  "_target": "0.8-preview",
-  "_originalSource": "Polymer/core-ajax"
+  "_source": "git://github.com/TangereJs/core-ajax.git",
+  "_target": "0.8-preview-main",
+  "_originalSource": "TangereJs/core-ajax"
 }

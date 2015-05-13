@@ -1,28 +1,17 @@
 {
   "name": "core-meta",
   "private": true,
-  "main": "core-meta.html",
-  "authors": [
-    "Frankie Fu <ffu@google.com>",
-    "The Polymer Authors"
-  ],
-  "repository": "https://github.com/Polymer/core-meta/tree/0.8-preview",
   "dependencies": {
-    "polymer": "Polymer/polymer#0.8-preview"
-  },
-  "devDependencies": {
-    "webcomponentsjs": "webcomponents/webcomponentsjs#master",
-    "test-fixture": "polymer/test-fixture#master",
-    "web-component-tester": "~2.2.6"
+    "polymer": "Polymer/polymer#master"
   },
   "homepage": "https://github.com/Polymer/core-meta",
-  "_release": "70c4f14897",
+  "_release": "f4cc4d5d90",
   "_resolution": {
     "type": "branch",
-    "branch": "0.8-preview",
-    "commit": "70c4f148970f69ef99e42efc757026b3a128bf14"
+    "branch": "master",
+    "commit": "f4cc4d5d9097720acfc3499726b775086ddc84be"
   },
   "_source": "git://github.com/Polymer/core-meta.git",
-  "_target": "0.8-preview",
+  "_target": "master",
   "_originalSource": "Polymer/core-meta"
 }

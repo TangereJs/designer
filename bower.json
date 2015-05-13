@@ -2,17 +2,8 @@
   "name": "designer",
   "private": true,
   "dependencies": {
-    "webcomponentsjs": "Polymer/webcomponentsjs#master",
     "polymer": "Polymer/polymer#0.8-preview",
-    "code-mirror": "TangereJS/code-mirror#0.8-preview",
-    "github-elements": "PolymerLabs/github-elements#master",
-    "x-meta": "PolymerLabs/x-meta#master",
-    "inspector-elements": "PolymerLabs/inspector-elements#master",
-    "core-icons": "TangereJs/core-icons#master",
-    "core-media-query": "TangereJs/core-media-query#master",
-    "marked-element": "TangereJs/marked-element#0.8-preview",
-    "core-elements": "TangereJs/core-elements#master",
-    "paper-elements": "Polymer/paper-elements#0.8-preview",
+    "jquery2-import": "Polymer/jquery2-import#master",
     "at-elements": "TangereJs/at-elements#0.8-preview"
   },
   "resolutions": {
@@ -47,6 +38,7 @@
     "code-mirror": "0.8-preview",
     "at-core-form": "0.8-preview",
     "at-form-codemirror": "0.8-preview",
-    "iron-flex-layout": "master"
+    "iron-flex-layout": "master",
+    "iron-meta": "master"
   }
 }
