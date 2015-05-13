@@ -32,7 +32,8 @@ at-form-markdown
 at-form-rule-edit
 at-form-password
 at-form-image
-at-form-datarange
+at-form-date
+at-form-daterange
 code-mirror
 core-media-query
 liquid-template
