@@ -2,8 +2,6 @@
   "name": "at-carbon-action",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#master",
-    "core-icon": "Polymer/core-icon#master",
-    "paper-ripple": "Polymer/paper-ripple#master"
+    "polymer": "Polymer/polymer#master"
   }
 }
