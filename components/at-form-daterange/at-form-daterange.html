@@ -290,7 +290,7 @@
       // This should also be reviewed and corrected when polymer team FIXES polymer because it sucks now. (13.052015)
       this.timezone = this.timezone === undefined ? this.getAttribute('timezone') : this.timezone;
       if (this.timezone === null) {
-        this.timezone = 'America/NewYork';
+        this.timezone = 'America/New_York';
       }
       return moment.tz(this.timezone).format("YYYY-MM-DD");
     }

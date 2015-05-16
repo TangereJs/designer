@@ -700,7 +700,7 @@ Liquid.Condition = Class.extend({
 
     left = context.get(left);
     right = context.get(right);
-    op = Liquid.Condition.operators[op];
+    op = Liquid.Condition.operators[op.replace("&gt;",">").replace("&lt;","<")];
     if(!op)
       { throw ("Unknown operator "+ op); }
 
@@ -1058,7 +1058,7 @@ Liquid.Template.registerTag( 'for', Liquid.Block.extend({
 
 Liquid.Template.registerTag( 'if', Liquid.Block.extend({
 
-  tagSyntax: /("[^"]+"|'[^']+'|[^\s,|]+)\s*([=!<>a-z_]+)?\s*("[^"]+"|'[^']+'|[^\s,|]+)?/,
+  tagSyntax: /("[^"]+"|'[^']+'|[^\s,|]+)\s*([=!&;<>a-z_]+)?\s*("[^"]+"|'[^']+'|[^\s,|]+)?/,
 
   init: function(tag, markup, tokens) {
     this.nodelist = [];

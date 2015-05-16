@@ -3,6 +3,8 @@
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#0.8-preview",
+    "iron-elements": "PolymerElements/iron-elements#master",
+    "paper-elements": "PolymerElements/paper-elements#master",
     "jquery2-import": "Polymer/jquery2-import#master",
     "at-elements": "TangereJs/at-elements#0.8-preview"
   },
@@ -26,7 +28,7 @@
     "paper-shadow": "0.8-preview",
     "layout": "master",
     "core-iconset": "0.8-preview",
-    "paper-ripple": "0.8-preview",
+    "paper-ripple": "master",
     "at-core-theme": "0.8-preview",
     "at-core-activity": "0.8-preview",
     "webcomponentsjs": "master",
@@ -34,11 +36,13 @@
     "at-core-spinner": "0.8-preview",
     "at-core-list": "0.8-preview",
     "at-carbon-message": "0.8-preview",
-    "marked-element": "0.8-preview",
+    "marked-element": "master",
     "code-mirror": "0.8-preview",
     "at-core-form": "0.8-preview",
     "at-form-codemirror": "0.8-preview",
     "iron-flex-layout": "master",
-    "iron-meta": "master"
+    "iron-meta": "master",
+    "iron-iconset-svg": "master",
+    "promise-polyfill": "master"
   }
 }

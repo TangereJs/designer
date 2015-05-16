@@ -48,7 +48,9 @@ Liquid.Condition = Class.extend({
 
     left = context.get(left);
     right = context.get(right);
-    op = Liquid.Condition.operators[op];
+    // the browser escapes < > in templates, so here we convert them back for comparision operators
+    op = Liquid.Condition.operators[op.replace("&gt;", ">").replace("&lt;", "<")];
+    
     if(!op)
       { throw ("Unknown operator "+ op); }
 

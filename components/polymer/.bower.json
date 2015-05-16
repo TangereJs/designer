@@ -16,18 +16,18 @@
     "url": "https://github.com/Polymer/polymer.git"
   },
   "dependencies": {
-    "webcomponentsjs": "^0.6.0"
+    "webcomponentsjs": "^0.7.0"
   },
   "devDependencies": {
     "web-component-tester": "*"
   },
   "private": true,
   "homepage": "https://github.com/Polymer/polymer",
-  "_release": "275b876ce3",
+  "_release": "1aff5e214b",
   "_resolution": {
     "type": "branch",
     "branch": "0.8-preview",
-    "commit": "275b876ce358dc9a5acf250ef74dea63b81f1543"
+    "commit": "1aff5e214bf539e965b6b52bec08a2fbe69a98ba"
   },
   "_source": "git://github.com/Polymer/polymer.git",
   "_target": "0.8-preview",
