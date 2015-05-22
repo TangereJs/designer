@@ -45,11 +45,11 @@
     "paper-toggle-button": "PolymerElements/paper-toggle-button#^0.9.0",
     "paper-toolbar": "PolymerElements/paper-toolbar#^0.9.0"
   },
-  "_release": "01f2bc4168",
+  "_release": "541fae0ecc",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "01f2bc41685787417fa76248ff3a420ab4b29d6c"
+    "commit": "541fae0eccae7870faa29ff00d0b018870816485"
   },
   "_source": "git://github.com/PolymerElements/paper-elements.git",
   "_target": "master",

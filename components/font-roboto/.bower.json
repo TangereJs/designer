@@ -1,11 +1,11 @@
 {
   "name": "font-roboto",
   "homepage": "https://github.com/Polymer/font-roboto",
-  "_release": "868680d1e8",
+  "_release": "10c297a5bf",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "868680d1e886091e9bc2539659ef6626a8cee5e8"
+    "commit": "10c297a5bf5d6e48e2c27c9e401161c02e24892a"
   },
   "_source": "git://github.com/Polymer/font-roboto.git",
   "_target": "master",

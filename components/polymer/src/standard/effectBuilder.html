@@ -21,8 +21,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * property | ann | anCmp | cmp | obs | cplxOb | description
    * ---------|-----|-------|-----|-----|--------|----------------------------------------
    * method   |     | X     | X   | X   | X      | function name to call on instance
-   * args     |     | X     | X   |     | X      | list of all arg descriptors for fn
-   * arg      |     | X     | X   |     | X      | arg descriptor for effect
+   * args     |     | X     | X   |     | X      | arg descriptors for triggers of fn
+   * trigger  |     | X     | X   |     | X      | describes triggering dependency (one of args)
    * property |     |       | X   | X   |        | property for effect to set or get
    * name     | X   |       |     |     |        | annotation value (text inside {{...}})
    * kind     | X   | X     |     |     |        | binding type (property or attribute)
@@ -71,38 +71,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _parseMethod: function(expression) {
-      var m = expression.match(/(\w*)\((.*)\)/);
-      if (m) {
-        return {
-          method: m[1],
-          args: m[2].split(/[^\w.*]+/).map(this._parseArg, this)
-        };
-      }
-    },
-
-    _parseArg: function(arg) {
-      var a = {
-        name: arg,
-        model: this._modelForPath(arg)
-      };
-      a.structured = arg.indexOf('.') > 0;
-      if (a.structured) {
-        a.wildcard = (arg.slice(-2) == '.*');
-        if (a.wildcard) {
-          a.name = arg.slice(0, -2);
-        }
-      }
-      return a;
-    },
-
     _addComputedEffect: function(name, expression) {
       var sig = this._parseMethod(expression);
       sig.args.forEach(function(arg) {
         this._addPropertyEffect(arg.model, 'compute', {
           method: sig.method,
           args: sig.args,
-          arg: arg,
+          trigger: arg,
           property: name
         });
       }, this);
@@ -129,7 +104,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this._addPropertyEffect(arg.model, 'complexObserver', {
           method: sig.method,
           args: sig.args,
-          arg: arg
+          trigger: arg
         });
       }, this);
     },
@@ -166,17 +141,99 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     _addAnnotatedComputationEffect: function(note, index) {
       var sig = note.signature;
-      sig.args.forEach(function(arg) {
-        this._addPropertyEffect(arg.model, 'annotatedComputation', {
-          kind: note.kind,
-          method: sig.method,
-          args: sig.args,
-          arg: arg,
-          property: note.name,
-          index: index,
-          negate: note.negate
-        });
+      if (sig.static) {
+        this.__addAnnotatedComputationEffect('__static__', index, note, sig, null);
+      } else {
+        sig.args.forEach(function(arg) {
+          if (!arg.literal) {
+            this.__addAnnotatedComputationEffect(arg.model, index, note, sig, arg);
+          }
+        }, this);
+      }
+    },
+
+    __addAnnotatedComputationEffect: function(property, index, note, sig, trigger) {
+      this._addPropertyEffect(property, 'annotatedComputation', {
+        index: index,
+        kind: note.kind,
+        property: note.name,
+        negate: note.negate,
+        method: sig.method,
+        args: sig.args,
+        trigger: trigger
+      });
+    },
+
+    // method expressions are of the form: `name([arg1, arg2, .... argn])`
+    _parseMethod: function(expression) {
+      var m = expression.match(/(\w*)\((.*)\)/);
+      if (m) {
+        var sig = { method: m[1], static: true };
+        if (m[2].trim()) {
+          // replace escaped commas with comma entity, split on un-escaped commas
+          var args = m[2].replace(/\\,/g, '&comma;').split(',');
+          return this._parseArgs(args, sig);
+        } else {
+          sig.args = Polymer.nar;
+          return sig;
+        }
+      }
+    },
+
+    _parseArgs: function(argList, sig) {
+      sig.args = argList.map(function(rawArg) {
+        var arg = this._parseArg(rawArg);
+        if (!arg.literal) {
+          sig.static = false;
+        }
+        return arg;
       }, this);
+      return sig;
+    },
+
+    _parseArg: function(rawArg) {
+      // clean up whitespace
+      var arg = rawArg.trim()
+        // replace comma entity with comma
+        .replace(/&comma;/g, ',')
+        // repair extra escape sequences; note only commas strictly need
+        // escaping, but we allow any other char to be escaped since its
+        // likely users will do this
+        .replace(/\\(.)/g, '\$1')
+        ;
+      // basic argument descriptor
+      var a = {
+        name: arg,
+        model: this._modelForPath(arg)
+      };
+      // detect literal value (must be String or Number)
+      var fc = arg[0];
+      if (fc >= '0' && fc <= '9') {
+        fc = '#';
+      }
+      switch(fc) {
+        case "'":
+        case '"':
+          a.value = arg.slice(1, -1);
+          a.literal = true;
+          break;
+        case '#':
+          a.value = Number(arg);
+          a.literal = true;
+          break;
+      }
+      // if not literal, look for structured path
+      if (!a.literal) {
+        // detect structured path (has dots)
+        a.structured = arg.indexOf('.') > 0;
+        if (a.structured) {
+          a.wildcard = (arg.slice(-2) == '.*');
+          if (a.wildcard) {
+            a.name = arg.slice(0, -2);
+          }
+        }
+      }
+      return a;
     },
 
     // instancing
@@ -201,7 +258,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (property === 'className') {
           value = this._scopeElementClass(node, value);
         }
+        // Some browsers serialize `undefined` textContent to `"undefined"`
+        if (property === 'textContent') {
+          value = value == undefined ? '' : value;
+        }
         return node[property] = value;
+      }
+    },
+
+    _executeStaticEffects: function() {
+      if (this._propertyEffects.__static__) {
+        this._effectEffects('__static__', null, this._propertyEffects.__static__);
       }
     }
 

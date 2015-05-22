@@ -1,6 +1,7 @@
 {
   "name": "at-carbon-action",
   "private": true,
+  "version": "1.0.0.1",
   "dependencies": {
     "polymer": "Polymer/polymer#master",
     "core-icon": "Polymer/core-icon#master",
