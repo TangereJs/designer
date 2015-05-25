@@ -41,6 +41,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _setupRoot: function() {
         if (this._useContent) {
           this._createLocalRoot();
+          // light elements may not be upgraded if they are light children 
+          // and there is no configuration flow (no dataHost) and they are 
+          // removed from document by shadyDOM distribution 
+          // so we ensure this here
+          if (!this.dataHost) {
+            upgradeLightChildren(this._lightChildren);
+          }
         }
       },
 
@@ -229,7 +236,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this._updateChildNodes(this, this._composeNode(this));
         var p$ = this.shadyRoot._insertionPoints;
         for (var i=0, l=p$.length, p, parent; (i<l) && (p=p$[i]); i++) {
-          parent = p.lightParent || p.parentNode;
+          parent = p._lightParent || p.parentNode;
           if (!parent._useContent && (parent !== this) &&
             (parent !== this.shadyRoot)) {
             this._updateChildNodes(parent, this._composeNode(parent));
@@ -349,7 +356,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     // dirty a shadyRoot if a change may trigger reprojection!
     function maybeRedistributeParent(content, host) {
-      var parent = content.lightParent;
+      var parent = content._lightParent;
       if (parent && parent.shadyRoot &&
           hasInsertionPoint(parent.shadyRoot) && 
           parent.shadyRoot._distributionClean) {
@@ -422,6 +429,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     }
 
+    var needsUpgrade = window.CustomElements && !CustomElements.useNative;
+
+    function upgradeLightChildren(children) {
+      if (needsUpgrade && children) {
+        for (var i=0; i < children.length; i++) {
+          CustomElements.upgrade(children[i]);
+        }
+      }
+    }
   })();
 
 </script>

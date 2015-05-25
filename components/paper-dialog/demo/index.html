@@ -24,6 +24,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../../paper-dialog-scrollable/paper-dialog-scrollable.html">
   <link rel="import" href="../../paper-styles/paper-styles.html">
   <link rel="import" href="../../paper-styles/demo-pages.html">
+  <link rel="import" href="../../neon-animation/neon-animations.html">
+
   <link rel="stylesheet" href="../../paper-styles/demo.css">
 
   <style is="custom-style">
@@ -86,7 +88,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </paper-dialog-scrollable>
       <div class="buttons">
         <paper-button dialog-dismiss>Cancel</paper-button>
-        <paper-button dialog-confirm>OK</paper-button>
+        <paper-button dialog-confirm autofocus>OK</paper-button>
       </div>
     </paper-dialog>
 
@@ -96,14 +98,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="buttons">
         <paper-button >More Info...</paper-button>
         <paper-button dialog-dismiss>Decline</paper-button>
-        <paper-button dialog-confirm>Accept</paper-button>
+        <paper-button dialog-confirm autofocus>Accept</paper-button>
       </div>
     </paper-dialog>
 
-    <paper-dialog id="modal" with-backdrop>
+    <paper-dialog id="modal" modal>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <div class="buttons">
-        <paper-button dialog-confirm>Tap me to close</paper-button>
+        <paper-button dialog-confirm autofocus>Tap me to close</paper-button>
       </div>
     </paper-dialog>
 
@@ -120,6 +122,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <paper-dialog id="position" heading="Custom Size &amp; Position" class="size-position">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </paper-dialog>
+  </section>
+
+  <section onclick="clickHandler(event)">
+    <h4>Transitions</h4>
+    <paper-button data-dialog="animated">transitions</paper-button>
+    <paper-dialog id="animated" with-backdrop entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop>
+      <h2>Dialog Title</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </paper-dialog>
   </section>
 

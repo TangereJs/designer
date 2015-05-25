@@ -43,13 +43,14 @@
     "paper-tabs": "PolymerElements/paper-tabs#^0.9.0",
     "paper-toast": "PolymerElements/paper-toast#^0.9.0",
     "paper-toggle-button": "PolymerElements/paper-toggle-button#^0.9.0",
-    "paper-toolbar": "PolymerElements/paper-toolbar#^0.9.0"
+    "paper-toolbar": "PolymerElements/paper-toolbar#^0.9.0",
+    "paper-scroll-header-panel": "PolymerElements/paper-scroll-header-panel#^0.9.0"
   },
-  "_release": "541fae0ecc",
+  "_release": "614fffe48d",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "541fae0eccae7870faa29ff00d0b018870816485"
+    "commit": "614fffe48db074762181ee5ef14d173347c885cb"
   },
   "_source": "git://github.com/PolymerElements/paper-elements.git",
   "_target": "master",

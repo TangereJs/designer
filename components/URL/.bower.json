@@ -17,11 +17,11 @@
     "*test*",
     "playground.html"
   ],
-  "_release": "97529b5319",
+  "_release": "79d0190f9a",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "97529b53198b34be0f6a144c507699b2841b6352"
+    "commit": "79d0190f9af6a419f46a5cc23ce312aba4f66c5c"
   },
   "_source": "git://github.com/Polymer/URL.git",
   "_target": "master",

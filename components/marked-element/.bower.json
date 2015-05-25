@@ -22,11 +22,11 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "homepage": "https://github.com/PolymerElements/marked-element",
-  "_release": "6a6e6d7023",
+  "_release": "ce23521851",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "6a6e6d7023c3879f89bbd72b3b287c662293530d"
+    "commit": "ce2352185187b5f90f1892d1857cf4ce74f96b69"
   },
   "_source": "git://github.com/PolymerElements/marked-element.git",
   "_target": "master",
