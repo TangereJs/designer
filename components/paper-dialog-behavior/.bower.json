@@ -1,14 +1,13 @@
 {
   "name": "paper-dialog-behavior",
-  "version": "0.9.3",
+  "version": "1.0.0",
   "description": "Implements a behavior used for material design dialogs",
   "authors": "The Polymer Authors",
   "keywords": [
     "web-components",
-    "web-component",
     "polymer",
-    "paper",
     "dialog",
+    "overlay",
     "behavior"
   ],
   "main": [
@@ -19,29 +18,29 @@
     "type": "git",
     "url": "git://github.com/PolymerElements/paper-dialog-behavior"
   },
-  "license": "MIT",
+  "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/PolymerElements/paper-dialog-behavior",
   "ignore": [],
   "dependencies": {
-    "iron-overlay-behavior": "PolymerElements/iron-overlay-behavior#^0.9.0",
-    "paper-styles": "PolymerElements/paper-styles#^0.9.0",
-    "polymer": "Polymer/polymer#^0.9.0"
+    "iron-overlay-behavior": "PolymerElements/iron-overlay-behavior#^1.0.0",
+    "paper-styles": "PolymerElements/paper-styles#^1.0.0",
+    "polymer": "Polymer/polymer#^1.0.0"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^0.9.0",
-    "paper-button": "PolymerElements/paper-button#^0.9.0",
-    "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable#^0.9.0",
-    "test-fixture": "PolymerElements/test-fixture#^0.9.0",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "paper-button": "PolymerElements/paper-button#^1.0.0",
+    "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable#^1.0.0",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0",
     "web-component-tester": "*",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
-  "_release": "0.9.3",
+  "_release": "1.0.0",
   "_resolution": {
     "type": "version",
-    "tag": "v0.9.3",
-    "commit": "16b4dd38be55f109d3651439ed3a4d1360998986"
+    "tag": "v1.0.0",
+    "commit": "cd65087ca07495d546bc46618563e53ceacd5325"
   },
   "_source": "git://github.com/PolymerElements/paper-dialog-behavior.git",
-  "_target": "^0.9.0",
+  "_target": "^1.0.0",
   "_originalSource": "PolymerElements/paper-dialog-behavior"
 }

@@ -61,6 +61,7 @@ Examples:
 
 @group Iron Elements
 @element iron-image
+@demo demo/index.html
 -->
 
 <dom-module id="iron-image">
@@ -256,15 +257,18 @@ Examples:
       },
 
       _placeholderBackgroundUrl: {
+        type: String,
         computed: '_computePlaceholderBackgroundUrl(preload,placeholder)',
         observer: '_placeholderBackgroundUrlChanged'
       },
 
       requiresPreload: {
+        type: Boolean,
         computed: '_computeRequiresPreload(preload,loaded)'
       },
 
       canLoad: {
+        type: Boolean,
         computed: '_computeCanLoad(preventLoad, src)'
       }
 
@@ -388,4 +392,3 @@ Examples:
   });
 
 </script>
-

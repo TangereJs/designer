@@ -47,6 +47,7 @@ The element is styled to appear on top of other content by setting its `z-index`
 must ensure no element has a stacking context with a higher `z-index` than its parent stacking
 context. You should place this element as a child of `<body>` whenever possible.
 
+@demo demo/index.html
 @polymerBehavior Polymer.IronOverlayBehavior
 */
 
@@ -414,18 +415,18 @@ context. You should place this element as a child of `<body>` whenever possible.
 
   };
 
+  /** @polymerBehavior */
   Polymer.IronOverlayBehavior = [Polymer.IronFitBehavior, Polymer.IronResizableBehavior, Polymer.IronOverlayBehaviorImpl];
 
 /*
-Fired after the `iron-overlay` opens.
-@event iron-overlay-opened
-*/
+ * Fired after the `iron-overlay` opens.
+ * @event iron-overlay-opened
+ */
 
 /*
-Fired after the `iron-overlay` closes.
-@event iron-overlay-closed
-@param {Object} detail
-@param {Object} detail.canceled True if the overlay was canceled
-*/
+ * Fired after the `iron-overlay` closes.
+ * @event iron-overlay-closed {{canceled: boolean}} detail -
+ *     canceled: True if the overlay was canceled.
+ */
 
 </script>

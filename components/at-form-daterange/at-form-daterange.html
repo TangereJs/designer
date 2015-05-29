@@ -6,7 +6,7 @@
 <link rel="import" href="at-form-daterange-positioning.html" />
 
 <dom-module id="at-form-daterange">
-<!--  css file at-form-daterange.css had to be merged into module because styles were otherwise not working -->
+  <!--  css file at-form-daterange.css had to be merged into module because styles were otherwise not working -->
   <style>
     polymer-date-picker-calendar {
       display: block;
@@ -23,7 +23,7 @@
       background-color: #FFFFFF;
       display: inline-block;
       position: relative;
-      left: -25px;
+      left: -225px;
       top: 4px;
     }
     
@@ -168,7 +168,7 @@
     _scopeCssViaAttr: true,
     ready: function () {
       this.target = this.$.target;
-      
+
       // Why is this here? Here is why:
       // 1) without 
       // self.opened = true;
@@ -266,10 +266,14 @@
         this.endDate = this.format(this.newMoment().subtract(1, "months").endOf("month"));
         break;
       case 'custom':
-          // for initialization purposes (first time) startDate and endDate are set to today
-          // subject to change
-        this.startDate = this.format(this.newMoment());
-        this.endDate = this.format(this.newMoment());
+        // for initialization purposes (first time) startDate and endDate are set to today
+        // subject to change
+        if (this.startDate === '') {
+          this.startDate = this.format(this.newMoment());
+        }
+        if (this.endDate === '') {
+          this.endDate = this.format(this.newMoment());
+        }
         break;
       }
 

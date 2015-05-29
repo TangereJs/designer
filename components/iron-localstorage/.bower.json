@@ -1,33 +1,31 @@
 {
   "name": "iron-localstorage",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "description": "Provides access to local storage",
   "keywords": [
     "web-component",
-    "web-components",
     "polymer",
-    "iron",
     "storage"
   ],
   "main": "iron-localstorage.html",
-  "license": "MIT",
+  "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/PolymerElements/iron-localstorage/",
   "dependencies": {
-    "polymer": "Polymer/polymer#^0.9.0"
+    "polymer": "Polymer/polymer#^1.0.0"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^0.9.0",
-    "test-fixture": "PolymerElements/test-fixture#^0.9.0",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0",
     "web-component-tester": "*",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
-  "_release": "0.9.1",
+  "_release": "1.0.0",
   "_resolution": {
     "type": "version",
-    "tag": "v0.9.1",
-    "commit": "b1be4bc843953769a3fc17afb0a30d8e13b1af01"
+    "tag": "v1.0.0",
+    "commit": "cecc6c2578287e779ffd76056cf5cf023799fc21"
   },
   "_source": "git://github.com/PolymerElements/iron-localstorage.git",
-  "_target": "^0.9.0",
+  "_target": "^1.0.0",
   "_originalSource": "PolymerElements/iron-localstorage"
 }

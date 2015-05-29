@@ -1,14 +1,13 @@
 {
   "name": "paper-dialog",
   "description": "A Material Design dialog",
-  "version": "0.9.3",
+  "version": "1.0.0",
   "authors": "The Polymer Authors",
   "keywords": [
     "web-components",
-    "web-component",
     "polymer",
-    "paper",
-    "dialog"
+    "dialog",
+    "overlay"
   ],
   "main": "paper-dialog.html",
   "private": true,
@@ -16,20 +15,20 @@
     "type": "git",
     "url": "git://github.com/PolymerElements/paper-dialog"
   },
-  "license": "MIT",
+  "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/PolymerElements/paper-dialog",
   "ignore": [],
   "dependencies": {
-    "polymer": "Polymer/polymer#^0.9.0",
-    "paper-dialog-behavior": "PolymerElements/paper-dialog-behavior#^0.9.0",
-    "paper-styles": "PolymerElements/paper-styles#^0.9.0",
-    "neon-animation": "PolymerElements/neon-animation#^0.9.0"
+    "polymer": "Polymer/polymer#^1.0.0",
+    "paper-dialog-behavior": "PolymerElements/paper-dialog-behavior#^1.0.0",
+    "paper-styles": "PolymerElements/paper-styles#^1.0.0",
+    "neon-animation": "PolymerElements/neon-animation#^1.0.0"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^0.9.0",
-    "paper-button": "PolymerElements/paper-button#^0.9.0",
-    "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable#^0.9.0",
-    "test-fixture": "PolymerElements/test-fixture#^0.9.0",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "paper-button": "PolymerElements/paper-button#^1.0.0",
+    "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable#^1.0.0",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0",
     "web-component-tester": "*",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   }

@@ -1,7 +1,7 @@
-<link rel="import" href="../core-icons/core-icons.html" />
+<link rel="import" href="../at-carbon-icon/at-carbon-icon.html" />
 
 <dom-module id="at-form-daterange-calendar">
-<!--  css file at-form-daterange-calendar.css had to be merged into module because styles were otherwise not working -->
+  <!--  css file at-form-daterange-calendar.css had to be merged into module because styles were otherwise not working -->
   <style>
     .calendar {
       display: block;
@@ -61,7 +61,7 @@
     .calendar table > tbody > tr > td.active,
     .calendar table > tbody > tr > td.active:hover {
       background-color: #357EBD;
-      border-color: #3071a9;
+      border-color: #3071a9;      
       color: #fff;
     }
   </style>
@@ -71,12 +71,12 @@
         <thead>
           <tr>
             <th on-click="backClicked">
-              <core-icon icon="arrow-back" size="20"></core-icon>
+              <at-carbon-icon icon="arrow-left" size="20"></at-carbon-icon>
             </th>
             <th colspan="5"><span>{{monthName}}</span> <span>{{yearMonth.year}}</span>
             </th>
             <th on-click="nextClicked">
-              <core-icon icon="arrow-forward" size="20"></core-icon>
+              <at-carbon-icon icon="arrow-right" size="20"></at-carbon-icon>
             </th>
           </tr>
           <tr>
@@ -155,7 +155,9 @@
     },
     _scopeCssViaAttr: true,
     ready: function () {
-      if (!this.selectedDate) this.selectedDate = moment().format("YYYY-MM-DD");
+      if (!this.selectedDate) {
+        this.selectedDate = moment().format("YYYY-MM-DD");
+      }
       this.daysOfWeek = [0, 1, 2, 3, 4, 5, 6].map(function (n) {
         return moment().day(n).format("dd");
       });
@@ -178,19 +180,30 @@
       this.selectedDate = this.calendar[row][col].identifier;
     },
     startDateChanged: function () {
-      if (this.start) this.selectedDate = this.startDate;
-      this.date = moment(this.selectedDate);
+      if (this.start) {
+        this.selectedDate = this.startDate;
+      }
+      if (this.selectedDate !== '') {
+        this.date = moment(this.selectedDate);
+      }
     },
     endDateChanged: function () {
-      if (this.end) this.selectedDate = this.endDate;
-      this.date = moment(this.selectedDate);
+      if (this.end) {
+        this.selectedDate = this.endDate;
+      }
+      if (this.selectedDate !== '') {
+        this.date = moment(this.selectedDate);
+      }
     },
     selectedDateChanged: function () {
       if (this.selectedDate === '') {
         return;
       }
-      if (this.start) this.startDate = this.selectedDate;
-      else if (this.end) this.endDate = this.selectedDate;
+      if (this.start) {
+        this.startDate = this.selectedDate;
+      } else if (this.end) {
+        this.endDate = this.selectedDate;
+      }
       this.date = moment(this.selectedDate);
     },
     dateChanged: function (newDate, oldDate) {

@@ -1,30 +1,31 @@
 {
   "name": "iron-iconset",
-  "version": "0.9.1",
+  "version": "1.0.0",
+  "license": "http://polymer.github.io/LICENSE.txt",
   "description": "Represents a set of icons",
   "authors": [
     "The Polymer Authors"
   ],
   "private": true,
   "dependencies": {
-    "iron-meta": "PolymerElements/iron-meta#^0.9.0",
-    "polymer": "Polymer/polymer#^0.9.0"
+    "iron-meta": "PolymerElements/iron-meta#^1.0.0",
+    "polymer": "Polymer/polymer#^1.0.0"
   },
   "devDependencies": {
-    "iron-component-page": "polymerelements/iron-component-page#^0.9.0",
-    "iron-icon": "polymerelements/iron-icon#^0.9.0",
-    "test-fixture": "PolymerElements/test-fixture#^0.9.0",
+    "iron-component-page": "polymerelements/iron-component-page#^1.0.0",
+    "iron-icon": "polymerelements/iron-icon#^1.0.0",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0",
     "web-component-tester": "*",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "homepage": "https://github.com/PolymerElements/iron-iconset",
-  "_release": "0.9.1",
+  "_release": "1.0.0",
   "_resolution": {
     "type": "version",
-    "tag": "v0.9.1",
-    "commit": "4b71939811f53de2b765e5bf3babc2949f4cdb10"
+    "tag": "v1.0.0",
+    "commit": "3ce6be6b689dd8e309410b0c30d7be23a493a880"
   },
   "_source": "git://github.com/PolymerElements/iron-iconset.git",
-  "_target": "^0.9.0",
+  "_target": "^1.0.0",
   "_originalSource": "PolymerElements/iron-iconset"
 }

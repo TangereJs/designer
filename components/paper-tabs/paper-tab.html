@@ -26,9 +26,16 @@ Example:
       <paper-tab>TAB 3</paper-tab>
     </paper-tabs>
 
-@group Paper Elements
-@element paper-tab
-@homepage github.io
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--paper-tab-ink` | Ink color | `--paper-yellow-a100`
+`--paper-tab` | Mixin applied to the tab | `{}`
+`--paper-tab-content` | Mixin applied to the tab content | `{}`
+
 -->
 
 <dom-module id="paper-tab">
@@ -67,7 +74,7 @@ Example:
     }
 
     :host(:not(.iron-selected)) > .tab-content {
-      opacity: 0.6;
+      opacity: 0.8;
     }
 
     :host(:focus) .tab-content {
@@ -76,7 +83,7 @@ Example:
     }
 
     #ink {
-      color: #ffff8d;
+      color: var(--paper-tab-ink, --paper-yellow-a100);
       pointer-events: none;
     }
 
@@ -94,7 +101,7 @@ Example:
 
   <template>
 
-    <div class="tab-content flex auto center-center horizontal layout">
+    <div class="tab-content flex-auto center-center horizontal layout">
       <content></content>
     </div>
 

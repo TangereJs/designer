@@ -59,26 +59,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script>
 
     Polymer({
+      is: 'paper-button',
 
       behaviors: [
         Polymer.PaperButtonBehavior
-      ],
-
-      hostAttributes: {
-        role: 'button'
-      },
-
-      ready: function() {
-        this.raised = true;
-        if (!this.hasAttribute('role')) {
-          this.setAttribute('role', 'button');
-        }
-      },
-
-      _buttonStateChanged: function() {
-        this._calculateElevation();
-      }
-
+      ]
     });
 
   </script>

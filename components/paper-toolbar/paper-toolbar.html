@@ -10,13 +10,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-styles/paper-styles.html">
 
-<style is="custom-style">
-  :root {
-    --paper-toolbar-background: var(--default-primary-color);
-    --paper-toolbar-color: var(--text-primary-color);
-  }
-</style>
-
 <!--
 `paper-toolbar` is a horizontal bar containing items that can be used for
 label, navigation, search and actions.  The items place inside the
@@ -59,17 +52,28 @@ For `medium-tall` toolbar, the middle and bottom contents overlap and are
 pinned to the bottom.  But `middleJustify` and `bottomJustify` attributes are
 still honored separately.
 
-@group Polymer Core Elements
-@element paper-toolbar
-@homepage github.io
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--paper-toolbar-background` | Toolbar background color     | `--default-primary-color`
+`--paper-toolbar-color`      | Toolbar foreground color     | `--text-primary-color`
+`--paper-toolbar`            | Mixin applied to the toolbar | `{}`
+
+### Accessibility
+
+`<paper-toolbar>` has `role="toolbar"` by default. Any elements with the `title` attribute will
+be used as the label of the toolbar via `aria-labelledby`.
+
+@demo demo/index.html
 -->
 
 <dom-module id="paper-toolbar">
 
   <style>
     :host {
-      @apply(--paper-toolbar);
-
       /* technical */
       display: block;
       position: relative;
@@ -79,8 +83,10 @@ still honored separately.
       /* size */
       height: 64px;
 
-      background: var(--paper-toolbar-background);
-      color: var(--paper-toolbar-color);
+      background: var(--paper-toolbar-background, --default-primary-color);
+      color: var(--paper-toolbar-color, --text-primary-color);
+
+      @apply(--paper-toolbar);
     }
 
     :host(.animate) {
@@ -125,12 +131,18 @@ still honored separately.
       }
     }
 
+    #topBar {
+      position: relative;
+      z-index: 1;
+    }
+
     /* middle bar */
     #middleBar {
       position: absolute;
       top: 0;
       right: 0;
       left: 0;
+      z-index: 2;
     }
 
     :host(.tall) #middleBar,
@@ -145,6 +157,7 @@ still honored separately.
       right: 0;
       bottom: 0;
       left: 0;
+      z-index: 1;
     }
 
     /*
@@ -204,16 +217,16 @@ still honored separately.
 
   <template>
 
-    <div id="bottomBar" class$="[[_computeBarClassName(bottomJustify)]]">
-      <content select=".bottom"></content>
+    <div id="topBar" class$="[[_computeBarClassName(justify)]]">
+      <content select=":not(.middle):not(.bottom)"></content>
     </div>
 
     <div id="middleBar" class$="[[_computeBarClassName(middleJustify)]]">
       <content select=".middle"></content>
     </div>
 
-    <div id="topBar" class$="[[_computeBarClassName(justify)]]">
-      <content></content>
+    <div id="bottomBar" class$="[[_computeBarClassName(bottomJustify)]]">
+      <content select=".bottom"></content>
     </div>
 
   </template>
@@ -240,6 +253,10 @@ still honored separately.
     Polymer({
 
       is: 'paper-toolbar',
+
+      hostAttributes: {
+        'role': 'toolbar'
+      },
 
       properties: {
 
@@ -284,6 +301,50 @@ still honored separately.
           value: ''
         }
 
+      },
+
+      attached: function() {
+        this._observer = this._observe(this);
+        this._updateAriaLabelledBy();
+      },
+
+      detached: function() {
+        if (this._observer) {
+          this._observer.disconnect();
+        }
+      },
+
+      _observe: function(node) {
+        var observer = new MutationObserver(function() {
+          this._updateAriaLabelledBy();
+        }.bind(this));
+        observer.observe(node, {
+          childList: true,
+          subtree: true
+        });
+        return observer;
+      },
+
+      _updateAriaLabelledBy: function() {
+        var labelledBy = [];
+        var contents = Polymer.dom(this.root).querySelectorAll('content');
+        for (var content, index = 0; content = contents[index]; index++) {
+          var nodes = Polymer.dom(content).getDistributedNodes();
+          for (var node, jndex = 0; node = nodes[jndex]; jndex++) {
+            if (node.hasAttribute && node.hasAttribute('title')) {
+              if (node.id) {
+                labelledBy.push(node.id);
+              } else {
+                var id = 'paper-toolbar-label-' + Math.floor(Math.random() * 10000);
+                node.id = id;
+                labelledBy.push(id);
+              }
+            }
+          }
+        }
+        if (labelledBy.length > 0) {
+          this.setAttribute('aria-labelledby', labelledBy.join(' '));
+        }
       },
 
       _computeBarClassName: function(barJustify) {
