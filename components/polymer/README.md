@@ -170,7 +170,7 @@ The Polymer team loves contributions from the community! Take a look at our [con
 
 Beyond Github, we try to have a variety of different lines of communication available:
 
-* [Blog](https://blog.polymer-project-org)
+* [Blog](https://blog.polymer-project.org/)
 * [Twitter](https://twitter.com/polymer)
 * [Google+ Community](https://plus.sandbox.google.com/u/0/communities/115626364525706131031?cfem=1)
 * [Mailing list](https://groups.google.com/forum/#!forum/polymer-dev)
@@ -178,4 +178,4 @@ Beyond Github, we try to have a variety of different lines of communication avai
 
 # License
 
-The Polymer library uses a BSD-like license available [here](./polymer/blob/master/LICENSE.txt)
+The Polymer library uses a BSD-like license available [here](./LICENSE.txt)

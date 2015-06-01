@@ -1,24 +1,28 @@
 <link rel="import" href="../at-carbon-icon/at-carbon-icon.html" />
+<link rel="import" href="../layout/layout.html" />
 
 <dom-module id="at-form-daterange-calendar">
   <!--  css file at-form-daterange-calendar.css had to be merged into module because styles were otherwise not working -->
   <style>
     .calendar {
-      display: block;
       margin: 4px;
-      max-width: 270px;
       border: 1px solid #DDDDDD;
       padding: 4px;
       background: #FFFFFF;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
     }
     
-    .calendar table {
+    .calendar .dtTable {
       width: 100%;
       border-collapse: collapse;
     }
     
-    .calendar table > thead > tr > th,
-    .calendar table > tbody > tr > td {
+    .bold {
+      font-weight: bold;
+    }
+    
+    .calendar .calHead > .calRow > .calTh,
+    .calendar .calBody > .calRow > .calRow > .calTd {
       text-align: center;
       width: 20px;
       height: 20px;
@@ -28,73 +32,80 @@
       padding: 5px;
     }
     
-    .calendar table > thead > tr > th {
+    .calendar > .calHead > .calRow > .calTh {
+      /* *ij* this css property is not recognized in Chrome 43 */      
       font-size-adjust: 0.488;
+      font-weight: bold;
     }
     
-    .calendar table > tbody > tr > td.disabled,
-    .calendar table > tbody > tr > td.off {
+    .calendar .calBody > .calRow > .calRow > .calTd.disabled,
+    .calendar .calBody > .calRow > .calRow > .calTd.off {
       color: #999999;
     }
     
-    .calendar table > tbody > tr > td.available:hover {
+    .calendar .calBody > .calRow > .calRow > .calTd.available:hover {    
       background: #EEEEEE;
     }
     
-    .calendar table > tbody > tr > td.available + .calendar table > tbody > tr > td.available.start-date {
+    
+    .calendar .calBody > .calRow > .calRow > .calTd.available + .calendar .calBody > .calRow > .calRow > .calTd.available.start-date {
       border-radius: 4px 0 0 4px;
     }
-    
-    .calendar table > tbody > tr > td.start-date.end-date {
+        
+    .calendar .calBody > .calRow > .calRow > .calTd.start-date.end-date {   
       border-radius: 4px;
     }
     
-    .calendar table > tbody > tr > td.in-range {
+    .calendar .calBody > .calRow > .calRow > .calTd.in-range {
       background: #EBF4F8;
       border-radius: 0;
     }
     
-    .calendar table > tbody > tr > td.in-range + .calendar table > tbody > tr > td.in-range.end-date {
+    .calendar .calBody > .calRow > .calRow > .calTd.in-range + .calendar .calBody > .calRow > .calRow > .calTd.available.in-range.end-date {
       border-radius: 0 4px 4px 0;
     }
-    
-    .calendar table > tbody > tr > td.active,
-    .calendar table > tbody > tr > td.active:hover {
+
+    .calendar .calBody > .calRow > .calRow > .calTd.active,
+    .calendar .calBody > .calRow > .calRow > .calTd.active:hover {    
       background-color: #357EBD;
       border-color: #3071a9;      
       color: #fff;
     }
   </style>
   <template>
-    <div class="calendar">
-      <table>
-        <thead>
-          <tr>
-            <th on-click="backClicked">
-              <at-carbon-icon icon="arrow-left" size="20"></at-carbon-icon>
-            </th>
-            <th colspan="5"><span>{{monthName}}</span> <span>{{yearMonth.year}}</span>
-            </th>
-            <th on-click="nextClicked">
-              <at-carbon-icon icon="arrow-right" size="20"></at-carbon-icon>
-            </th>
-          </tr>
-          <tr>
-            <template is="dom-repeat" items="{{daysOfWeek}}">
-              <th>{{item}}</th>
-            </template>
-          </tr>
-        </thead>
-        <tbody>
-          <template is="dom-repeat" items="{{calendar}}">
-            <tr>
-              <template is="dom-repeat" items="{{item}}">
-                <td on-click="dateClicked" row$="{{item.row}}" col$="{{item.col}}" class$="{{item.classList}}">{{item.day}}</td>
-              </template>
-            </tr>
+
+    <div class="calendar vertical layout dtTable">
+      <div class="calHead">
+        <div class="horizontal layout calRow">
+          <div class="flex-1" on-tap="backClicked">
+            <at-carbon-icon icon="arrow-left" size="20"></at-carbon-icon>
+          </div>
+          <div class="flex-5">
+            <div class="horizontal layout center-justified">
+              <span class="bold">{{monthName}}</span>&nbsp;<span class="bold">{{yearMonth.year}}</span>
+            </div>
+          </div>
+          <div class="flex-1" on-tap="nextClicked">
+            <at-carbon-icon icon="arrow-right" size="20"></at-carbon-icon>
+          </div>
+        </div>
+        <div class="horizontal layout calRow">
+          <template is="dom-repeat" items="{{daysOfWeek}}">
+            <span class="flex-1 calTh">{{item}}</span>
           </template>
-        </tbody>
-      </table>
+        </div>
+      </div>
+      <div class="calBody">
+        <div class="vertical layout calRow">
+          <template is="dom-repeat" items="{{calendar}}">
+            <div class="horizontal layout calRow">
+              <template is="dom-repeat" items="{{item}}">
+                <span on-tap="dateClicked" row$="{{item.row}}" col$="{{item.col}}" class$="{{item.classList}}">{{item.day}}</span>
+              </template>
+            </div>
+          </template>
+        </div>
+      </div>
     </div>
   </template>
 </dom-module>
@@ -174,7 +185,7 @@
       this.moveMonth(1);
     },
     dateClicked: function (e) {
-      var element = e.originalTarget ? e.originalTarget : e.toElement;
+      var element = e.target;
       var row = element.getAttribute("row");
       var col = element.getAttribute("col");
       this.selectedDate = this.calendar[row][col].identifier;
@@ -249,7 +260,7 @@
 
           // tokenList filter is not present in polymer 0.8 so we build the class list for each cell
           // programmatically
-          var classList = [];
+          var classList = ['flex-1', 'calTd'];
           if (cell.identifier === this.selectedDate) {
             classList.push('active');
           }

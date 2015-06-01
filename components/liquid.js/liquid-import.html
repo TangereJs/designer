@@ -23,10 +23,21 @@
   // Filters
   Liquid.Template.registerFilter({
 
+    // returns default when bound value is empty
+    // {{ item.name || 'test' }}
     default: function (input, string) {
       if(!!input) return input;
       return (string || '').toString();
-    }
+    },
+
+    // returns the version components url when running from MPS
+    // {{ 'now-freshdesk/logo.png' | component_url }} 
+    //             -> /components-A2BE8CE9AB04E355526AB0555A8C572F/now-freshdesk/logo.png
+    component_url: function (input) {
+      var compUrl = "/components/";
+      if (window.ComponentsBase != undefined) compUrl = window.ComponentsBase;
+      return compUrl + (input || '');
+  }
 
   });
 

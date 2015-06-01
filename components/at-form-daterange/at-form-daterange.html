@@ -25,6 +25,7 @@
       position: relative;
       left: -225px;
       top: 4px;
+      min-width: 228px;
     }
     
     .daterangepicker:before {
@@ -48,9 +49,7 @@
       content: '';
     }
     
-    .daterangepicker.opensleft .ranges {
-      float: right;
-    }
+    .daterangepicker.opensleft .ranges {}
     
     .daterangepicker.opensleft:before {
       right: 19px;
@@ -60,9 +59,7 @@
       right: 20px;
     }
     
-    .daterangepicker.opensright .ranges {
-      float: left;
-    }
+    .daterangepicker.opensright .ranges {}
     
     .daterangepicker.opensright:before {
       left: 19px;
@@ -73,7 +70,6 @@
     }
     
     .daterangepicker .ranges {
-      width: 160px;
       padding: 8px;
       margin: 4px;
       border-radius: 4px;
@@ -144,12 +140,14 @@
       startDate: {
         type: String,
         value: '',
-        notify: true
+        notify: true,
+        observer: 'startDateChanged'
       },
       endDate: {
         type: String,
         value: '',
-        notify: true
+        notify: true,
+        observer: 'endDateChanged'
       },
       selected: {
         type: String,
@@ -206,7 +204,9 @@
       }
       this.selected = value;
 
-      this.close();
+      if (this.selected !== 'custom') {
+        this.close();
+      }
     },
     selectedChanged: function (newValue, oldValue) {
       var activeItem = this.querySelector('li[class=active]');
@@ -297,6 +297,24 @@
         this.timezone = 'America/New_York';
       }
       return moment.tz(this.timezone).format("YYYY-MM-DD");
+    },
+    startDateChanged: function (newValue, oldValue) {
+      var endMoment = moment(this.endDate),
+        newMomemt = moment(newValue);
+
+      if (newMomemt > endMoment) {
+        this.startDate = this.endDate;
+        this.endDate = newValue;
+      }
+    },
+    endDateChanged: function (newValue, oldValue) {
+      var startMoment = moment(this.startDate),
+        newMomemt = moment(newValue);
+
+      if (newMomemt < startMoment) {
+        this.endDate = this.startDate;
+        this.startDate = newValue;
+      }
     }
   });
 </script>
