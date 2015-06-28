@@ -19,22 +19,23 @@
   },
   "license": "https://polymer.github.io/LICENSE.txt",
   "main": "marked-element.html",
-  "repo": {
+  "repository": {
     "type": "git",
-    "url": "git://github.com/Polymer/marked-element.git"
+    "url": "git://github.com/PolymerElements/marked-element.git"
   },
   "devDependencies": {
+    "paper-styles": "PolymerElements/paper-styles#^1.0.4",
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "test-fixture": "polymerelements/test-fixture#^1.0.0",
     "web-component-tester": "*",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "homepage": "https://github.com/PolymerElements/marked-element",
-  "_release": "d7be312805",
+  "_release": "eedb039802",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "d7be312805f071335c843b6bf7248b89bcd40b4e"
+    "commit": "eedb03980241eb39a3854848f58d21ed0333e934"
   },
   "_source": "git://github.com/PolymerElements/marked-element.git",
   "_target": "master",

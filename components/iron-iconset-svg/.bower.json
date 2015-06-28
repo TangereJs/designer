@@ -11,6 +11,10 @@
   "authors": [
     "The Polymer Authors"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/iron-iconset-svg.git"
+  },
   "dependencies": {
     "polymer": "polymer/polymer#^1.0.0",
     "iron-meta": "polymerelements/iron-meta#^1.0.0"
@@ -24,11 +28,11 @@
     "web-component-tester": "*"
   },
   "homepage": "https://github.com/polymerelements/iron-iconset-svg",
-  "_release": "0f962ded1d",
+  "_release": "58dfb62af2",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "0f962ded1d68c5a0fd4d12d1fac72c67833de653"
+    "commit": "58dfb62af22b1477db993dc8021baec8b486cd84"
   },
   "_source": "git://github.com/polymerelements/iron-iconset-svg.git",
   "_target": "master",

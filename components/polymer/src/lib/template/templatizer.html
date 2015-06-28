@@ -14,7 +14,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     properties: {
       _hideTemplateChildren: {
-        observer: '_hideTemplateChildrenChanged'
+        observer: '_showHideChildren'
       }
     },
 
@@ -86,12 +86,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       return (this.dataHost && this.dataHost._rootDataHost) || this.dataHost;
     },
 
-    _hideTemplateChildrenChanged: function(hidden) {
-      if (this._hideChildren) {
-        // Extension point for Templatizer sub-classes
-        // TODO(kschaaf): remove once element protos can override behaviors
-        this._hideChildren(hidden);
-      }
+    // For overriding
+    _showHideChildren: function(hidden) {
     },
 
     _debounceTemplate: function(fn) {
@@ -120,6 +116,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       for (var prop in parentProps) {
         archetype._addPropertyEffect(prop, 'function',
           this._createHostPropEffector(prop));
+      }
+      for (var prop in this._instanceProps) {
+        archetype._addPropertyEffect(prop, 'function',
+          this._createInstancePropEffector(prop));
       }
     },
 
@@ -197,21 +197,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       };
     },
 
+    _createInstancePropEffector: function(prop) {
+      return function(source, value, old, fromAbove) {
+        if (!fromAbove) {
+          this.dataHost._forwardInstanceProp(this, prop, value);
+        }
+      };
+    },
+
     // Similar to Polymer.Base.extend, but retains any previously set instance
-    // values (_propertySet back on instance once accessor is installed)
+    // values (_propertySetter back on instance once accessor is installed)
     _extendTemplate: function(template, proto) {
       Object.getOwnPropertyNames(proto).forEach(function(n) {
         var val = template[n];
         var pd = Object.getOwnPropertyDescriptor(proto, n);
         Object.defineProperty(template, n, pd);
         if (val !== undefined) {
-          template._propertySet(n, val);
+          template._propertySetter(n, val);
         }
       });
     },
 
-    // Extension point for Templatizer sub-classes
+    // Extension points for Templatizer sub-classes
     _forwardInstancePath: function(inst, path, value) { },
+    _forwardInstanceProp: function(inst, prop, value) { },
 
     _notifyPathImpl: function(path, value) {
       var dataHost = this.dataHost;
@@ -239,6 +248,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       this._setupConfigure(model);
       this._pushHost(host);
       this.root = this.instanceTemplate(this._template);
+      this.root.__noContent = !this._notes._hasContent;
       this.root.__styleScoped = true;
       this._popHost();
       this._marshalAnnotatedNodes();

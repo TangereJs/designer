@@ -25,6 +25,7 @@
     "at-form-codemirror": "0.8-preview",
     "at-core-theme": "0.8-preview",
     "code-mirror": "0.8-preview",
-    "webcomponentsjs": "^0.7.1"
+    "webcomponentsjs": "^0.7.1",
+    "font-roboto": "master"
   }
 }

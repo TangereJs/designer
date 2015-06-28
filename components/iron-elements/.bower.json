@@ -8,6 +8,10 @@
     "user-input",
     "selection"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/iron-elements.git"
+  },
   "dependencies": {
     "iron-a11y-announcer": "PolymerElements/iron-a11y-announcer#^1.0.0",
     "iron-a11y-keys": "PolymerElements/iron-a11y-keys#^1.0.0",
@@ -55,11 +59,11 @@
     "test",
     "tests"
   ],
-  "_release": "3afca31d04",
+  "_release": "251e122770",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "3afca31d047c2a3bcf3b196f77fcf2018b84f173"
+    "commit": "251e1227703bfeb484a55b387ba303cce3bae260"
   },
   "_source": "git://github.com/PolymerElements/iron-elements.git",
   "_target": "master",

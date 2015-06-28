@@ -2,15 +2,16 @@
 
 Polymer lets you build encapsulated, re-usable elements that work just like HTML elements, to use in building web applications.
 
-    <!-- Polyfill Web Components for older browsers -->
-    <script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+```html
+<!-- Polyfill Web Components for older browsers -->
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
 
-    <1-- Import element -->
-    <link rel="import" href="google-map.html">
+<!-- Import element -->
+<link rel="import" href="google-map.html">
 
-    <!-- Use element -->
-    <google-map lat="37.790" long="-122.390"></google-map>
-
+<!-- Use element -->
+<google-map lat="37.790" long="-122.390"></google-map>
+```
 
 ## Getting Started
 
@@ -69,7 +70,7 @@ Polymer({
       }
     },
     ready: function() {
-      this.innerHTML = 'Hi! My name is ' + this.myName;
+      this.textContent = 'Hi! My name is ' + this.myName;
     }
 });
 ```
@@ -174,7 +175,7 @@ Beyond Github, we try to have a variety of different lines of communication avai
 * [Twitter](https://twitter.com/polymer)
 * [Google+ Community](https://plus.sandbox.google.com/u/0/communities/115626364525706131031?cfem=1)
 * [Mailing list](https://groups.google.com/forum/#!forum/polymer-dev)
-* [Slack channel](http://bit.ly/polymerslack)
+* [Slack channel](https://bit.ly/polymerslack)
 
 # License
 
