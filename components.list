@@ -25,6 +25,7 @@ at-elements
 at-form
 at-form-checkbox
 at-form-codemirror
+at-form-complex
 at-form-file
 at-form-input
 at-form-lookup
