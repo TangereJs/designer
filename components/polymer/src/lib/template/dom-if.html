@@ -136,7 +136,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _wrapTextNodes: function(root) {
       // wrap text nodes in span so they can be hidden.
       for (var n = root.firstChild; n; n=n.nextSibling) {
-        if (n.nodeType === Node.TEXT_NODE) {
+        if (n.nodeType === Node.TEXT_NODE && n.textContent.trim()) {
           var s = document.createElement('span');
           root.insertBefore(s, n);
           s.appendChild(n);
@@ -146,14 +146,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _showHideChildren: function() {
-      var hidden = this._hideTemplateChildren || !this.if;
+      var hidden = this.__hideTemplateChildren__ || !this.if;
       if (this._instance) {
-        var c$ = this._instance._children;
-        for (var i=0; i<c$.length; i++) {
-          var c = c$[i];
-          c.style.display = hidden ? 'none' : '';
-          c._hideTemplateChildren = hidden;
-        }
+        this._instance._showHideChildren(hidden);
       }
     },
 

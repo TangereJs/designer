@@ -1,0 +1,24 @@
+{
+  "name": "at-form-complex",
+  "private": true,
+  "dependencies": {
+    "at-form-input": "TangereJs/at-form-input#0.8-preview",
+    "at-form-checkbox": "TangereJs/at-form-checkbox#0.8-preview",
+    "at-form-lookup": "TangereJs/at-form-lookup#0.8-preview",
+    "at-form-markdown": "TangereJs/at-form-markdown#0.8-preview",
+    "at-form-codemirror": "TangereJs/at-form-codemirror#0.8-preview",
+    "at-form-password": "TangereJs/at-form-password#0.8-preview",
+    "at-form-file": "TangereJs/at-form-file#0.8-preview",
+    "at-form-image": "TangereJs/at-form-image#0.8-preview"
+  },
+  "homepage": "https://github.com/TangereJs/at-form-complex",
+  "_release": "3910c1b9ef",
+  "_resolution": {
+    "type": "branch",
+    "branch": "0.8-preview",
+    "commit": "3910c1b9ef6e4e02624c3fee6c1da41502e1c6dd"
+  },
+  "_source": "git://github.com/TangereJs/at-form-complex.git",
+  "_target": "0.8-preview",
+  "_originalSource": "TangereJs/at-form-complex"
+}

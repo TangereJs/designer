@@ -5,7 +5,6 @@
     "The Polymer Authors"
   ],
   "description": "Paper elements are a set of visual elements that implement Google's Material Design.",
-  "main": "paper-elements.html",
   "keywords": [
     "web-components",
     "polymer",
@@ -51,11 +50,11 @@
     "paper-toolbar": "PolymerElements/paper-toolbar#^1.0.0",
     "paper-scroll-header-panel": "PolymerElements/paper-scroll-header-panel#^1.0.0"
   },
-  "_release": "cf02416e6b",
+  "_release": "0e419ae547",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "cf02416e6bf8dc832fb83cfe427562f60268563c"
+    "commit": "0e419ae5472b3c1dd060f8b08281b9e1bb01d27d"
   },
   "_source": "git://github.com/PolymerElements/paper-elements.git",
   "_target": "master",

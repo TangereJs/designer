@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>at-form-complex demo</title>
+
+  <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../polymer/polymer.html">
+  <link rel="import" href="at-form-complex.html">
+  <link rel="import" href="../layout/layout.html">
+  <style>
+    .my-body {
+      width: 90%;
+      margin-top: 5%;
+      margin-left: 5%;
+      margin-right: 5%;
+    }    
+    
+    .light-padding {
+      margin-left: 4px;
+      margin-right: 4px;
+      padding-left: 4px;
+      padding-right: 4px;
+      border: solid thin #bbb;
+    }
+  </style>
+</head>
+
+<body class="my-body">
+  <div class="vertical layout">
+    <div class="horizontal layout">
+      <div class="flex-6 light-padding">
+        <at-form-complex id="formComplex-1"></at-form-complex>
+      </div>
+      <div class="flex-6 light-padding">
+        <at-form-complex id="formComplex-2"></at-form-complex>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.addEventListener('WebComponentsReady', function (e) {
+      var schema = {
+        'properties': {
+          'id': {
+            'description': 'The unique identifier for a product',
+            'type': 'number'
+          },
+          'name': {
+            'type': 'string',
+            'required': true
+          },
+          'city': {
+            'type': 'string',
+            'value': 'Default city name'
+          },
+          'active': {
+            'type': 'boolean'
+          },
+          'activePera': {
+            'type': 'boolean',
+            'description': 'This is description for pera'
+          },
+          'activeToggle': {
+            "type": "boolean",
+            "xtype": "toggle",
+            "description": "This is description for active toggle"
+          },
+          'dropdownDemo': {
+            'title': 'Name',
+            'type': 'enum',
+            'xvaluelist': 'XML,JSON'
+          },
+          'codeMirrorDemo': {
+            "title": "Code Mirror",
+            "type": "string",
+            "xtype": "code"
+          }
+        },
+        'required': ['id', 'city']
+      };
+      
+      var data = {
+        'id': 3213,
+        'city': 'Boston',
+        'name': 'This is sample name',
+        'active': true,
+        'activePera': false,
+        'dropdownDemo': 'XML'
+      };
+      
+      var formComplex1 = document.getElementById("formComplex-1");
+      formComplex1.schema = schema;
+      formComplex1.value = data;
+      
+      
+      data.id = 88585;
+      data.name="This is sample name";
+      data.city = "This is sample city";
+      data.dropdownDemo = 'JSON';      
+      var formComplex2 = document.getElementById('formComplex-2');
+      formComplex2.schema = schema;
+      formComplex2.value = data;
+      
+    });
+  </script>
+</body>
+
+</html>

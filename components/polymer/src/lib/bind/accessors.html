@@ -16,21 +16,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     prepareModel: function(model) {
       model._propertyEffects = {};
       model._bindListeners = [];
-      // TODO(sjmiles): no mixin function?
-      var api = this._modelApi;
-      for (var n in api) {
-        model[n] = api[n];
-      }
+      Polymer.Base.mixin(model, this._modelApi);
     },
 
     _modelApi: {
 
       _notifyChange: function(property) {
         var eventName = Polymer.CaseMap.camelToDashCase(property) + '-changed';
-        // TODO(sjmiles): oops, `fire` doesn't exist at this layer
-        this.fire(eventName, {
+        Polymer.Base.fire(eventName, {
           value: this[property]
-        }, {bubbles: false});
+        }, {bubbles: false, node: this});
       },
 
       // TODO(sjmiles): removing _notifyListener from here breaks accessors.html
@@ -174,8 +169,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // ReadOnly properties have a private setter only
       // TODO(kschaaf): Per current Bind factoring, we shouldn't
       // be interrogating the prototype here
-      if (model.getPropertyInfo && model.getPropertyInfo(property).readOnly) {
-        model['_set' + this.upper(property)] = setter;
+      var info = model.getPropertyInfo && model.getPropertyInfo(property);
+      if (info && info.readOnly) {
+        // Computed properties are read-only (no property setter), but also don't
+        // need a private setter since they should not be called by the user
+        if (!info.computed) {
+          model['_set' + this.upper(property)] = setter;
+        }
       } else {
         defun.set = setter;
       }
