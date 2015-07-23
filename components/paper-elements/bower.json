@@ -1,6 +1,6 @@
 {
   "name": "paper-elements",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/PolymerElements/paper-elements",
   "authors": [
     "The Polymer Authors"
@@ -38,6 +38,7 @@
     "paper-item": "PolymerElements/paper-item#^1.0.0",
     "paper-material": "PolymerElements/paper-material#^1.0.0",
     "paper-menu": "PolymerElements/paper-menu#^1.0.0",
+    "paper-menu-button": "PolymerElements/paper-menu-button#^1.0.0",
     "paper-progress": "PolymerElements/paper-progress#^1.0.0",
     "paper-radio-button": "PolymerElements/paper-radio-button#^1.0.0",
     "paper-radio-group": "PolymerElements/paper-radio-group#^1.0.0",
@@ -49,6 +50,7 @@
     "paper-toast": "PolymerElements/paper-toast#^1.0.0",
     "paper-toggle-button": "PolymerElements/paper-toggle-button#^1.0.0",
     "paper-toolbar": "PolymerElements/paper-toolbar#^1.0.0",
+    "paper-tooltip": "PolymerElements/paper-tooltip#^1.0.0",
     "paper-scroll-header-panel": "PolymerElements/paper-scroll-header-panel#^1.0.0"
   }
 }

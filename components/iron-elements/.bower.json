@@ -22,6 +22,7 @@
     "iron-collapse": "PolymerElements/iron-collapse#^1.0.0",
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "iron-doc-viewer": "PolymerElements/iron-doc-viewer#^1.0.0",
+    "iron-dropdown": "PolymerElements/iron-dropdown#^1.0.0",
     "iron-fit-behavior": "PolymerElements/iron-fit-behavior#^1.0.0",
     "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0",
     "iron-form": "PolymerElements/iron-form#^1.0.0",
@@ -60,11 +61,11 @@
     "test",
     "tests"
   ],
-  "_release": "63d565ea42",
+  "_release": "c41a656aeb",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "63d565ea42faa4e80b266dad1f879c6ff5bf4600"
+    "commit": "c41a656aeba027b315d1f64c9253948b6204331f"
   },
   "_source": "git://github.com/PolymerElements/iron-elements.git",
   "_target": "master",

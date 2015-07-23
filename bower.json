@@ -15,7 +15,7 @@
     "iron-meta": "master",
     "paper-ripple": "master",
     "promise-polyfill": "master",
-    "marked-element": "master",
+    "marked-element": "0.8-preview",
     "at-carbon-message": "0.8-preview",
     "at-core-activity": "0.8-preview",
     "at-core-list": "0.8-preview",

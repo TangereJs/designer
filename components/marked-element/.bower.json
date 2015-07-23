@@ -1,43 +1,31 @@
 {
   "name": "marked-element",
-  "description": "Element wrapper for the marked library",
   "private": true,
   "authors": [
     "The Polymer Project Authors (https://polymer.github.io/AUTHORS.txt)"
   ],
-  "keywords": [
-    "web-components",
-    "polymer",
-    "marked",
-    "markdown",
-    "container",
-    "wrapper"
-  ],
   "dependencies": {
-    "marked": "~0.3.3",
-    "polymer": "Polymer/polymer#^1.0.0"
+    "polymer": "Polymer/polymer#0.8-preview",
+    "marked": "~0.3.3"
   },
   "license": "https://polymer.github.io/LICENSE.txt",
   "main": "marked-element.html",
-  "repository": {
+  "repo": {
     "type": "git",
-    "url": "git://github.com/PolymerElements/marked-element.git"
+    "url": "git://github.com/Polymer/marked-element.git"
   },
   "devDependencies": {
-    "paper-styles": "PolymerElements/paper-styles#^1.0.4",
-    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "test-fixture": "polymerelements/test-fixture#^1.0.0",
-    "web-component-tester": "*",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+    "webcomponentsjs": "~0.5.5",
+    "test-fixture": "Polymer/test-fixture#~0.1.0"
   },
-  "homepage": "https://github.com/PolymerElements/marked-element",
-  "_release": "eedb039802",
+  "homepage": "https://github.com/TangereJs/marked-element",
+  "_release": "921fe9b095",
   "_resolution": {
     "type": "branch",
-    "branch": "master",
-    "commit": "eedb03980241eb39a3854848f58d21ed0333e934"
+    "branch": "0.8-preview",
+    "commit": "921fe9b0957970c046418dbbd199a749e4e70545"
   },
-  "_source": "git://github.com/PolymerElements/marked-element.git",
-  "_target": "master",
-  "_originalSource": "PolymerElements/marked-element"
+  "_source": "git://github.com/TangereJs/marked-element.git",
+  "_target": "0.8-preview",
+  "_originalSource": "TangereJs/marked-element"
 }
