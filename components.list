@@ -26,6 +26,8 @@ at-form
 at-form-checkbox
 at-form-codemirror
 at-form-complex
+at-form-date
+at-form-daterange
 at-form-file
 at-form-input
 at-form-lookup
@@ -34,7 +36,6 @@ at-form-rule-edit
 at-form-ruleset
 at-form-password
 at-form-image
-at-form-date
 code-mirror
 core-media-query
 liquid-template
