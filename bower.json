@@ -26,6 +26,8 @@
     "at-core-theme": "0.8-preview",
     "code-mirror": "0.8-preview",
     "webcomponentsjs": "^0.7.1",
-    "font-roboto": "master"
+    "font-roboto": "master",
+    "core-component-page": "master",
+    "at-form-daterange": "0.8-preview"
   }
 }

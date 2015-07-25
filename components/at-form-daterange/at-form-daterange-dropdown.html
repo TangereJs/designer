@@ -1,0 +1,332 @@
+<script src="../moment/min/moment.min.js"></script>
+<script src="../moment-timezone/builds/moment-timezone-with-data.min.js"></script>
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="at-form-daterange-calendar.html">
+<link rel="import" href="at-form-daterange-positioning.html">
+<link rel="import" href="../layout/layout.html">
+
+<dom-module id="at-form-daterange-dropdown">
+  <!--  css file at-form-daterange.css had to be merged into module because styles were otherwise not working -->
+  <style>
+    polymer-date-picker-calendar {
+      display: block;
+      float: left;
+    }
+    
+    #target {
+      font-family: Arial;
+      font-size: 14px;
+      z-index: 1000;
+    }
+    
+    #rangeDiv {
+      position: absolute;
+    }
+    
+    #nonrangeDiv {
+      position: absolute;
+    }
+    
+    .daterangepicker {
+      background-color: #FFFFFF;
+      position: relative;
+      top: 4px;
+      min-width: 228px;
+    }
+    
+    .daterangepicker:before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      display: inline-block;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid #ccc;
+      border-left: 7px solid transparent;
+      border-bottom-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    .daterangepicker:after {
+      position: absolute;
+      top: -1px;
+      display: inline-block;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid #fff;
+      border-left: 6px solid transparent;
+      content: '';
+    }
+    
+    .daterangepicker.opensleft .ranges {}
+    
+    .daterangepicker.opensleft:before {
+      right: 19px;
+    }
+    
+    .daterangepicker.opensleft:after {
+      right: 20px;
+    }
+    
+    .daterangepicker.opensright .ranges {}
+    
+    .daterangepicker.opensright:before {
+      left: 19px;
+    }
+    
+    .daterangepicker.opensright:after {
+      left: 20px;
+    }
+    
+    .daterangepicker .ranges {
+      padding: 8px;
+      margin: 4px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+      background-color: #FFFFFF;
+      min-width: 207px;
+    }
+    
+    .daterangepicker .ranges ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    
+    .daterangepicker .ranges ul li {
+      padding: 5px 12px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      color: #0088CC;
+      border-radius: 5px;
+      background-color: #F5F5F5;
+    }
+    
+    .daterangepicker .ranges ul li.active,
+    .daterangepicker .ranges ul li:hover {
+      background: #0088CC;
+      color: #FFFFFF;
+    }
+    
+    .hidden {
+      display: none;
+      visibility: hidden;
+    }
+  </style>
+  <template>
+    <div id="target" class="daterangepicker opensright" style="display: none;" on-blur="close">
+      <div id="rangeDiv" class="horizontal layout">
+        <div hidden="{{!showRanges}}" class="ranges">
+          <ul>
+            <li on-click="menuItemClicked" value="today">Today</li>
+            <li on-click="menuItemClicked" value="yesterday">Yesterday</li>
+            <li on-click="menuItemClicked" value="last7days">Last 7 Days</li>
+            <li on-click="menuItemClicked" value="last30days">Last 30 Days</li>
+            <li on-click="menuItemClicked" value="thisMonth">This Month</li>
+            <li on-click="menuItemClicked" value="lastMonth">Last Month</li>
+            <li on-click="menuItemClicked" value="custom">Custom</li>
+          </ul>
+        </div>
+        <div>
+          <at-form-daterange-calendar id="calendarStart" start start-date="{{startDate}}" end-date="{{endDate}}" hidden="true"></at-form-daterange-calendar>
+        </div>
+        <div>
+          <at-form-daterange-calendar id="calendarEnd" end start-date="{{startDate}}" end-date="{{endDate}}" hidden="true"></at-form-daterange-calendar>
+        </div>
+      </div>
+    </div>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: "at-form-daterange-dropdown",
+    properties: {
+      startDate: {
+        type: String,
+        value: '',
+        notify: true,
+        observer: 'startDateChanged'
+      },
+      endDate: {
+        type: String,
+        value: '',
+        notify: true,
+        observer: 'endDateChanged'
+      },
+      selected: {
+        type: String,
+        value: 'custom',
+        observer: 'selectedChanged'
+      },
+      showRanges: {
+        type: Boolean,
+        value: false
+      },
+      timezone: {
+        type: String,
+        value: ''
+      },
+      orientation: {
+        type: String,
+        value: 'horizontal'
+      }
+    },
+    _scopeCssViaAttr: true,
+    _boundResizeHandler: function () {},
+    ready: function () {
+      this.toggleClass('horizontal', this.orientation === 'horizontal', this.$.rangeDiv);
+      this.toggleClass('vertical', this.orientation === 'vertical', this.$.rangeDiv);
+
+      var resizeUnboundHandler = function (event) {
+        var windowWidth = window.innerWidth;
+        var dropdownWidth = this.$.rangeDiv.getBoundingClientRect().width;
+        var dropdownLeft = this.$.rangeDiv.getBoundingClientRect().left;
+        if (this.orientation === 'horizontal') {
+          if (dropdownWidth + dropdownLeft > windowWidth) {
+            this.toggleClass('horizontal', false, this.$.rangeDiv);
+            this.toggleClass('vertical', true, this.$.rangeDiv);
+            this.orientation = 'vertical';
+          } else {
+            this.toggleClass('horizontal', true, this.$.rangeDiv);
+            this.toggleClass('vertical', false, this.$.rangeDiv);
+          }
+        } else if (this.orientation === 'vertical') {
+          if (dropdownWidth * 3 + dropdownLeft > windowWidth) {
+            this.toggleClass('horizontal', false, this.$.rangeDiv);
+            this.toggleClass('vertical', true, this.$.rangeDiv);
+          } else {
+            this.toggleClass('horizontal', true, this.$.rangeDiv);
+            this.toggleClass('vertical', false, this.$.rangeDiv);
+            this.orientation = 'horizontal';
+          }
+        }
+      }
+
+      var boundResizeHandler = resizeUnboundHandler.bind(this);
+      window.addEventListener('resize', boundResizeHandler);
+      this._boundResizeHandler = boundResizeHandler;
+    },
+    open: function () {
+      this.$.target.style.display = "block";
+      this.selectedChanged(this.selected, this.selected);
+      this._boundResizeHandler();
+    },
+    close: function () {
+      this.$.target.style.display = "none";
+    },
+    toggle: function () {
+      if (this.$.target.style.display === "none") {
+        this.open();
+      } else {
+        this.close();
+      }
+    },
+    newMoment: function () {
+      if (this.timezone) {
+        return moment().tz(this.timezone);
+      } else {
+        return moment();
+      }
+    },
+    // this function handles the click event on menu items
+    menuItemClicked: function (event) {
+      var value = event.target.getAttribute('value');
+      if (this.selected === value) {
+        this.selectedChanged(value, value);
+      }
+      this.selected = value;
+
+      if (this.selected !== 'custom') {
+        this.close();
+      }
+    },
+    selectedChanged: function (newValue, oldValue) {
+      var activeItem = this.querySelector('li[class=active]');
+
+      if (activeItem) {
+        activeItem.classList.remove('active');
+      }
+
+      if (this.selected === 'custom') {
+        this.$.calendarStart.removeAttribute('hidden');
+        this.$.calendarEnd.removeAttribute('hidden');
+      } else {
+        this.$.calendarStart.setAttribute('hidden', true);
+        this.$.calendarEnd.setAttribute('hidden', true);
+      }
+
+      switch (this.selected) {
+      case 'today':
+        this.startDate = this.format(this.newMoment());
+        this.endDate = this.format(this.newMoment());
+        break;
+      case 'yesterday':
+        this.startDate = this.format(this.newMoment().subtract(1, "days"));
+        this.endDate = this.format(this.newMoment().subtract(1, "days"));
+        break;
+      case 'last7days':
+        this.startDate = this.format(this.newMoment().subtract(6, "days"));
+        this.endDate = this.format(this.newMoment());
+        break;
+      case 'last30days':
+        this.startDate = this.format(this.newMoment().subtract(30, "days"));
+        this.endDate = this.format(this.newMoment());
+        break;
+      case 'thisMonth':
+        this.startDate = this.format(this.newMoment().startOf("month"));
+        this.endDate = this.format(this.newMoment().endOf("month"));
+        break;
+      case 'lastMonth':
+        this.startDate = this.format(this.newMoment().subtract(1, "months").startOf("month"));
+        this.endDate = this.format(this.newMoment().subtract(1, "months").endOf("month"));
+        break;
+      case 'custom':
+        // for initialization purposes (first time) startDate and endDate are set to today
+        // subject to change
+        if (this.startDate === '') {
+          this.startDate = this.format(this.newMoment());
+        }
+        if (this.endDate === '') {
+          this.endDate = this.format(this.newMoment());
+        }
+        break;
+      }
+
+      var liElem = this.querySelector('li[value=' + this.selected + ']');
+      if (liElem) {
+        liElem.classList.add('active');
+      }
+    },
+    format: function (moment) {
+      // when component is initialized for unknown reasons timezone property is not deserialized correctly
+      // this is detected with this.timezone === undefined; however attribute is still here and its value can be retreived
+      // in instances after initialization timezone property is ok
+      // if timezone property is null (which happens when timezone attribute is not set) 
+      // I set it to default value of 'America/NewYork'
+      // This should also be reviewed and corrected when polymer team FIXES polymer because it sucks now. (13.052015)
+      this.timezone = this.timezone === undefined ? this.getAttribute('timezone') : this.timezone;
+      if (this.timezone === null) {
+        this.timezone = 'America/New_York';
+      }
+      return moment.tz(this.timezone).format("YYYY-MM-DD");
+    },
+    startDateChanged: function (newValue, oldValue) {
+      var endMoment = moment(this.endDate),
+        newMomemt = moment(newValue);
+
+      if (newMomemt > endMoment) {
+        this.startDate = this.endDate;
+        this.endDate = newValue;
+      }
+    },
+    endDateChanged: function (newValue, oldValue) {
+      var startMoment = moment(this.startDate),
+        newMomemt = moment(newValue);
+
+      if (newMomemt < startMoment) {
+        this.endDate = this.startDate;
+        this.startDate = newValue;
+      }
+    }
+  });
+</script>

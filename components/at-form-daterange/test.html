@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <META name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1">
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial;
+    }
+    div.container {
+      max-width: 980px;
+      margin: 50px auto 0;
+      padding: 20px;      
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.17);
+    }
+  </style>
+  <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../polymer/polymer.html" />
+  <link rel="import" href="../at-form-input/at-form-input.html" />
+  <link rel="import" href="at-form-daterange.html" />
+</head>
+
+<body unresolved>
+  <div class="container">
+    <div>
+      <h4>Datepicker container with input trigger and range</h4>
+      <at-form-daterange label="This is a date range" range start-date="2014-08-01" end-date="2014-08-15"></at-form-daterange>
+    </div>
+    <div>
+      <h4>Regular input</h4> 
+      <at-form-input name="pera" type="text" label="This is required input" placeholder="this is placeholder..." required></at-form-input>
+    </div>
+  </div>
+</body>
+
+</html>

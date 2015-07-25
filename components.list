@@ -35,7 +35,6 @@ at-form-ruleset
 at-form-password
 at-form-image
 at-form-date
-at-form-daterange
 code-mirror
 core-media-query
 liquid-template
