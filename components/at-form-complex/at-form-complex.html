@@ -9,12 +9,20 @@
 <link rel="import" href="../at-form-image/at-form-image.html" />
 
 <dom-module id="at-form-complex">
+  <style>
+    .errorDiv p {
+      color: red;
+      border: 1px solid gray;
+      padding: 0 5px;
+    }
+  </style>
   <template>
     <div>
       <label>{{label}}</label>
     </div>
     <div id="insertPoint" class="ui form"></div>
-    <content></content>
+    <div id="errorDiv" class="errorDiv">
+    </div>
   </template>
 </dom-module>
 
@@ -75,13 +83,25 @@
         regularValue, // temporary holds the value from the at-form-complex.value property
         disabledValue, // holds the disabled value for a property
         formElement = false, // holds a reference to a newly created element
-        fieldDiv // at-core-form class="field" wrapper for formElement
+        fieldDiv, // at-core-form class="field" wrapper for formElement
+        p, textNode
       ;
 
       this.elementsToValidate = [];
       this.__clearInsertPoint();
 
       properties = this.schema.properties;
+      if (isNullOrUndefined(properties)) {
+        this.$.errorDiv.innerHTML = "";
+        p = document.createElement('p');
+        p.setAttribute('style-scope', 'at-form-complex');
+        textNode = document.createTextNode("Error. Schema doesn't contain a 'properties' property");
+        p.appendChild(textNode);
+        this.$.errorDiv.appendChild(p);
+      } else {
+        this.$.errorDiv.innerHTML = "";
+      }
+
       for (propertyName in properties) {
         propertyDefinition = properties[propertyName];
 

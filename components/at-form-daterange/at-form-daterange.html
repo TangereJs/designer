@@ -16,18 +16,18 @@
       margin: 10px;
       border-radius: 4px;
     }
-    
+
     input.date:hover {
       cursor: pointer;
       border: 1px solid #44B4E4;
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
     }
-    
+
     .hidden {
       display: none;
       visibility: hidden;
     }
-    
+
     .visible {
       display: block;
       visibility: visible;
@@ -124,7 +124,7 @@
       var boundHandler = unboundFunction.bind(this);
 
       var body = document.getElementsByTagName('body')[0];
-      body.addEventListener('mousedown', boundHandler);  
+      body.addEventListener('mousedown', boundHandler);
     },
     computeValue: function (startDate, endDate) {
       var result = '';
@@ -141,10 +141,7 @@
     },
     toggle: function () {
       if (!this.disabled) {
-        var datePicker = this.$.dateRangePicker;
-        var relatedTarget = this.querySelector('input[id=triggerRange]');
-        datePicker.relatedTarget = relatedTarget;
-        datePicker.toggle();
+        this.$.triggerRange.focus();
       }
     },
     close: function (event) {
