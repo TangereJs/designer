@@ -36,6 +36,9 @@ at-form-rule-edit
 at-form-ruleset
 at-form-password
 at-form-image
+at-rule-edit
+at-rule-actions
+at-rule-conditions
 code-mirror
 core-media-query
 liquid-template
