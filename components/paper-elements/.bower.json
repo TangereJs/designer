@@ -55,11 +55,11 @@
     "paper-tooltip": "PolymerElements/paper-tooltip#^1.0.0",
     "paper-scroll-header-panel": "PolymerElements/paper-scroll-header-panel#^1.0.0"
   },
-  "_release": "b44c6ccd0c",
+  "_release": "1da3d73a06",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "b44c6ccd0c287a5002dfdfe1f33a3d7acebee6bf"
+    "commit": "1da3d73a06baabe1024b7357e3b958bd4c9e4656"
   },
   "_source": "git://github.com/PolymerElements/paper-elements.git",
   "_target": "master",

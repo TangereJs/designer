@@ -18,11 +18,11 @@
     "test",
     "tests"
   ],
-  "_release": "ef4399c302",
+  "_release": "dd278b5dc9",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "ef4399c3027f7afac7df0b0871098c7c7a68eb52"
+    "commit": "dd278b5dc9f712680e1a6074c0b10ad8b5f2f134"
   },
   "_source": "git://github.com/Polymer/observe-js.git",
   "_target": "master",
