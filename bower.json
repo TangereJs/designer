@@ -31,6 +31,7 @@
     "webcomponentsjs": "^0.7.1",
     "font-roboto": "master",
     "core-component-page": "master",
-    "at-form-daterange": "0.8-preview"
+    "at-form-daterange": "0.8-preview",
+    "at-form-array": "0.8-preview"
   }
 }

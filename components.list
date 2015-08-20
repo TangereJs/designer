@@ -39,6 +39,7 @@ at-form-image
 at-rule-edit
 at-rule-actions
 at-rule-conditions
+at-form-array
 code-mirror
 core-media-query
 liquid-template
