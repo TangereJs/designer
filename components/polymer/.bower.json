@@ -6,7 +6,8 @@
   "license": "http://polymer.github.io/LICENSE.txt",
   "ignore": [
     "/.*",
-    "/test/"
+    "/test/",
+    "gen-changelog.sh"
   ],
   "authors": [
     "The Polymer Authors (http://polymer.github.io/AUTHORS.txt)"
@@ -23,11 +24,11 @@
   },
   "private": true,
   "homepage": "https://github.com/Polymer/polymer",
-  "_release": "7497729478",
+  "_release": "12fa8670f6",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "74977294789c9fc22b296f8672baf0a6aff206f8"
+    "commit": "12fa8670f6faf71d040c374fe917ee3bf3360a13"
   },
   "_source": "git://github.com/Polymer/polymer.git",
   "_target": "master",
