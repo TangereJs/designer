@@ -32,6 +32,29 @@
       display: block;
       visibility: visible;
     }
+
+    .loc-input-wrapper {
+      margin-bottom: 15px;
+      height: 34px;
+    }
+
+    #triggerRange {
+      font-size: 14px;
+    }
+
+    .locicon-background {
+      padding: 4px 12px;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 1;
+      color: #555;
+      text-align: center;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   </style>
   <template>
     <at-core-theme></at-core-theme>
@@ -43,9 +66,11 @@
     <div id="rangeDiv">
       <div class="ui form">
         <div id="fieldDiv" class="field">
-          <div class="ui action input" style="display: inline-flex">
+          <div class="ui action input loc-input-wrapper" style="display: inline-flex">
             <input id="triggerRange" value="{{value}}" on-focus="open" on-mousedown="toggle" on-blur="close" readonly class="date">
-            <button class="ui button" on-mousedown="toggle"><at-carbon-icon icon="now:calendar"></at-carbon-icon></button>
+            <i class="icon locicon-background" on-mousedown="toggle">
+              <at-carbon-icon icon="now:calendar"></at-carbon-icon>
+            </i>
           </div>
         </div>
       </div>
@@ -55,8 +80,8 @@
 </dom-module>
 
 <script>
-  (function (utils) {
-    utils.isChildOf = function (child, parent) {
+  (function(utils) {
+    utils.isChildOf = function(child, parent) {
       var isChild = false;
       var iterElem = child ? child : null;
 
@@ -107,7 +132,7 @@
       }
     },
     _scopeCssViaAttr: true,
-    ready: function () {
+    ready: function() {
       var _self = this;
 
       // why is this here?
@@ -116,7 +141,7 @@
       //  are not available; yes - not available;
       // that is why bind must be used; and bound function passed as an event listener
       // unbound function is bound to "this" of polymer element
-      var unboundFunction = function (event) {
+      var unboundFunction = function(event) {
         if (this.$.triggerRange !== event.target && afDateRangeUtils.isChildOf(event.target, this)) {
           event.preventDefault();
         }
@@ -126,7 +151,7 @@
       var body = document.getElementsByTagName('body')[0];
       body.addEventListener('mousedown', boundHandler);
     },
-    computeValue: function (startDate, endDate) {
+    computeValue: function(startDate, endDate) {
       var result = '';
       if (startDate) {
         result = startDate + '';
@@ -139,34 +164,34 @@
 
       return result;
     },
-    toggle: function () {
+    toggle: function() {
       if (!this.disabled) {
         this.$.triggerRange.focus();
       }
     },
-    close: function (event) {
+    close: function(event) {
       this.$.dateRangePicker.close();
     },
-    open: function (evnet) {
+    open: function(evnet) {
       if (!this.disabled) {
         this.$.dateRangePicker.open();
       }
     },
-    _updateValidState: function () {
+    _updateValidState: function() {
       if (this.required && this.value === '') {
         this.valid = false;
       } else {
         this.valid = true;
       }
     },
-    _validate: function () {
+    _validate: function() {
       this._updateValidState();
       this.toggleClass('error', !this.valid, this.$.fieldDiv);
     },
-    requiredChanged: function () {
+    requiredChanged: function() {
       this._validate();
     },
-    valueChanged: function (newValue, oldValue) {
+    valueChanged: function(newValue, oldValue) {
       this._validate();
     }
   });

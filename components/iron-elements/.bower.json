@@ -19,6 +19,7 @@
     "iron-ajax": "PolymerElements/iron-ajax#^1.0.0",
     "iron-autogrow-textarea": "PolymerElements/iron-autogrow-textarea#^1.0.0",
     "iron-behaviors": "PolymerElements/iron-behaviors#^1.0.0",
+    "iron-checked-element-behavior": "PolymerElements/iron-checked-element-behavior#^1.0.0",
     "iron-collapse": "PolymerElements/iron-collapse#^1.0.0",
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "iron-doc-viewer": "PolymerElements/iron-doc-viewer#^1.0.0",
@@ -61,11 +62,11 @@
     "test",
     "tests"
   ],
-  "_release": "c41a656aeb",
+  "_release": "cb3b96236a",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "c41a656aeba027b315d1f64c9253948b6204331f"
+    "commit": "cb3b96236acd44db9f70c9436b2dbe703cc3cb62"
   },
   "_source": "git://github.com/PolymerElements/iron-elements.git",
   "_target": "master",

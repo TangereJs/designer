@@ -13,28 +13,28 @@
       display: block;
       float: left;
     }
-    
+
     #target {
       font-family: Arial;
       font-size: 14px;
       z-index: 1000;
     }
-    
+
     #rangeDiv {
       position: absolute;
     }
-    
+
     #nonrangeDiv {
       position: absolute;
     }
-    
+
     .daterangepicker {
       background-color: #FFFFFF;
       position: relative;
       top: 4px;
       min-width: 228px;
     }
-    
+
     .daterangepicker:before {
       content: '';
       position: absolute;
@@ -45,7 +45,7 @@
       border-left: 7px solid transparent;
       border-bottom-color: rgba(0, 0, 0, 0.2);
     }
-    
+
     .daterangepicker:after {
       position: absolute;
       top: -1px;
@@ -55,27 +55,27 @@
       border-left: 6px solid transparent;
       content: '';
     }
-    
+
     .daterangepicker.opensleft .ranges {}
-    
+
     .daterangepicker.opensleft:before {
       right: 19px;
     }
-    
+
     .daterangepicker.opensleft:after {
       right: 20px;
     }
-    
+
     .daterangepicker.opensright .ranges {}
-    
+
     .daterangepicker.opensright:before {
       left: 19px;
     }
-    
+
     .daterangepicker.opensright:after {
       left: 20px;
     }
-    
+
     .daterangepicker .ranges {
       padding: 8px;
       margin: 4px;
@@ -85,13 +85,13 @@
       background-color: #FFFFFF;
       min-width: 207px;
     }
-    
+
     .daterangepicker .ranges ul {
       margin: 0;
       padding: 0;
       list-style-type: none;
     }
-    
+
     .daterangepicker .ranges ul li {
       padding: 5px 12px;
       margin-bottom: 8px;
@@ -101,13 +101,13 @@
       border-radius: 5px;
       background-color: #F5F5F5;
     }
-    
+
     .daterangepicker .ranges ul li.active,
     .daterangepicker .ranges ul li:hover {
       background: #0088CC;
       color: #FFFFFF;
     }
-    
+
     .hidden {
       display: none;
       visibility: hidden;
@@ -135,6 +135,8 @@
         </div>
       </div>
     </div>
+    <!-- *ij* to solve the focus / blur problems i use this hack here -->
+    <input type="text" id="focusBlurDummy" style="position: absolute; left: -1000px;" />
   </template>
 </dom-module>
 <script>
@@ -213,6 +215,10 @@
     },
     close: function () {
       this.$.target.style.display = "none";
+      // *ij* to solve the focus / blur problems i use this hack here
+      // http://stackoverflow.com/questions/2520650/how-do-you-clear-the-focus-in-javascript
+      this.$.focusBlurDummy.focus();
+      this.$.focusBlurDummy.blur();
     },
     toggle: function () {
       if (this.$.target.style.display === "none") {
@@ -301,7 +307,7 @@
       // when component is initialized for unknown reasons timezone property is not deserialized correctly
       // this is detected with this.timezone === undefined; however attribute is still here and its value can be retreived
       // in instances after initialization timezone property is ok
-      // if timezone property is null (which happens when timezone attribute is not set) 
+      // if timezone property is null (which happens when timezone attribute is not set)
       // I set it to default value of 'America/NewYork'
       // This should also be reviewed and corrected when polymer team FIXES polymer because it sucks now. (13.052015)
       this.timezone = this.timezone === undefined ? this.getAttribute('timezone') : this.timezone;
