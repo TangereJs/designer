@@ -23,16 +23,17 @@
     "paper-styles": "polymerelements/paper-styles#^1.0.2",
     "iron-component-page": "polymerelements/iron-component-page#^1.0.0",
     "iron-icon": "polymerelements/iron-icon#^1.0.0",
+    "promise-polyfill": "polymerlabs/promise-polyfill#^1.0.0",
     "test-fixture": "polymerelements/test-fixture#^1.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
     "web-component-tester": "*"
   },
   "homepage": "https://github.com/polymerelements/iron-iconset-svg",
-  "_release": "58dfb62af2",
+  "_release": "ebd1792494",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "58dfb62af22b1477db993dc8021baec8b486cd84"
+    "commit": "ebd17924942abe6110aa0fe81b1b31e1fcc34a9f"
   },
   "_source": "git://github.com/polymerelements/iron-iconset-svg.git",
   "_target": "master",

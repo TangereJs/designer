@@ -62,11 +62,11 @@
     "test",
     "tests"
   ],
-  "_release": "cb3b96236a",
+  "_release": "c9b524fef9",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "cb3b96236acd44db9f70c9436b2dbe703cc3cb62"
+    "commit": "c9b524fef9bd71a3cb3616eb61dcee266258b7d0"
   },
   "_source": "git://github.com/PolymerElements/iron-elements.git",
   "_target": "master",
