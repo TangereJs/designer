@@ -25,11 +25,11 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "homepage": "https://github.com/polymerelements/iron-meta",
-  "_release": "caca13cefe",
+  "_release": "08aec1834c",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "caca13cefeccace38513eb5599293b9ffe788278"
+    "commit": "08aec1834cd7ef82fb684d86cb9a7223d54164c7"
   },
   "_source": "git://github.com/polymerelements/iron-meta.git",
   "_target": "master",
