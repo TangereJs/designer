@@ -60,6 +60,8 @@ Polymer.CssParse = (function() {
       if (node.parent) {
         var ss = node.previous ? node.previous.end : node.parent.start;
         t = text.substring(ss, node.start-1);
+        t = this._expandUnicodeEscapes(t);
+        t = t.replace(this._rx.multipleSpaces, ' ');
         // TODO(sorvell): ad hoc; make selector include only after last ;
         // helps with mixin syntax
         t = t.substring(t.lastIndexOf(';')+1);
@@ -87,6 +89,18 @@ Polymer.CssParse = (function() {
         }
       }
       return node;
+    },
+
+    // conversion of sort unicode escapes with spaces like `\33 ` (and longer) into
+    // expanded form that doesn't require trailing space `\000033`
+    _expandUnicodeEscapes : function(s) {
+      return s.replace(/\\([0-9a-f]{1,6})\s/gi, function() {
+        var code = arguments[1], repeat = 6 - code.length;
+        while (repeat--) {
+          code = '0' + code;
+        }
+        return '\\' + code;
+      });
     },
 
     // stringify parsed css.
@@ -123,7 +137,7 @@ Polymer.CssParse = (function() {
     },
 
     _hasMixinRules: function(rules) {
-      return (rules[0].selector.indexOf(this.VAR_START) >= 0);
+      return rules[0].selector.indexOf(this.VAR_START) === 0;
     },
 
     removeCustomProps: function(cssText) {
@@ -160,8 +174,9 @@ Polymer.CssParse = (function() {
       customProp: /(?:^|[\s;])--[^;{]*?:[^{};]*?(?:[;\n]|$)/gim,
       mixinProp: /(?:^|[\s;])?--[^;{]*?:[^{;]*?{[^}]*?}(?:[;\n]|$)?/gim,
       mixinApply: /@apply[\s]*\([^)]*?\)[\s]*(?:[;\n]|$)?/gim,
-      varApply: /[^;:]*?:[^;]*var[^;]*(?:[;\n]|$)?/gim,
+      varApply: /[^;:]*?:[^;]*?var\([^;]*\)(?:[;\n]|$)?/gim,
       keyframesRule: /^@[^\s]*keyframes/,
+      multipleSpaces: /\s+/g
     },
 
     VAR_START: '--',
