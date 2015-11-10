@@ -19,9 +19,11 @@ at-core-resize-sensor
 at-core-router
 at-core-searchbox
 at-core-signals
+at-core-sortable
 at-core-spinner
 at-core-theme
 at-core-view
+at-doc-parser
 at-elements
 at-form
 at-form-checkbox
@@ -29,7 +31,6 @@ at-form-codemirror
 at-form-complex
 at-form-date
 at-form-daterange
-at-form-designer
 at-form-file
 at-form-input
 at-form-lookup
