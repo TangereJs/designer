@@ -45,6 +45,8 @@ at-rule-conditions
 at-form-array
 at-form-radio
 at-form-textarea
+at-form-text
+at-form-number
 code-mirror
 core-media-query
 liquid-template
