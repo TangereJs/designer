@@ -12,6 +12,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   'use strict';
 
+  var wrap = Polymer.DomApi.wrap;
+
   // detect native touch action support
   var HAS_NATIVE_TA = typeof document.head.style.touchAction === 'string';
   var GESTURE_KEY = '__polymerGestures';
@@ -455,7 +457,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         x: event.clientX,
         y: event.clientY,
         sourceEvent: event,
-        prevent: Gestures.prevent.bind(Gestures)
+        prevent: function(e) {
+          return Gestures.prevent(e);
+        }
       });
     }
   });
