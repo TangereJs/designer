@@ -6,11 +6,11 @@
     "d3": "TangereJs/d3#master"
   },
   "homepage": "https://github.com/TangereJs/d3-elements",
-  "_release": "e36c6c828e",
+  "_release": "222bd33cbd",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "e36c6c828eebcf64fddc018ad542f73dd5948b78"
+    "commit": "222bd33cbda8a7468dcf195082c255cd0cf89c5b"
   },
   "_source": "git://github.com/TangereJs/d3-elements.git",
   "_target": "master",
