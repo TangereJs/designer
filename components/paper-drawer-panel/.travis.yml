@@ -7,8 +7,8 @@ before_script:
   - bower install
 env:
   global:
-    - secure: TFRxlioK3ZZiei0mBDkGWUqqsIHh03i+y46bmMarnrbinH0AtN+fYKt+VUkkFKMr34lSU42togi4h0MsxM++wn058zbU+tnHhBP70aofEFIKgJaeP2IgCuO9TIWbK5umZhqKS37wBlKor7UrGnjRGjk7CJlrwYfzWmYLtYQ1iTI=
-    - secure: BsHkstf+C2resrUoPg03ok//KVkUzeWMVV4eorzFdvKl48to9lEIuiWYICsc+5uKekK/OfkM7wF8rNiuc4qbRf7heVKAsG2W+/P0NS/KrKLGDu0ZSnhMUpY7Kng8Y9I6LnW3dJrr6YqZk61A2LwhZIC+IpnXicymmtDpfbsIF6M=
+    - secure: PLe0gvvFLKijrgyroIeymIP14SikK6RobNUOqHyUiLDCh9S2/vSBJUp8U5TYkVmpxMr+rcKXpfIhYt/bne97bARTnMjRQUa+rlraek6EPXyFILDsyaTosYD7rmY2f8ViiW+CM3eUA+ym0P8tvYONdTx+CEdO7S6esotfq3LHrLw=
+    - secure: U4i/ZSfd87xQ+0YZCKxk3knQQk23V/2IxtSrvY42OnaGi10uz04Cad5XMuBcB1kCyRkAP/e9flQyp4iLaDpG+edm2fxJNPqXepWjtMr0rVFr2LoQ7dPAQCFkzO25dSiO+Wj4ffDO//hwgF5Xl/BXnyRBfSEjURZXr4EP+NjoMWU=
 node_js: 4
 addons:
   firefox: latest
