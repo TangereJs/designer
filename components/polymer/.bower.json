@@ -24,11 +24,11 @@
   },
   "private": true,
   "homepage": "https://github.com/Polymer/polymer",
-  "_release": "34bf229e7b",
+  "_release": "92edf4a848",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "34bf229e7b71ca2eccb946d48cf86076c5a4f4a6"
+    "commit": "92edf4a848c3c7c4a61fd8dbfe127e342c75afa6"
   },
   "_source": "git://github.com/Polymer/polymer.git",
   "_target": "master",
