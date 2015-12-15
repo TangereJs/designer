@@ -1,7 +1,9 @@
 {
   "name": "polymer",
   "main": [
-    "polymer.html"
+    "polymer.html",
+    "polymer-mini.html",
+    "polymer-micro.html"
   ],
   "license": "http://polymer.github.io/LICENSE.txt",
   "ignore": [
@@ -24,11 +26,11 @@
   },
   "private": true,
   "homepage": "https://github.com/Polymer/polymer",
-  "_release": "9066a48a63",
+  "_release": "a5b7b85d4e",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "9066a48a637dfdc37bcc591c27232b86672fdb41"
+    "commit": "a5b7b85d4e737abc8cf64203aead2ea8ca69771a"
   },
   "_source": "git://github.com/Polymer/polymer.git",
   "_target": "master",
