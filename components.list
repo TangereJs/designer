@@ -54,6 +54,7 @@ at-form-textarea
 at-rule-actions
 at-rule-conditions
 at-rule-edit
+at-theme-default
 code-mirror
 core-media-query
 liquid-template
