@@ -32,6 +32,7 @@ at-doc-parser
 at-doc-viewer
 at-elements
 at-form
+at-form-ajax
 at-form-array
 at-form-behaviors
 at-form-checkbox
