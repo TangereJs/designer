@@ -57,7 +57,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   });
 
   Object.defineProperties(DomApi.prototype, {
-    
+
+    activeElement: {
+      get: function() {
+        var node = DomApi.wrap(this.node);
+        var activeElement = node.activeElement;
+        // Prevents `activeElement` from returning elements outside of the
+        // ShadowRoot, even if they would become descendants of the ShadowRoot
+        // in the composed tree. See w3c/webcomponents#358.
+        return node.contains(activeElement) ? activeElement : null;
+      },
+      configurable: true
+    },
+
     childNodes: {
       get: function() {
         return TreeApi.arrayCopyChildNodes(this.node);
@@ -108,7 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   };
 
   forwardMethods(['cloneNode', 'appendChild', 'insertBefore',
-    'removeChild', 'replaceChild', 'setAttribute', 'removeAttribute', 
+    'removeChild', 'replaceChild', 'setAttribute', 'removeAttribute',
     'querySelector']);
 
   var forwardProperties = function(f$) {
