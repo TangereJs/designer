@@ -34,6 +34,8 @@
     "at-form-daterange": "0.8-preview",
     "at-form-array": "0.8-preview",
     "at-form-lookup": "0.8-preview",
-    "at-form-radio": "0.8-preview"
+    "at-form-radio": "0.8-preview",
+    "paper-dialog": "master",
+    "paper-button": "master"
   }
 }
