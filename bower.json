@@ -37,6 +37,9 @@
     "at-form-radio": "0.8-preview",
     "paper-dialog": "master",
     "paper-button": "master",
-    "paper-styles": "0.8-preview"
+    "paper-styles": "0.8-preview",
+    "iron-collapse": "master",
+    "paper-icon-button": "master",
+    "paper-item": "master"
   }
 }
