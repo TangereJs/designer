@@ -36,6 +36,7 @@
     "at-form-lookup": "0.8-preview",
     "at-form-radio": "0.8-preview",
     "paper-dialog": "master",
-    "paper-button": "master"
+    "paper-button": "master",
+    "paper-styles": "0.8-preview"
   }
 }
