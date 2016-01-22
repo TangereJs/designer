@@ -38,11 +38,11 @@
     "paper-styles": "polymerelements/paper-styles#^1.0.0"
   },
   "ignore": [],
-  "_release": "6956fc56d9",
+  "_release": "c9e8391927",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "6956fc56d9beb87c35fd8bcbf5a1ff3beaa9cb19"
+    "commit": "c9e83919272d030678448d03e8184bb003796ebe"
   },
   "_source": "git://github.com/PolymerElements/paper-button.git",
   "_target": "master",

@@ -314,10 +314,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <style is="custom-style">
           .flex-self-align {
             @apply(--layout-horizontal);
-            @apply(--layout-justified);
+            
             height: 120px;
           }
-          .flex-self-align div {
+          .flex-self-align .flex {
             @apply(--layout-flex);
           }
           .child1 {
@@ -336,7 +336,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <div class="container flex-self-align">
           <div class="child1">one</div>
-          <div class="child2">two</div>
+          <div class="child2 flex">two</div>
           <div class="child3">three</div>
           <div class="child4">four</div>
         </div>

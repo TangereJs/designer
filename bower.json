@@ -40,6 +40,8 @@
     "paper-styles": "0.8-preview",
     "iron-collapse": "master",
     "paper-icon-button": "master",
-    "paper-item": "master"
+    "paper-item": "master",
+    "paper-radio-group": "master",
+    "paper-radio-button": "master"
   }
 }
