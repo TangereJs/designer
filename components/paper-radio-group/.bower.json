@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
     "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.0.0",
     "paper-radio-button": "PolymerElements/paper-radio-button#^1.0.0",
     "paper-styles": "PolymerElements/paper-styles#^1.0.0",
@@ -33,11 +34,11 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "main": "paper-radio-group.html",
-  "_release": "7a6ffa9efa",
+  "_release": "e24d101255",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "7a6ffa9efaebd06b55ba1941f7c4d476eeb47678"
+    "commit": "e24d101255f0654f4784e1a4bedf2ee66bfffc0a"
   },
   "_source": "git://github.com/PolymerElements/paper-radio-group.git",
   "_target": "master",
