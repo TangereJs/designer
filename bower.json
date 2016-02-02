@@ -42,6 +42,8 @@
     "paper-icon-button": "master",
     "paper-item": "master",
     "paper-radio-group": "master",
-    "paper-radio-button": "master"
+    "paper-radio-button": "master",
+    "paper-checkbox": "master",
+    "paper-toggle-button": "master"
   }
 }

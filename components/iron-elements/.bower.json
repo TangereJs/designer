@@ -48,6 +48,8 @@
     "iron-range-behavior": "PolymerElements/iron-range-behavior#^1.0.0",
     "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.0",
     "iron-selector": "PolymerElements/iron-selector#^1.0.0",
+    "iron-scroll-target-behavior": "PolymerElements/iron-scroll-target-behavior#^1.0.0",
+    "iron-scroll-threshold": "PolymerElements/iron-scroll-threshold#^1.0.0",
     "iron-signals": "PolymerElements/iron-signals#^1.0.0",
     "iron-swipeable-container": "PolymerElements/iron-swipeable-container#^1.0.0",
     "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.0.0",
@@ -67,11 +69,11 @@
     "tests"
   ],
   "main": "iron-elements.html",
-  "_release": "bd1473e201",
+  "_release": "55f3d9ca27",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "bd1473e201accefb15a9fcccd2ce8233529b7afd"
+    "commit": "55f3d9ca27901c76fc05dea536a3618e92214041"
   },
   "_source": "git://github.com/PolymerElements/iron-elements.git",
   "_target": "master",

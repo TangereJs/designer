@@ -27,11 +27,11 @@
   "main": "iron-meta.html",
   "ignore": [],
   "homepage": "https://github.com/polymerelements/iron-meta",
-  "_release": "9ad91eed9e",
+  "_release": "24e8e64217",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "9ad91eed9e19b9fc44368295ea064a93342d3be4"
+    "commit": "24e8e642173bc4ecbc62ca437313a13fbfa2de90"
   },
   "_source": "git://github.com/polymerelements/iron-meta.git",
   "_target": "master",
