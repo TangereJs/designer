@@ -20,10 +20,8 @@
   },
   "dependencies": {
     "polymer": "Polymer/polymer#^1.1.0",
-    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0",
     "iron-icon": "PolymerElements/iron-icon#^1.0.0",
     "paper-behaviors": "PolymerElements/paper-behaviors#^1.0.0",
-    "paper-ripple": "PolymerElements/paper-ripple#^1.0.0",
     "paper-styles": "PolymerElements/paper-styles#^1.0.0"
   },
   "devDependencies": {
@@ -36,11 +34,11 @@
   },
   "ignore": [],
   "homepage": "https://github.com/PolymerElements/paper-icon-button",
-  "_release": "9bc8bc5620",
+  "_release": "7f31de7e88",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "9bc8bc5620a52e6424baaa7f270535327be1cad7"
+    "commit": "7f31de7e883708c0afdd376f312f81145b389769"
   },
   "_source": "git://github.com/PolymerElements/paper-icon-button.git",
   "_target": "master",
