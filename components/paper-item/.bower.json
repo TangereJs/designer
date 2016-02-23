@@ -39,11 +39,11 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
     "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.0.0"
   },
-  "_release": "2d9d12e434",
+  "_release": "2659217567",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "2d9d12e43416e35b96779a0706fcfda36ea8f200"
+    "commit": "2659217567ca455aabbd3774fa0a2fb07481b1dc"
   },
   "_source": "git://github.com/PolymerElements/paper-item.git",
   "_target": "master",

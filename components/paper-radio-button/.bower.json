@@ -21,7 +21,6 @@
   "dependencies": {
     "iron-checked-element-behavior": "PolymerElements/iron-checked-element-behavior#^1.0.0",
     "paper-behaviors": "PolymerElements/paper-behaviors#^1.0.0",
-    "paper-ripple": "PolymerElements/paper-ripple#^1.0.0",
     "paper-styles": "PolymerElements/paper-styles#^1.1.0",
     "polymer": "Polymer/polymer#^1.1.0"
   },
@@ -34,11 +33,11 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "main": "paper-radio-button.html",
-  "_release": "29f4949f03",
+  "_release": "ada62ad334",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "29f4949f03c55d6e0c4383173c4d8dc2d2daa4a4"
+    "commit": "ada62ad3347d304aa72352ea5ef02e2c21907d6c"
   },
   "_source": "git://github.com/PolymerElements/paper-radio-button.git",
   "_target": "master",

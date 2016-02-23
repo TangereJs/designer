@@ -10,7 +10,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-behaviors/paper-checked-element-behavior.html">
-<link rel="import" href="../paper-ripple/paper-ripple.html">
 <link rel="import" href="../paper-styles/default-theme.html">
 
 <!--
@@ -139,7 +138,6 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
         vertical-align: middle;
         margin-left: var(--paper-radio-button-label-spacing, 10px);
         white-space: normal;
-        pointer-events: none;
         color: var(--paper-radio-button-label-color, --primary-text-color);
       }
 
@@ -153,9 +151,6 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
       }
 
       /* disabled state */
-      :host([disabled]) {
-        pointer-events: none;
-      }
 
       :host([disabled]) #offRadio {
         border-color: var(--paper-radio-button-unchecked-color, --primary-text-color);
@@ -214,10 +209,8 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
         }
       },
 
-      // create the element ripple inside the `radioContainer`
-      _createRipple: function() {
+      ready: function() {
         this._rippleContainer = this.$.radioContainer;
-        return Polymer.PaperInkyFocusBehaviorImpl._createRipple.call(this);
       }
     })
   </script>
