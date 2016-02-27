@@ -3,7 +3,7 @@
   "description": "Parse and display moments in any timezone.",
   "main": "builds/moment-timezone-with-data-2010-2020.js",
   "dependencies": {
-    "moment": "TangereJs/moment#master"
+    "moment": ">= 2.6.0"
   },
   "ignore": [
     "**/.*",
@@ -16,11 +16,11 @@
     "package.json"
   ],
   "homepage": "https://github.com/TangereJs/moment-timezone",
-  "_release": "591a78475f",
+  "_release": "44ce91b03a",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "591a78475f169cb542cae56e36f44188dafb060f"
+    "commit": "44ce91b03aa528ceb3832d13dbcee041f09c577a"
   },
   "_source": "git://github.com/TangereJs/moment-timezone.git",
   "_target": "master",

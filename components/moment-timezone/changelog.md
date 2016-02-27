@@ -1,3 +1,44 @@
+### `0.5.0` _2015_12_28_
+* Added support for guessing the user's timezone via `moment.tz.guess()`. [#285](https://github.com/moment/moment-timezone/pull/285)
+* Fixed UMD export issue when there was an html element with `id=exports`. [#275](https://github.com/moment/moment-timezone/pull/275)
+* Removed jspm specific dependencies from `package.json`. [#284](https://github.com/moment/moment-timezone/pull/284)
+
+### `0.4.1` _2015-10-07_
+* Updated data to IANA TZDB `2015e`. [#253](https://github.com/moment/moment-timezone/pull/253)
+* Updated data to IANA TZDB `2015f`. [#253](https://github.com/moment/moment-timezone/pull/253)
+* Updated data to IANA TZDB `2015g`. [#255](https://github.com/moment/moment-timezone/pull/255)
+* Added jspm dependencies for moment. [#234](https://github.com/moment/moment-timezone/pull/234)
+* Included builds directory in npm. [#237](https://github.com/moment/moment-timezone/pull/237)
+* Removed version field from bower.json. [#230](https://github.com/moment/moment-timezone/pull/230)
+
+### `0.4.0` _2015-05-30_
+* Updated data to IANA TZDB `2015b`. [#201](https://github.com/moment/moment-timezone/pull/201)
+* Updated data to IANA TZDB `2015c`. [#214](https://github.com/moment/moment-timezone/pull/214)
+* Updated data to IANA TZDB `2015d`. [#214](https://github.com/moment/moment-timezone/pull/214)
+* Updated zone getter to allow lazy unpacking to improve initial page load times. [#216](https://github.com/moment/moment-timezone/pull/216)
+* Added a `package.json` `jspm:main` entry point. [#194](https://github.com/moment/moment-timezone/pull/194)
+* Added `composer.json`. [#222](https://github.com/moment/moment-timezone/pull/222)
+* Added an error message when trying to load moment-timezone twice. [#212](https://github.com/moment/moment-timezone/pull/212)
+
+### `0.3.1` _2015-03-16_
+* Updated data to IANA TZDB `2015a`. [#183](https://github.com/moment/moment-timezone/pull/183)
+
+### `0.3.0` _2015-01-13_
+
+* *Breaking:* Added country data to the `meta/*.json` files. Restructured the data to support multiple countries per zone. [#162](https://github.com/moment/moment-timezone/pull/162)
+* Added the ability to set a default timezone for all new moments. [#152](https://github.com/moment/moment-timezone/pull/152)
+* Fixed a bug when passing a moment with an offset to `moment.tz`. [#169](https://github.com/moment/moment-timezone/pull/169)
+* Fixed a deprecation in moment core, changing `moment#zone` to `moment#utcOffset`. [#168](https://github.com/moment/moment-timezone/pull/168)
+
+### `0.2.5` _2014-11-12_
+* Updated data to IANA TZDB `2014j`. [#151](https://github.com/moment/moment-timezone/pull/151)
+
+### `0.2.4` _2014-10-20_
+* Updated data to IANA TZDB `2014i`. [#142](https://github.com/moment/moment-timezone/pull/142)
+
+### `0.2.3` _2014-10-20_
+* Updated data to IANA TZDB `2014h`. [#141](https://github.com/moment/moment-timezone/pull/141)
+
 ### `0.2.2` _2014-09-04_
 * Updated data to IANA TZDB `2014g`. [#126](https://github.com/moment/moment-timezone/pull/126)
 * Added a warning when using `moment-timezone` with `moment<2.6.0`.

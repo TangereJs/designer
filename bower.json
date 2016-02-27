@@ -45,6 +45,8 @@
     "paper-radio-button": "master",
     "paper-checkbox": "master",
     "paper-toggle-button": "master",
-    "iron-label": "master"
+    "iron-label": "master",
+    "at-carbon-icon-button": "0.8-preview",
+    "moment": "master"
   }
 }
