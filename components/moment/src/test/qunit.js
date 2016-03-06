@@ -1,7 +1,6 @@
 /*global QUnit:false*/
 
 import moment from '../moment';
-import { defineCommonLocaleTests } from './helpers/common-locale';
 
 export var test = QUnit.test;
 
@@ -44,5 +43,4 @@ export function localeModule (name, lifecycle) {
             }
         }
     });
-    defineCommonLocaleTests(name, -1, -1);
 }

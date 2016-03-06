@@ -38,7 +38,6 @@ cp -r $src/locale $dest
 cp -r $src/min $dest
 cp $src/ender.js $dest
 cp $src/package.js $dest
-cp $src/.npmignore $dest
 
 rm -rf $src
 
