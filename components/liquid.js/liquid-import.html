@@ -37,7 +37,13 @@
       var compUrl = "/components/";
       if (window.ComponentsBase != undefined) compUrl = window.ComponentsBase;
       return compUrl + (input || '');
-  }
+    },
+    
+    t: function() {
+     var r = "** i18n failed, please ensure that Tangere.behaviors.i18n is applied **";
+      if(this.context.i18nCallback) r = this.context.i18nCallback.apply(null, arguments);
+      return r;
+    }
 
   });
 

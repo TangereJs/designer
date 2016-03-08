@@ -566,7 +566,9 @@ Liquid.Template = Class.extend({
       if(args.registers){
         Liquid.extensions.object.update.call(this.registers, args.registers);
       }
-      context = new Liquid.Context(this.assigns, this.registers, this.rethrowErrors)
+      context = new Liquid.Context(this.assigns, this.registers, this.rethrowErrors);
+      
+      context.i18nCallback = this.i18nCallback; // *ma* add localization call back for | t
     }
 
     if(args.filters){ context.addFilters(arg.filters); }

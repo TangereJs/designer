@@ -34,11 +34,11 @@
   },
   "ignore": [],
   "homepage": "https://github.com/PolymerElements/paper-icon-button",
-  "_release": "d529ae30af",
+  "_release": "7623d73efe",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "d529ae30af6c5a690ea82e621fbdd73948347d4c"
+    "commit": "7623d73efeb6e2e88e2abdb5e4d00641d39e400f"
   },
   "_source": "git://github.com/PolymerElements/paper-icon-button.git",
   "_target": "master",
