@@ -169,12 +169,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       );
 
       if (options.headers) {
-        Object.keys(options.headers).forEach(function (requestHeader) {
-          xhr.setRequestHeader(
-            requestHeader,
-            options.headers[requestHeader]
-          );
-        }, this);
+          Object.keys(options.headers).forEach(function (requestHeader) {
+              //Task #AT-46 - if Content-Type ==  multipart/form-data => we have file upload
+              //Setting Content-Type to "multipart/form-data" will remove boundary=----[randomString]
+              //Which will result in not sending data
+              if (requestHeader == "Content-Type" && options.headers[requestHeader] == "multipart/form-data") {
+                  return;
+              }
+              xhr.setRequestHeader(
+                requestHeader,
+                options.headers[requestHeader]
+              );
+              
+          }, this);
       }
 
       // In IE, `xhr.responseType` is an empty string when the response
@@ -196,7 +203,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var preferResponseText = !this.xhr.responseType;
 
       if (window.pauseCode) {
-        debugger;
       }
 
       try {
