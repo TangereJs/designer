@@ -57,11 +57,11 @@
     "paper-tooltip": "PolymerElements/paper-tooltip#^1.0.0"
   },
   "main": "paper-elements.html",
-  "_release": "bd542b82d6",
+  "_release": "1e1ae0df03",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "bd542b82d6b218200f26bcf93c112f4a2dd37f49"
+    "commit": "1e1ae0df038c67dcc461d09516bdfece34b8d910"
   },
   "_source": "git://github.com/PolymerElements/paper-elements.git",
   "_target": "master",

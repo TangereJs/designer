@@ -23,74 +23,34 @@ Example:
 -->
 
 <link href="../polymer/polymer.html" rel="import">
-<link href="../layout/layout.html" rel="import">
-<dom-module id="paper-shadow">
-  <style>
-    :host {
-      pointer-events: none;
-      border-radius: inherit;
-    }
 
-    :host #shadow {
-      border-radius: inherit;
-    }
+<link href="paper-shadow.css" rel="stylesheet" shim-shadowdom>
 
-    :host([animated]) #shadow {
-      transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+<polymer-element name="paper-shadow">
 
-    :host([z="1"]) #shadow {
-      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
-    }
+<template>
 
+  <div id="shadow-bottom" fit animated?="[[animated]]" class="paper-shadow-bottom-z-[[z]]"></div>
+  <div id="shadow-top" fit animated?="[[animated]]" class="paper-shadow-top-z-[[z]]"></div>
 
-    :host([z="2"]) #shadow {
-      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2),
-                  0 6px 10px 0 rgba(0, 0, 0, 0.3);
-    }
+  <content></content>
 
-    :host([z="3"]) #shadow {
-      box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19),
-                  0 13px 25px 0 rgba(0, 0, 0, 0.3);
-    }
+</template>
 
-    :host([z="4"]) #shadow {
-      box-shadow: 0 14px 12px 0 rgba(0, 0, 0, 0.17),
-                  0 20px 40px 0 rgba(0, 0, 0, 0.3);
-    }
-
-    :host([z="5"]) #shadow {
-      box-shadow: 0 17px 17px 0 rgba(0, 0, 0, 0.15),
-                  0 27px 55px 0 rgba(0, 0, 0, 0.3);
-    }
-  </style>
-  <template>
-    <div id="shadow" class="fit"></div>
-
-    <content></content>
-
-  </template>
-</dom-module>
 <script>
   Polymer({
-    is: 'paper-shadow',
 
-    properties: {
+    publish: {
 
       /**
-       * The z-depth of this shadow, from 0-5. Setting to 0 will remove the
-       * shadow, and each increasing number greater than 0 will be "deeper"
-       * than the last.
+       * The z-depth of this shadow, from 0-5. Setting this property
+       * after element creation has no effect. Use `setZ()` instead.
        *
        * @attribute z
        * @type number
        * @default 1
        */
-      z: {
-        type: Number,
-        reflectToAttribute: true,
-        value: 1
-      },
+      z: 1,
 
       /**
        * Set this to true to animate the shadow when setting a new
@@ -100,11 +60,27 @@ Example:
        * @type boolean
        * @default false
        */
-      animated: {
-        type: Boolean,
-        reflectToAttribute: true,
-        value: false
-      }
+      animated: false
+
     },
-  })
+
+    /**
+     * Set the z-depth of the shadow. This should be used after element
+     * creation instead of setting the z property directly.
+     *
+     * @method setZ
+     * @param {Number} newZ
+     */
+    setZ: function(newZ) {
+      if (this.z !== newZ) {
+        this.$['shadow-bottom'].classList.remove('paper-shadow-bottom-z-' + this.z);
+        this.$['shadow-bottom'].classList.add('paper-shadow-bottom-z-' + newZ);
+        this.$['shadow-top'].classList.remove('paper-shadow-top-z-' + this.z);
+        this.$['shadow-top'].classList.add('paper-shadow-top-z-' + newZ);
+        this.z = newZ;
+      }
+    }
+
+  });
 </script>
+</polymer-element>
