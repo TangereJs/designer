@@ -39,11 +39,11 @@
     "iron-list": "PolymerElements/iron-list#^1.0.0",
     "iron-label": "PolymerElements/iron-label#^1.0.0",
     "iron-localstorage": "PolymerElements/iron-localstorage#^1.0.0",
+    "iron-location": "PolymerElements/iron-location#^0.8.0",
     "iron-media-query": "PolymerElements/iron-media-query#^1.0.0",
     "iron-menu-behavior": "PolymerElements/iron-menu-behavior#^1.0.0",
     "iron-meta": "PolymerElements/iron-meta#^1.0.0",
     "iron-overlay-behavior": "PolymerElements/iron-overlay-behavior#^1.0.0",
-    "iron-page-url": "PolymerElements/iron-page-url#~0.7.0",
     "iron-pages": "PolymerElements/iron-pages#^1.0.0",
     "iron-range-behavior": "PolymerElements/iron-range-behavior#^1.0.0",
     "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.0",
@@ -69,11 +69,11 @@
     "tests"
   ],
   "main": "iron-elements.html",
-  "_release": "e9c8bbb60f",
+  "_release": "067617dcab",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "e9c8bbb60fbea895851bbac1cfa5a3cb06fffb57"
+    "commit": "067617dcab425250939d6a94a2ae159cab719b2c"
   },
   "_source": "git://github.com/PolymerElements/iron-elements.git",
   "_target": "master",
