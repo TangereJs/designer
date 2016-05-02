@@ -48,6 +48,7 @@
     "iron-label": "master",
     "at-carbon-icon-button": "0.8-preview",
     "moment": "master",
-    "paper-shadow": "master"
+    "paper-shadow": "master",
+    "iron-flex-layout": "master"
   }
 }
