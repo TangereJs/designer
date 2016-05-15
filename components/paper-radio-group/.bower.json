@@ -34,11 +34,11 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "main": "paper-radio-group.html",
-  "_release": "8f8ecfbb4c",
+  "_release": "1e91823280",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "8f8ecfbb4cb3da0186199f37cf381ee7e71ce797"
+    "commit": "1e918232809e7c6dca422b038be60b63bf09ade6"
   },
   "_source": "git://github.com/PolymerElements/paper-radio-group.git",
   "_target": "master",
