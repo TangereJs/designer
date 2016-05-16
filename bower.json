@@ -49,6 +49,7 @@
     "at-carbon-icon-button": "0.8-preview",
     "moment": "master",
     "paper-shadow": "master",
-    "iron-flex-layout": "master"
+    "iron-flex-layout": "master",
+    "sortable": "master"
   }
 }

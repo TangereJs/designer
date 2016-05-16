@@ -29,14 +29,13 @@
     "test",
     "tests"
   ],
-  "version": "1.4.2",
-  "_release": "1.4.2",
+  "_release": "bf165f08e4",
   "_resolution": {
-    "type": "version",
-    "tag": "1.4.2",
-    "commit": "d86937c8bca017f948aad04eb02dcaddfbb60ffa"
+    "type": "branch",
+    "branch": "master",
+    "commit": "bf165f08e42b8ae319151cc0e8da662a3074eb3c"
   },
-  "_source": "git://github.com/IntranetFactory/Sortable.git",
-  "_target": "*",
-  "_originalSource": "IntranetFactory/Sortable"
+  "_source": "git://github.com/TangereJS/Sortable.git",
+  "_target": "master",
+  "_originalSource": "TangereJS/Sortable"
 }
