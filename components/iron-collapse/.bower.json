@@ -29,11 +29,11 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "main": "iron-collapse.html",
-  "_release": "f6fa858c7e",
+  "_release": "1ee21b3382",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "f6fa858c7e51b2dda1ee06f0cd5a90de8fb7c085"
+    "commit": "1ee21b33821831b5924ca5795375395931daf521"
   },
   "_source": "git://github.com/PolymerElements/iron-collapse.git",
   "_target": "master",

@@ -32,7 +32,7 @@ do
 	if [[ $line ]]; then		
 		rm -r components/$line 2>/dev/null
 		mv components/__$line components/$line
-		pull-repo.sh $user $pass $line components
+		bash pull-repo.sh $user $pass $line components
 	fi
 done < components.list
 

@@ -31,11 +31,11 @@
   "main": "iron-iconset-svg.html",
   "ignore": [],
   "homepage": "https://github.com/polymerelements/iron-iconset-svg",
-  "_release": "950c26329c",
+  "_release": "b5203674f8",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "950c26329c23e4f7efb8ef694b992a9f0c7c1a20"
+    "commit": "b5203674f884988e810fcbb0bca4c70855cadcb6"
   },
   "_source": "git://github.com/polymerelements/iron-iconset-svg.git",
   "_target": "master",

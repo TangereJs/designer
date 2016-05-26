@@ -30,11 +30,11 @@
     "web-component-tester": "^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
-  "_release": "d4e3027a98",
+  "_release": "74c831bbc2",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "d4e3027a980c1a9176d0844053e76ced4de1da5d"
+    "commit": "74c831bbc2c8072f1ae77a6223eea66693cc746a"
   },
   "_source": "git://github.com/PolymerElements/iron-label.git",
   "_target": "master",
