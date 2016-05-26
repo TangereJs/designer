@@ -4,7 +4,8 @@
 while read line
 do
 	if [[ $line ]]; then				
-		cd components/$line components
+	echo $line
+	ls components/$line
 	fi
 done < components.list
 
