@@ -19,21 +19,22 @@
   "ignore": [],
   "dependencies": {
     "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.0",
-    "polymer": "Polymer/polymer#^1.0.0"
+    "polymer": "Polymer/polymer#^1.5.0"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0",
     "test-fixture": "PolymerElements/test-fixture#^1.0.0",
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-flex-layout": "polymerelements/iron-flex-layout#^1.0.0",
     "paper-styles": "PolymerElements/paper-styles#^1.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "main": "iron-collapse.html",
-  "_release": "1ee21b3382",
+  "_release": "f9e64ea773",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "1ee21b33821831b5924ca5795375395931daf521"
+    "commit": "f9e64ea7731c43430f48d64dddb80166334122c7"
   },
   "_source": "git://github.com/PolymerElements/iron-collapse.git",
   "_target": "master",
