@@ -33,12 +33,16 @@
     "stacky": "^1.3.0",
     "test-fixture": "polymerelements/test-fixture#^1.0.0"
   },
+  "devDependencies": {
+    "polymer": "Polymer/polymer#^1.5.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.22"
+  },
   "homepage": "https://github.com/Polymer/web-component-tester",
-  "_release": "f37fc017bb",
+  "_release": "0be55f751f",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "f37fc017bbabdbc40b7287bfc1f55865404355ea"
+    "commit": "0be55f751f79b980431c1c54869b7f06b5c120cd"
   },
   "_source": "git://github.com/Polymer/web-component-tester.git",
   "_target": "master",

@@ -28,11 +28,11 @@
   },
   "ignore": [],
   "homepage": "https://github.com/PolymerElements/iron-flex-layout",
-  "_release": "921e2b39d0",
+  "_release": "cffdcf2c34",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "921e2b39d032728579593171249afec84da559fc"
+    "commit": "cffdcf2c34a3112e6dc972acfbc4ae36e9389abd"
   },
   "_source": "git://github.com/PolymerElements/iron-flex-layout.git",
   "_target": "master",
