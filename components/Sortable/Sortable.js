@@ -646,6 +646,24 @@
 
 					if (_onMove(rootEl, el, dragEl, dragRect, target, targetRect) !== false) {
 						if (!dragEl.contains(el)) {
+							/* *ij* 22.06.2016 (dd.mm.yyyy) why is this here?
+								 * in at-form-designer there is a requirement to drag and drop elements in add a field tab from the two columns on the left to one column on the right
+								 * out of the box sortable.js supports drag and drop for html elements of the same structure
+								 * in at-form-designer elements on the left have different structure form elements on the right
+								 * on the left element is a <li><p></p></li> - *LE*; on the right element is <li><div><at-form-*></at-form-*></div></li> RE
+								 * sortable is not designed to support this out of the box so extension is required
+								 * through debugging I have found out that _onDragOver function is called when *LE* element is dragged over a potential drop target but not dropped yet
+								 * we wan't to show a live preview of what is going to happen after dropping
+								 * the insertBefore executed below inserts the live preview
+								 * but dragEl is just a clone of the *LE* element and its not what is expected on the right
+								 * so we need to "upgrade" the dragEl to be like what is expected on the right
+								 * for that purpose options.upgradeDragEl function is introduced
+								 * knowledge of what *LE* element should be upgraded into is in at-form-designer so this function is implemented there
+								 * Upgrading is done here when element is dragged into an empty list on the right
+								 */
+							if (options.upgradeDragEl) {
+								options.upgradeDragEl(dragEl);
+							}
 							el.appendChild(dragEl);
 							parentEl = el; // actualization
 						}

@@ -29,11 +29,15 @@
     "test",
     "tests"
   ],
-  "_release": "bf165f08e4",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master"
+  },
+  "_release": "04ecc93bbf",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "bf165f08e42b8ae319151cc0e8da662a3074eb3c"
+    "commit": "04ecc93bbf92673c9ccb478d0fb5c5d2e5880e34"
   },
   "_source": "git://github.com/TangereJS/Sortable.git",
   "_target": "master",

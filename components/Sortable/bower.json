@@ -28,5 +28,10 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "version": "0.0.1.7",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master"
+  }
 }
