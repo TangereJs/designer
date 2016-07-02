@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
     "paper-button": "PolymerElements/paper-button#^1.0.0",
     "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable#^1.0.0",
     "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^1.0.0",
@@ -34,11 +35,11 @@
     "web-component-tester": "^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
-  "_release": "649e874278",
+  "_release": "c8e82308b5",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "649e874278c982176061ec1ab75ab4c6fc02d01d"
+    "commit": "c8e82308b590979f5b2b7adf645625930a728c0f"
   },
   "_source": "git://github.com/PolymerElements/paper-dialog.git",
   "_target": "master",
