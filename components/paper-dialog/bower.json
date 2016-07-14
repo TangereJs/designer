@@ -1,7 +1,7 @@
 {
   "name": "paper-dialog",
   "description": "A Material Design dialog",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "authors": "The Polymer Authors",
   "keywords": [
     "web-components",
@@ -21,6 +21,7 @@
   "dependencies": {
     "neon-animation": "PolymerElements/neon-animation#^1.0.0",
     "paper-dialog-behavior": "PolymerElements/paper-dialog-behavior#^1.0.0",
+    "iron-overlay-behavior": "PolymerElements/iron-overlay-behavior#^1.7.0",
     "paper-styles": "PolymerElements/paper-styles#^1.0.0",
     "polymer": "Polymer/polymer#^1.1.0"
   },

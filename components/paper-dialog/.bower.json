@@ -20,6 +20,7 @@
   "dependencies": {
     "neon-animation": "PolymerElements/neon-animation#^1.0.0",
     "paper-dialog-behavior": "PolymerElements/paper-dialog-behavior#^1.0.0",
+    "iron-overlay-behavior": "PolymerElements/iron-overlay-behavior#^1.7.0",
     "paper-styles": "PolymerElements/paper-styles#^1.0.0",
     "polymer": "Polymer/polymer#^1.1.0"
   },
@@ -35,11 +36,11 @@
     "web-component-tester": "^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
-  "_release": "c8e82308b5",
+  "_release": "7f31fa918f",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "c8e82308b590979f5b2b7adf645625930a728c0f"
+    "commit": "7f31fa918fbd562b516eb262f1ed527dcaf7b7c0"
   },
   "_source": "git://github.com/PolymerElements/paper-dialog.git",
   "_target": "master",
