@@ -20,6 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     var matchesSelector = Polymer.DomApi.matchesSelector;
     var styleUtil = Polymer.StyleUtil;
     var styleTransformer = Polymer.StyleTransformer;
+    var IS_IE = navigator.userAgent.match('Trident');
 
     var settings = Polymer.Settings;
 
@@ -151,14 +152,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           } else {
             // case (2) variable
             var self = this;
-            var fn = function(all, prefix, value, fallback) {
+            var fn = function(prefix, value, fallback, suffix) {
               var propertyValue = (self.valueForProperty(props[value], props) ||
                 // fallback may be --a or var(--a) or literal
                 self.valueForProperty(props[fallback] || fallback, props) ||
                 fallback);
-              return prefix + (propertyValue || '');
+              return prefix + (propertyValue || '') + suffix;
             };
-            property = property.replace(this.rx.VAR_MATCH, fn);
+            property = styleUtil.processVariableAndFallback(property, fn);
           }
         }
         return property && property.trim() || '';
@@ -493,6 +494,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
           element._customStyle = style;
         }
+        // @media rules may be stale in IE 10 and 11
+        if (IS_IE) {
+          style.textContent = style.textContent;
+        }
         return style;
       },
 
@@ -513,17 +518,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * support element.customStyle / element.updateStyles)
        */
       updateNativeStyleProperties: function(element, properties) {
-        // remove existing properties
-        for (var i=0; i < element.style.length; i++) {
-          element.style.removeProperty(element.style[i]);
+        var oldPropertyNames = element.__customStyleProperties;
+        if (oldPropertyNames) {
+          // remove previous properties
+          for (var i=0; i < oldPropertyNames.length; i++) {
+            element.style.removeProperty(oldPropertyNames[i]);
+          }
         }
+        var propertyNames = [];
         // apply properties
         for (var p in properties) {
           // NOTE: for bc with shim, don't apply null values.
           if (properties[p] !== null) {
             element.style.setProperty(p, properties[p]);
+            propertyNames.push(p);
           }
         }
+        element.__customStyleProperties = propertyNames;
       },
 
       rx: styleUtil.rx,

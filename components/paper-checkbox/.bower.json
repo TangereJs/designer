@@ -36,11 +36,11 @@
     "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.0.0"
   },
   "main": "paper-checkbox.html",
-  "_release": "8dc3516610",
+  "_release": "ef05b3f77c",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "8dc35166102aef6a1eab7ec29facfb3829f667b9"
+    "commit": "ef05b3f77c873f55fd9756fae1f94faeb00a5199"
   },
   "_source": "git://github.com/PolymerElements/paper-checkbox.git",
   "_target": "master",
