@@ -20,7 +20,7 @@
   "homepage": "https://github.com/PolymerElements/paper-checkbox",
   "ignore": [],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.1.0",
+    "polymer": "Polymer/polymer#^1.6.0",
     "iron-checked-element-behavior": "PolymerElements/iron-checked-element-behavior#^1.0.0",
     "paper-behaviors": "PolymerElements/paper-behaviors#^1.0.0",
     "paper-ripple": "PolymerElements/paper-ripple#^1.0.0",
@@ -36,11 +36,11 @@
     "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.0.0"
   },
   "main": "paper-checkbox.html",
-  "_release": "ef05b3f77c",
+  "_release": "1d1c9439fe",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "ef05b3f77c873f55fd9756fae1f94faeb00a5199"
+    "commit": "1d1c9439fe3a056356233e04171fd9c62f0857fb"
   },
   "_source": "git://github.com/PolymerElements/paper-checkbox.git",
   "_target": "master",
