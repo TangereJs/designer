@@ -27,11 +27,11 @@
   "dependencies": {
     "polymer": "polymer/polymer#^1.0.0"
   },
-  "_release": "9dc365baaf",
+  "_release": "263b98bcc9",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "9dc365baaf1c7e1a62af8fbf957d41a794e82889"
+    "commit": "263b98bcc9b746a8852bf57ce1500c71222680b9"
   },
   "_source": "git://github.com/polymerlabs/promise-polyfill.git",
   "_target": "master",

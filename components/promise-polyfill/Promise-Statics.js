@@ -36,10 +36,13 @@ Promise.all = Promise.all || function () {
   });
 };
 
-Promise.race = Promise.race || function (values) {
+Promise.race = Promise.race || function(values) {
+  // TODO(bradfordcsmith): To be consistent with the ECMAScript spec, this
+  //     method should take any iterable, not just an array.
+  var forcedArray = /** @type {!Array<!Thenable>} */ (values);
   return new Promise(function (resolve, reject) {
-    for(var i = 0, len = values.length; i < len; i++) {
-      values[i].then(resolve, reject);
+    for(var i = 0, len = forcedArray.length; i < len; i++) {
+      forcedArray[i].then(resolve, reject);
     }
   });
 };
