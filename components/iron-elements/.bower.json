@@ -6,7 +6,8 @@
     "polymer",
     "utility",
     "user-input",
-    "selection"
+    "selection",
+    "element-collection"
   ],
   "repository": {
     "type": "git",
@@ -69,11 +70,11 @@
     "tests"
   ],
   "main": "iron-elements.html",
-  "_release": "f16a6e3d44",
+  "_release": "1b72872cb3",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "f16a6e3d4407972b31a11e5552ec0e423dd8714e"
+    "commit": "1b72872cb320d5395e330b9b396ea1c94efd8f02"
   },
   "_source": "git://github.com/PolymerElements/iron-elements.git",
   "_target": "master",
