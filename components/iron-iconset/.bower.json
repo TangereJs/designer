@@ -36,6 +36,6 @@
     "commit": "97898a86053923b2787bac86c6e8133bb3f34566"
   },
   "_source": "git://github.com/PolymerElements/iron-iconset.git",
-  "_target": "^1.0.0",
+  "_target": "*",
   "_originalSource": "PolymerElements/iron-iconset"
 }

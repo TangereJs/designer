@@ -33,6 +33,6 @@
     "commit": "3b0ded11ea87703a4f1ef48cea93226fb0e71ef1"
   },
   "_source": "git://github.com/PolymerElements/iron-scroll-threshold.git",
-  "_target": "^1.0.0",
+  "_target": "*",
   "_originalSource": "PolymerElements/iron-scroll-threshold"
 }

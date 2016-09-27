@@ -39,6 +39,6 @@
     "commit": "f6b1338c0cf5771e2ff6bed0187b38db62591108"
   },
   "_source": "git://github.com/PolymerElements/iron-swipeable-container.git",
-  "_target": "^1.0.0",
+  "_target": "*",
   "_originalSource": "PolymerElements/iron-swipeable-container"
 }
