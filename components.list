@@ -81,6 +81,7 @@ at-rule-edit
 at-rule-engine
 at-silver-datasource
 at-silver-list
+at-silver-script
 at-silver-transform
 at-theme
 at-theme-default
