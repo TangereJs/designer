@@ -18,11 +18,14 @@
     "paper-slider": "PolymerElements/paper-slider#*",
     "paper-toggle-button": "PolymerElements/paper-toggle-button#*"
   },
-  "_release": "50cef9a73a",
+  "devDependencies": {
+    "paper-styles": "PolymerElements/paper-styles"
+  },
+  "_release": "a275152b49",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "50cef9a73a904564198af47677c280c54edf57b2"
+    "commit": "a275152b49258a1794e9680d7d1f7b0d8f96d663"
   },
   "_source": "git://github.com/PolymerElements/paper-input-elements.git",
   "_target": "*",

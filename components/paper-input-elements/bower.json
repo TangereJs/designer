@@ -17,5 +17,8 @@
     "paper-radio-group": "PolymerElements/paper-radio-group#*",
     "paper-slider": "PolymerElements/paper-slider#*",
     "paper-toggle-button": "PolymerElements/paper-toggle-button#*"
+  },
+  "devDependencies": {
+    "paper-styles": "PolymerElements/paper-styles"
   }
 }
