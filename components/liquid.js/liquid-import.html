@@ -43,6 +43,31 @@
      var r = "** i18n failed, please ensure that Tangere.behaviors.i18n is applied **";
       if(this.context.i18nCallback) r = this.context.i18nCallback.apply(null, arguments);
       return r;
+    },
+
+    btoa: function (input) {
+
+      if (!input) return "";
+
+      return window.btoa(input)
+       .replace(/\+/g, '-') // Convert '+' to '-'
+       .replace(/\//g, '_') // Convert '/' to '_'
+       .replace(/=+$/, ''); // Remove ending '='
+      
+    },
+
+    atob: function (input) {
+
+      if (!input) return "";
+
+      // Add removed at end '='
+      input += Array(5 - input.length % 4).join('=');
+
+      input = input
+        .replace(/\-/g, '+') // Convert '-' to '+'
+        .replace(/\_/g, '/'); // Convert '_' to '/'
+
+      return window.atob(input);
     }
 
   });
