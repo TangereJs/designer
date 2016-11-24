@@ -58,6 +58,7 @@ at-form-behaviors
 at-form-checkbox
 at-form-codemirror
 at-form-complex
+at-form-cron
 at-form-date
 at-form-daterange
 at-form-file
