@@ -31,6 +31,7 @@ at-core-dashboard
 at-core-dropdown
 at-core-form
 at-core-list
+at-core-item
 at-core-markdown
 at-core-media-query
 at-core-mic
@@ -86,6 +87,7 @@ at-rule-engine
 at-silver-cards
 at-silver-datasource
 at-silver-list
+at-silver-item
 at-silver-script
 at-silver-transform
 at-theme
