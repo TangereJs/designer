@@ -34,11 +34,11 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "main": "paper-radio-button.html",
-  "_release": "a26e754476",
+  "_release": "3a961e367e",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "a26e754476cc73c5bd044f0e83bbe6fc3bd35a23"
+    "commit": "3a961e367e3d25d7e192fca0c1496af0f3feab44"
   },
   "_source": "git://github.com/PolymerElements/paper-radio-button.git",
   "_target": "master",
