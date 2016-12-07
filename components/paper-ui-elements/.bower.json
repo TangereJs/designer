@@ -18,16 +18,17 @@
     "paper-menu-button": "PolymerElements/paper-menu-button",
     "paper-progress": "PolymerElements/paper-progress",
     "paper-spinner": "PolymerElements/paper-spinner",
+    "paper-swatch-picker": "PolymerElements/paper-swatch-picker",
     "paper-tabs": "PolymerElements/paper-tabs",
     "paper-toolbar": "PolymerElements/paper-toolbar",
     "paper-tooltip": "PolymerElements/paper-tooltip"
   },
   "homepage": "https://github.com/PolymerElements/paper-ui-elements",
-  "_release": "80233795e0",
+  "_release": "73088f2690",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "80233795e07320d055188580c69635c8fdabc308"
+    "commit": "73088f2690f171a8c84320de157ca293567ca88a"
   },
   "_source": "git://github.com/PolymerElements/paper-ui-elements.git",
   "_target": "*",

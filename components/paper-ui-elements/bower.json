@@ -18,6 +18,7 @@
     "paper-menu-button": "PolymerElements/paper-menu-button",
     "paper-progress": "PolymerElements/paper-progress",
     "paper-spinner": "PolymerElements/paper-spinner",
+    "paper-swatch-picker": "PolymerElements/paper-swatch-picker",
     "paper-tabs": "PolymerElements/paper-tabs",
     "paper-toolbar": "PolymerElements/paper-toolbar",
     "paper-tooltip": "PolymerElements/paper-tooltip"
