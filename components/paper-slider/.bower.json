@@ -43,6 +43,6 @@
     "commit": "e552b68c3e9d43b5e3153c47c4f865cf37a67b5d"
   },
   "_source": "git://github.com/PolymerElements/paper-slider.git",
-  "_target": "*",
+  "_target": "^1.0.10",
   "_originalSource": "PolymerElements/paper-slider"
 }
