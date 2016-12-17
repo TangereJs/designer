@@ -9,7 +9,9 @@
     "*",
     "!/data/*",
     "!/browser.js",
-    "!/browser.js.map"
+    "!/browser.js.map",
+    "!/package.json",
+    "!/bower.json"
   ],
   "keywords": [
     "browser",
@@ -38,11 +40,11 @@
     "test-fixture": "polymerelements/test-fixture#^1.0.0"
   },
   "homepage": "https://github.com/Polymer/web-component-tester",
-  "_release": "10e50669bd",
+  "_release": "e1787d7f29",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "10e50669bd94c4ce1488d969004fa23d69abfa04"
+    "commit": "e1787d7f29aaa2f0b6ef6a195b31c5bc47a0535f"
   },
   "_source": "git://github.com/Polymer/web-component-tester.git",
   "_target": "master",
