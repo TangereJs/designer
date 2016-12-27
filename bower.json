@@ -6,7 +6,8 @@
     "iron-elements": "PolymerElements/iron-elements#master",
     "paper-elements": "PolymerElements/paper-elements#master",
     "jquery2-import": "Polymer/jquery2-import#master",
-    "at-elements": "TangereJs/at-elements#0.8-preview"
+    "at-elements": "TangereJs/at-elements#0.8-preview",
+    "google-apis": "TangereJs/google-apis#master"
   },
   "resolutions": {
     "polymer": "master",
@@ -51,6 +52,7 @@
     "moment": "master",
     "paper-shadow": "master",
     "iron-flex-layout": "master",
-    "sortable": "master"
+    "sortable": "master",
+    "google-apis": "master"
   }
 }
