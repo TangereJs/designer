@@ -26,11 +26,11 @@
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0"
   },
-  "_release": "fb9228afcc",
+  "_release": "befa10d88a",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "fb9228afcc44cba46834db9d0b22eac93eab7d69"
+    "commit": "befa10d88abb7179b86dc804815731710f71e27d"
   },
   "_source": "git://github.com/TangereJs/google-apis.git",
   "_target": "master",
