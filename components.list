@@ -16,6 +16,7 @@ at-carbon-moment
 at-carbon-pager
 at-carbon-popup
 at-carbon-progress
+at-carbon-resolver
 at-carbon-signal-button
 at-carbon-tabs
 at-carbon-time-picker
@@ -92,6 +93,7 @@ at-rule-edit
 at-rule-engine
 at-silver-cards
 at-silver-folder
+at-silver-form
 at-silver-datasource
 at-silver-list
 at-silver-item
