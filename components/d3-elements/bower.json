@@ -1,0 +1,8 @@
+{
+  "name": "d3-elements",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "d3": "TangereJs/d3#master"
+  }
+}

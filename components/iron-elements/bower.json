@@ -1,0 +1,60 @@
+{
+  "name": "iron-elements",
+  "version": "1.0.10",
+  "description": "A set of visual and non-visual utility elements. Includes elements for working with layout, user input, selection, and scaffolding apps",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "utility",
+    "user-input",
+    "selection",
+    "element-collection"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/iron-elements.git"
+  },
+  "dependencies": {
+    "icon-behaviors-collection": "PolymerElements/iron-behaviors-collection",
+    "icon-input-elements": "PolymerElements/iron-input-elements",
+    "iron-a11y-announcer": "PolymerElements/iron-a11y-announcer",
+    "iron-a11y-keys": "PolymerElements/iron-a11y-keys",
+    "iron-a11y-keys-behavior": "PolymerElements/iron-a11y-keys-behavior",
+    "iron-ajax": "PolymerElements/iron-ajax",
+    "iron-autogrow-textarea": "PolymerElements/iron-autogrow-textarea",
+    "iron-behaviors": "PolymerElements/iron-behaviors",
+    "iron-collapse": "PolymerElements/iron-collapse",
+    "iron-component-page": "PolymerElements/iron-component-page",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers",
+    "iron-doc-viewer": "PolymerElements/iron-doc-viewer",
+    "iron-dropdown": "PolymerElements/iron-dropdown",
+    "iron-fit-behavior": "PolymerElements/iron-fit-behavior",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout",
+    "iron-icon": "PolymerElements/iron-icon",
+    "iron-icons": "PolymerElements/iron-icons",
+    "iron-iconset": "PolymerElements/iron-iconset",
+    "iron-iconset-svg": "PolymerElements/iron-iconset-svg",
+    "iron-image": "PolymerElements/iron-image",
+    "iron-jsonp-library": "PolymerElements/iron-jsonp-library",
+    "iron-list": "PolymerElements/iron-list",
+    "iron-location": "PolymerElements/iron-location",
+    "iron-media-query": "PolymerElements/iron-media-query",
+    "iron-overlay-behavior": "PolymerElements/iron-overlay-behavior",
+    "iron-pages": "PolymerElements/iron-pages",
+    "iron-swipeable-container": "PolymerElements/iron-swipeable-container",
+    "iron-test-helpers": "PolymerElements/iron-test-helpers"
+  },
+  "homepage": "https://github.com/PolymerElements/iron-elements",
+  "authors": [
+    "The Polymer Authors"
+  ],
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": "iron-elements.html"
+}

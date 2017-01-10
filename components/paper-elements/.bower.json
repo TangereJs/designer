@@ -1,0 +1,44 @@
+{
+  "name": "paper-elements",
+  "homepage": "https://github.com/PolymerElements/paper-elements",
+  "authors": [
+    "The Polymer Authors"
+  ],
+  "description": "Paper elements are a set of visual elements that implement Google's Material Design.",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "paper",
+    "element-collection"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/paper-elements.git"
+  },
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-input-elements": "PolymerElements/paper-input-elements#*",
+    "paper-overlay-elements": "PolymerElements/paper-overlay-elements#*",
+    "paper-ui-elements": "PolymerElements/paper-ui-elements#*",
+    "paper-behaviors": "PolymerElements/paper-behaviors#*",
+    "paper-ripple": "PolymerElements/paper-ripple#*",
+    "paper-styles": "PolymerElements/paper-styles#*"
+  },
+  "main": "paper-elements.html",
+  "_release": "b20e74073c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "b20e74073c1c7bdd92264d826b41ea9fceb85f65"
+  },
+  "_source": "git://github.com/PolymerElements/paper-elements.git",
+  "_target": "master",
+  "_originalSource": "PolymerElements/paper-elements"
+}

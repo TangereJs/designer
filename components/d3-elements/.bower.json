@@ -1,0 +1,18 @@
+{
+  "name": "d3-elements",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "d3": "TangereJs/d3#master"
+  },
+  "homepage": "https://github.com/TangereJs/d3-elements",
+  "_release": "222bd33cbd",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "222bd33cbda8a7468dcf195082c255cd0cf89c5b"
+  },
+  "_source": "git://github.com/TangereJs/d3-elements.git",
+  "_target": "master",
+  "_originalSource": "TangereJs/d3-elements"
+}

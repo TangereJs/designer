@@ -1,0 +1,33 @@
+{
+  "name": "d3",
+  "main": "d3.js",
+  "scripts": [
+    "d3.js"
+  ],
+  "ignore": [
+    ".DS_Store",
+    ".git",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    "Makefile",
+    "bin",
+    "component.json",
+    "index.js",
+    "lib",
+    "node_modules",
+    "package.json",
+    "src",
+    "test"
+  ],
+  "homepage": "https://github.com/TangereJs/d3",
+  "_release": "a10b22654c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a10b22654c9275da1050e1513bbd834646c0bde3"
+  },
+  "_source": "git://github.com/TangereJs/d3.git",
+  "_target": "master",
+  "_originalSource": "TangereJs/d3"
+}

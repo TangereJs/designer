@@ -11,43 +11,16 @@
 <html>
 <head>
 
-  <title>Designer</title>
+  <title>at-elements</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="mobile-web-app-capable" content="yes">
 
-  <script src="components/webcomponentsjs/webcomponents.js"></script>
-
-  <link rel="import" href="elements/designer-element/designer-element.html">
-
-  <style>
-
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      overflow: hidden;
-    }
-
-    designer-element {
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-    }
-
-  </style>
+  <script src="components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="components/at-elements/at-elements-catalog.html">
 
 </head>
-<body unresolved>
-
-  <script>
-    var metadata = [
-      'components/core-elements/metadata.html',
-      'components/paper-elements/metadata.html',
-      'components/at-elements/metadata.html'
-    ];
-  </script>
-
-  <designer-element id="designer"></designer-element>
-
+<body>
+    <at-elements-catalog></at-elements-catalog>
 </body>
 </html>

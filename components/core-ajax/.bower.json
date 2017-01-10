@@ -1,0 +1,29 @@
+{
+  "name": "core-ajax",
+  "private": true,
+  "main": [
+    "core-ajax.html"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.8-preview",
+    "promise-polyfill": "polymerlabs/promise-polyfill#master"
+  },
+  "devDependencies": {
+    "test-fixture": "polymer/test-fixture#~0.2.0",
+    "web-component-tester": "~2.2.3",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#~0.6.0",
+    "core-image": "polymer/core-image#0.8-preview",
+    "layout": "polymer/layout",
+    "font-roboto": "polymer/font-roboto#~0.5.5"
+  },
+  "homepage": "https://github.com/TangereJs/core-ajax",
+  "_release": "ab1ade6ad9",
+  "_resolution": {
+    "type": "branch",
+    "branch": "0.8-preview-main",
+    "commit": "ab1ade6ad9ad3180f29d4c143cee23d15abce568"
+  },
+  "_source": "git://github.com/TangereJs/core-ajax.git",
+  "_target": "0.8-preview-main",
+  "_originalSource": "TangereJs/core-ajax"
+}
